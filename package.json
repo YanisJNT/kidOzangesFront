@@ -1,0 +1,20 @@
+{
+  "name": "projet-03-kid-oz-anges",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/O-clock-Valhalla/projet-03-kid-oz-anges.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/O-clock-Valhalla/projet-03-kid-oz-anges/issues"
+  },
+  "homepage": "https://github.com/O-clock-Valhalla/projet-03-kid-oz-anges#readme"
+}
