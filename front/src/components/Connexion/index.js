@@ -1,5 +1,4 @@
 import React from "react";
-import Logo from "../../Logo_v1.png";
 import { Button, Modal, Form ,Header} from "semantic-ui-react";
 import "./style.css";
 
@@ -19,11 +18,11 @@ export default function Connexion() {
                     <Form>
                         <Form.Field className="form-field black">
                             <label className="label">Email</label>
-                            <input type="email" placeholder="Email" />
+                            <input type="email" placeholder="Email" name="email" />
                         </Form.Field>
                         <Form.Field className="form-field black">
                             <label>Password</label>
-                            <input type="password" placeholder="Password" />
+                            <input type="password" placeholder="Password" name="password"/>
                         </Form.Field>
                         <Button className="green" type="submit">
                             Submit
