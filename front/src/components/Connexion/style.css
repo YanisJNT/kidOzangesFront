@@ -1,0 +1,14 @@
+.form-field{
+    width: 55% !important;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+
+
