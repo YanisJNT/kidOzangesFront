@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/O-clock-Valhalla/projet-03-kid-oz-anges/issues"
   },
-  "homepage": "https://github.com/O-clock-Valhalla/projet-03-kid-oz-anges#readme"
+  "homepage": "https://github.com/O-clock-Valhalla/projet-03-kid-oz-anges#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
