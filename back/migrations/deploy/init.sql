@@ -24,6 +24,13 @@ CREATE DOMAIN password_verif AS TEXT CHECK (
     VALUE ~ '(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}'
 );
 
+CREATE TABLE IF NOT EXISTS "role" (
+    "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    "level" TEXT NOT NULL UNIQUE,
+    "created_at" TIMESTAMPTZ DEFAULT NOW(),
+    "updated_at" TIMESTAMPTZ DEFAULT NOW()
+);
+
 --data tables
 CREATE TABLE IF NOT EXISTS "user" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -33,6 +40,7 @@ CREATE TABLE IF NOT EXISTS "user" (
     "email" email_verif NOT NULL UNIQUE,
     "password" password_verif NOT NULL,
     "gender" TEXT NOT NULL,
+    "role_id" INT NOT NULL REFERENCES "role"("id") DEFAULT 1,
     "created_at" TIMESTAMPTZ DEFAULT NOW(),
     "updated_at" TIMESTAMPTZ DEFAULT NOW()
 );
@@ -58,13 +66,6 @@ CREATE TABLE IF NOT EXISTS "article" (
     "description" TEXT NOT NULL,
     "certify" BOOLEAN NOT NULL DEFAULT 'false',
     "user_id" INT NOT NULL REFERENCES "user"("id") ON DELETE CASCADE,
-    "created_at" TIMESTAMPTZ DEFAULT NOW(),
-    "updated_at" TIMESTAMPTZ DEFAULT NOW()
-);
-
-CREATE TABLE IF NOT EXISTS "role" (
-    "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    "level" TEXT NOT NULL UNIQUE,
     "created_at" TIMESTAMPTZ DEFAULT NOW(),
     "updated_at" TIMESTAMPTZ DEFAULT NOW()
 );
