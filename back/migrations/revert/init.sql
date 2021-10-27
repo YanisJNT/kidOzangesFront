@@ -13,9 +13,5 @@ DROP TABLE IF EXISTS "user_rates_activity" CASCADE;
 DROP TABLE IF EXISTS "activity_has_rating" CASCADE;
 
 
-DROP DOMAIN IF EXISTS between_one_and_five CASCADE;
-DROP DOMAIN IF EXISTS postal_code_fr CASCADE;
-DROP DOMAIN IF EXISTS email_verif CASCADE;
-DROP DOMAIN IF EXISTS password_verif CASCADE;
 
 COMMIT;
