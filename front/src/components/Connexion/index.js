@@ -5,32 +5,30 @@ import "./style.css";
 export default function Connexion() {
     const [open, setOpen] = React.useState(false);
     return (
-        <main>
             <Modal
                 closeIcon
                 open={open}
-                trigger={<Button>Show Modal</Button>}
+                trigger={<a>Connexion</a>}
                 onClose={() => setOpen(false)}
                 onOpen={() => setOpen(true)}
             >   
-                <Header  className="center aligned" content='Connexion' />
-                <Modal.Content>
-                    <Form>
-                        <Form.Field className="form-field black">
+                <Header  className="center aligned large" content='Connexion' />
+                <Modal.Content id="modal--content">
+                    <Form id="form" action="/api/user/login"  method="post">
+                        <Form.Field className="form-field black" id="form-field">
                             <label className="label">Email</label>
-                            <input type="email" placeholder="Email" name="email" />
+                            <input type="email" placeholder="Email" name="email"  required/>
                         </Form.Field>
-                        <Form.Field className="form-field black">
-                            <label>Password</label>
-                            <input type="password" placeholder="Password" name="password"/>
+                        <Form.Field className="form-field black" id="form-field">
+                            <label className="label">Password</label>
+                            <input type="password" placeholder="Password" name="password" required/>
                         </Form.Field>
-                        <Button className="green" type="submit">
+                        <Button className="button-submit green" type="submit">
                             Submit
                         </Button>
                     </Form>
                 </Modal.Content>
             </Modal>
-        </main>
     );
 }
 
