@@ -1,3 +1,11 @@
+:root{
+    --green-color : #95d5a2;
+}
+
+a{
+    cursor: pointer;
+}
+
 .form-field{
     width: 55% !important;
 }
@@ -11,4 +19,12 @@ form{
 }
 
 
+#form-field > input:focus{
+    border-color: var(--green-color);
+}
 
+/*#modal--content > #form > .button-submit{
+    background-color: #95d5a2 ;
+    color: white;
+}
+*/
