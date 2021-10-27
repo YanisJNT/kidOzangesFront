@@ -1,6 +1,8 @@
 const pool = require("../database");
 
 const userDataMapper = {
+
+    // finding all datas from all users.
     getAllUsers: async() => {
         try {
             const query = "SELECT id, nickname, fistname, lastname, email, password, gender FROM \"user\";";
@@ -9,19 +11,20 @@ const userDataMapper = {
             
         }
     },
+
+    //inserting a new user in DB. 
     insertUser: async(nickname, firstname, lastname, email, password, gender) => {
-        try {
+        
+        const query = {
+            text: "INSERT INTO \"user\" (nickname, firstname, lastname, email, password, gender) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id, nickname, firstname, lastname, email, password, gender;",
+            values: [nickname, firstname, lastname, email, password, gender]
             
-            console.log("Jarrive dans le datamapper")
-            const query = {
-                text: "INSERT INTO \"user\" (nickname, firstname, lastname, email, password, gender) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id;",
-                values: [nickname, firstname, lastname, email, password, gender]
-                
-            }
-            console.log("Je renvoie la requete")
-            return await pool.query(query.text, query.values);
+        };
+        try {
+            return await pool.query(query);
+           
         } catch(err) {
-            throw new Error({error: err})
+            console.error(error)
         }
     }
 };

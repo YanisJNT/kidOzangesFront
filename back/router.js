@@ -6,8 +6,8 @@ const adminController = require("./controllers/adminController");
 const activityController = require("./controllers/activityController"); 
 
 
-//User signin route
-router.post("/api/user/signin", userController.signin);
+//User signup route
+router.post("/api/user/signup", userController.signup);
 //user login route
 //router.post("/api/user/login", userController.login);
 

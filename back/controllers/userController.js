@@ -1,31 +1,40 @@
 const activityDataMapper = require("../datamappers/activityDataMapper");
 const userDataMapper = require("../datamappers/userDataMapper");
 const adminDataMapper = require("../datamappers/adminDataMapper");
-const {hashSync, compare} = require("bcrypt");
-const { validate } = require('email-validator');
+const {hashSync, compare} = require("bcrypt"); // module for crypted password
+const { validate } = require('email-validator'); 
+const schema = require("../schemas/passwordSchema");// password validator module require
 
 const userController = {
-    signin: async (req, res)=>{
+    signup: async (req, res)=>{
         try {
-            console.log("Je passe par le controller")
+            
             const errors = [];
             const {nickname, firstname, lastname, email, password, passwordConfirm, gender} = req.body;
             // const result  = await userDataMapper.getUsers();
             // const users = result.rows;
             // const userFound = users.find(user => user.email === email.toLowerCase());
-            console.log(req.body)
+            
+            const validatePassword = schema.validate(password);
+            // we push errors if user write invalid informations
+            // verifying if password contains 1 uppercase letter, 1 lowercase letter, 1 digit, no spaces and greater than 8 characters
+            if(!validatePassword) errors.push("Le mot de passe doit contenir 8 caractères minimun, 1 majuscule, 1 minuscule, 1 chiffre et un caractère spécial");
+            // We compare the 2 passwords, if differents we push an error
             if(password !== passwordConfirm) errors.push("Les deux mots de passe ne sont pas identiques.");
+            // all the fields are required
             if(!nickname || !firstname || !lastname || !email || !password || !passwordConfirm || !gender) errors.push("Veuillez renseigner tous les champs.");
+            // verifying if email is in good format
             if(!validate(email)) errors.push("L'adresse mail renseignée n'est pas correcte.");
             // if(userFound) errors.push("L'adresse mail est déjà utilisée.");
-            delete passwordConfirm;
-            console.log("Jarrive a la requete")
+
+            // if the errors array isn't empty we push all errors
             if(errors.length > 0) {
                 return res.status(500).json({errors});
-            }
+            } 
+            // inserting the user in database with an encrypted password
             const newUser = await userDataMapper.insertUser(nickname, firstname, lastname, email.toLowerCase(), hashSync(password, 8), gender);
-            console.log(newUser)
-            console.log("L'utilisateur a bien ete ajouté en base") 
+            // we send newUser's informations
+            res.status(200).json({user: newUser.rows})
         } catch (error) {
             res.status(500)
         }  
