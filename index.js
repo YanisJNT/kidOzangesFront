@@ -1,7 +1,8 @@
 require("dotenv").config();
 const express = require("express");
 const router = require("./back/router.js");
-const cors = require("cors")
+const cors = require("cors");
+const path = require("path");
 
 const app = express();
 
@@ -9,7 +10,7 @@ const PORT = process.env.PORT || 3000;
 
 const HOST = process.env.HOST
 
-app.use(express.static(__dirname + "/front/public"))
+app.use(express.static(path.resolve(__dirname, + "/front/public")))
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cors({
