@@ -6,12 +6,14 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 
-app.use(express.static("front"))
+const HOST = process.env.HOST
+
+app.use(express.static("build"))
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(router);
 
-app.listen(PORT, () => {
+app.listen(PORT, HOST, () => {
     console.log(`App listening on ${PORT}`);
 });
 
