@@ -1,9 +1,11 @@
+const path = require("path")
+
 const mainController = {
     getReactApp: (_,res) => {
         
-        res.sendFile("/home/student/Bureau/html/formation/apotheose/projet-03-kid-oz-anges/front/public/index.html")
+        res.sendFile((path.resolve(__dirname, "../../front/public", "index.html")))
     }
 
 }
-
+console.log(__dirname)
 module.exports = mainController;
