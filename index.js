@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3000;
 
 const HOST = process.env.HOST
 
-app.use(express.static(path.resolve(__dirname, + "/front/public")))
+app.use(express.static(path.resolve(__dirname, "/front/public")))
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cors({
