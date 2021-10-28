@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3000;
 
 const HOST = process.env.HOST
 
-app.use(express.static("build"))
+app.use(express.static("front"))
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(router);
