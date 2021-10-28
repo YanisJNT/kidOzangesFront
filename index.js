@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3000;
 
 const HOST = process.env.HOST
 
-app.use(express.static("front"))
+app.use(express.static(__dirname + "/front/public"))
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cors({
@@ -17,7 +17,7 @@ app.use(cors({
 }));
 app.use(router);
 
-app.listen(PORT, HOST, () => {
+app.listen(PORT, () => {
     console.log(`App listening on ${PORT}`);
 });
 
