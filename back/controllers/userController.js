@@ -8,7 +8,8 @@ const schema = require("../schemas/passwordSchema");// password validator module
 const userController = {
     signup: async (req, res)=>{
         try {
-            
+            console.log("je rentre dans le controller")
+            console.log(req.body)
             const errors = [];
             const {nickname, firstname, lastname, email, password, passwordConfirm, gender} = req.body;
             // const result  = await userDataMapper.getUsers();
@@ -29,6 +30,7 @@ const userController = {
 
             // if the errors array isn't empty we push all errors
             if(errors.length > 0) {
+                
                 return res.status(500).json({errors});
             } 
             // inserting the user in database with an encrypted password
@@ -36,6 +38,7 @@ const userController = {
             // we send newUser's informations
             res.status(200).json({user: newUser.rows[0]})
         } catch (error) {
+            console.log(error)
             res.status(500).json({error})
         }  
     },

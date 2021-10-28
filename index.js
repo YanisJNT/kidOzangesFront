@@ -13,9 +13,7 @@ const HOST = process.env.HOST
 app.use(express.static(path.resolve(__dirname, "/front/build")))
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
-app.use(cors({
-    origin:null,
-}))
+app.use(cors("*"))
 app.use(router);
 
 app.listen(PORT, () => {
