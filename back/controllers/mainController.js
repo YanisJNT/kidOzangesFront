@@ -1,7 +1,7 @@
 const mainController = {
     getReactApp: (_,res) => {
         
-        res.sendFile(__dirname + "../../front/public/index.html")
+        res.sendFile("/home/student/Bureau/html/formation/apotheose/projet-03-kid-oz-anges/front/public/index.html")
     }
 
 }
