@@ -18,7 +18,7 @@ const userController = {
             const validatePassword = schema.validate(password);
             // we push errors if user write invalid informations
             // verifying if password contains 1 uppercase letter, 1 lowercase letter, 1 digit, no spaces and greater than 8 characters
-            if(!validatePassword) errors.push("Le mot de passe doit contenir 8 caractères minimun, 1 majuscule, 1 minuscule, 1 chiffre et un caractère spécial");
+            if(!validatePassword) errors.push("Le mot de passe doit contenir 8 caractères minimum, 1 majuscule, 1 minuscule, 1 chiffre");
             // We compare the 2 passwords, if differents we push an error
             if(password !== passwordConfirm) errors.push("Les deux mots de passe ne sont pas identiques.");
             // all the fields are required
@@ -34,33 +34,31 @@ const userController = {
             // inserting the user in database with an encrypted password
             const newUser = await userDataMapper.insertUser(nickname, firstname, lastname, email.toLowerCase(), hashSync(password, 8), gender);
             // we send newUser's informations
-            res.status(200).json({user: newUser.rows})
+            res.status(200).json({user: newUser.rows[0]})
         } catch (error) {
-            res.status(500)
+            res.status(500).json({error})
         }  
     },
 
     login: async (req, res)=>{
-
-        const result  = await userDataMapper.getAllUsers();
-        //console.log(result);
-        const users = result.rows;
-        //console.log(users);
-        const checkedUser = users.find(user => user.email === req.body.email.toLowerCase());
-        //console.log(checkedUser);  
-        if(!checkedUser){
-            return res.status(400).send('Utilisateur inconnu')
-        }
         try{
-            //console.log('je suis dans le try')
-            const checkingPassword = await compare(req.body.password, checkedUser.password)
-            if(checkingPassword){
-                res.send('Bienvenue!')
-            }else{
-                res.send('Mot de passe invalide.')
+            const result  = await userDataMapper.getUserByEmail(req.body.email.toLowerCase());
+            
+            const user = result.rows[0];
+            // if there's no match user in database we return an error  
+            if(!user){
+                return res.status(400).json({error: 'Utilisateur inconnu'})
             }
-        }catch{
-            res.status(500)
+            // Users in data base have crypted passwords so we have ton compare them to be sure that the crypted password correspond to the user password in the login form
+            const checkingPassword = await compare(req.body.password, user.password)
+            // if compared password's good, we send user infos to the front application
+            if(checkingPassword){
+                res.json({user});
+            }else{
+                res.json({error: 'Mot de passe invalide.'})
+            }
+        }catch(error){
+            res.status(500).json({error});
         }
     }
 };
