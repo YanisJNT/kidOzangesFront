@@ -11,7 +11,7 @@ const activityController = require("./controllers/activityController");
 router.get("/", mainController.getReactApp);
 router.post("/api/user/signup", userController.signup);
 //user login route
-//router.post("/api/user/login", userController.login);
+router.post("/api/user/login", userController.login);
 
 
 
