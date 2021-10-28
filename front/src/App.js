@@ -12,11 +12,12 @@ function App() {
       {/*<Header/>*/}
       <Switch>
         <Route path="/" exact>
+          <p>hello world</p>
             {/* Acceuil */}
         </Route>
 
         <Route path="/signup" exact>
-            <p>hello world</p>
+            
             {/* inscription */}
         </Route>
 
