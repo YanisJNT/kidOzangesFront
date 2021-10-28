@@ -2,7 +2,6 @@ const activityDataMapper = require("../datamappers/activityDataMapper");
 const userDataMapper = require("../datamappers/userDataMapper");
 const adminDataMapper = require("../datamappers/adminDataMapper");
 const {hashSync,compare} = require("bcrypt"); // module for crypted password
-const bcrypt = require("bcrypt");
 const { validate } = require('email-validator'); 
 const schema = require("../schemas/passwordSchema");// password validator module require
 
@@ -62,6 +61,24 @@ const userController = {
             }
         }catch{
             res.status(500)
+        }
+    },
+
+    showUser: async (req, res)=>{
+        try{
+       const user = await userDataMapper.showUserProfile(req.params.id);
+        res.json(user.rows)
+        }catch{
+            res.status(500)
+        }
+    },
+    
+    deleteUser: async (req, res)=>{
+        const user = req.body.sessions;
+        try{
+        await userDataMapper.deleteUser(user.id);
+        }catch{
+           res.status(500)
         }
     }
 };
