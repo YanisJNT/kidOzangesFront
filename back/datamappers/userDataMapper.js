@@ -5,7 +5,7 @@ const userDataMapper = {
     // finding all datas from all users.
     getAllUsers: async() => {
         try {
-            const query = "SELECT id, nickname, fistname, lastname, email, password, gender FROM \"user\";";
+            const query = "SELECT id, nickname, firstname, lastname, email, password, gender FROM \"user\";";
             return await pool.query(query);
         } catch (error) {
             
