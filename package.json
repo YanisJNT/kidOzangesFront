@@ -9,7 +9,7 @@
   "scripts": {
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cd front && npm install && yarn start"
+    "build": "cd front && npm install && npm run start"
   },
   "repository": {
     "type": "git",
