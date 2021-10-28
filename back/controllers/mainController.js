@@ -1,6 +1,7 @@
 const mainController = {
     getReactApp: (_,res) => {
-        res.sendFile("../../front/public/index.html")
+        
+        res.sendFile(__dirname + "../../front/public/index.html")
     }
 
 }
