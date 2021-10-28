@@ -1,7 +1,7 @@
 const activityDataMapper = require("../datamappers/activityDataMapper");
 const userDataMapper = require("../datamappers/userDataMapper");
 const adminDataMapper = require("../datamappers/adminDataMapper");
-const hashSync = require("bcrypt"); // module for crypted password
+const {hashSync,compare} = require("bcrypt"); // module for crypted password
 const bcrypt = require("bcrypt");
 const { validate } = require('email-validator'); 
 const schema = require("../schemas/passwordSchema");// password validator module require
@@ -33,7 +33,7 @@ const userController = {
                 return res.status(500).json({errors});
             } 
             // inserting the user in database with an encrypted password
-            const newUser = await userDataMapper.insertUser(nickname, firstname, lastname, email.toLowerCase(), bcrypt.hashSync(password, 8), gender);
+            const newUser = await userDataMapper.insertUser(nickname, firstname, lastname, email.toLowerCase(), hashSync(password, 8), gender);
             // we send newUser's informations
             res.status(200).json({user: newUser.rows})
         } catch (error) {
@@ -47,14 +47,14 @@ const userController = {
         //console.log(result);
         const users = result.rows;
         //console.log(users);
-        const checkedUser = users.find(user => user.email === req.body.email);
-        console.log(checkedUser);  
+        const checkedUser = users.find(user => user.email === req.body.email.toLowerCase());
+        //console.log(checkedUser);  
         if(!checkedUser){
             return res.status(400).send('Utilisateur inconnu')
         }
         try{
-            console.log('je suis dans le try')
-            const checkingPassword = await bcrypt.compareSync(req.body.password, checkedUser.password)
+            //console.log('je suis dans le try')
+            const checkingPassword = await compare(req.body.password, checkedUser.password)
             if(checkingPassword){
                 res.send('Bienvenue!')
             }else{
