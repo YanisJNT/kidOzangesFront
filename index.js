@@ -14,8 +14,8 @@ app.use(express.static(path.resolve(__dirname, "/front/build")))
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cors({
-    origin: "https://kidozanges.herokuapp.com"
-}));
+    origin:null,
+}))
 app.use(router);
 
 app.listen(PORT, () => {

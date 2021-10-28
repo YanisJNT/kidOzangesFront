@@ -3,13 +3,13 @@ import Connexion from './components/Connexion'
 import SignUp from './components/SignUp';
 import  Header  from './components/Header';
 import  Footer  from './components/Footer';
-import {Route, Switch} from 'react-router-dom';
+import {Route, Switch,Redirect,useHistory} from 'react-router-dom';
 
 function App() {
+  
   return (
     <div className="App">
-      {/*<SignUp/>*/}
-      {/*<Header/>*/}
+      <Header/>
       <Switch>
         <Route path="/" exact>
           <p>hello world</p>
@@ -17,8 +17,7 @@ function App() {
         </Route>
 
         <Route path="/signup" exact>
-            
-            {/* inscription */}
+          <SignUp/>
         </Route>
 
         <Route path="/contact" exact>
@@ -33,8 +32,9 @@ function App() {
             {/* inscription */}
         </Route>
 
+
         <Route>
-          {/* page 404*/}
+          {/* pageqsdqsdqsd 404*/}
         </Route>
       </Switch>
       {/*<Footer />*/}
