@@ -16,6 +16,7 @@ form{
     justify-content: center;
     align-items: center;
     gap: 2rem;
+
 }
 
 
@@ -23,8 +24,3 @@ form{
     border-color: var(--green-color);
 }
 
-/*#modal--content > #form > .button-submit{
-    background-color: #95d5a2 ;
-    color: white;
-}
-*/

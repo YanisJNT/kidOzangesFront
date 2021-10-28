@@ -19,8 +19,7 @@ export default function SignUp() {
 
   return (
     <div>
-      <header id="header"></header>
-     
+
       <Form id="form" action="http://localhost:3000/api/user/signup" method="POST"    >
         <h1 id="form__title">Inscription</h1>  
         <Form.Group id="form__group" widths='equal'  >
@@ -74,7 +73,6 @@ export default function SignUp() {
           
           <Form.Button type="submit"  id="button" >ENVOYER</Form.Button>
       </Form>
-      <footer id="footer"></footer>
     </div>
   )
 

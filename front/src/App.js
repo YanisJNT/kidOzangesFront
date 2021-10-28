@@ -3,6 +3,7 @@ import Connexion from './components/Connexion'
 import SignUp from './components/SignUp';
 import  Header  from './components/Header';
 import  Footer  from './components/Footer';
+import  Home  from './components/Home';
 import {Route, Switch,Redirect,useHistory} from 'react-router-dom';
 
 function App() {
@@ -12,7 +13,7 @@ function App() {
       <Header/>
       <Switch>
         <Route path="/" exact>
-          <p>hello world</p>
+          <Home/>
             {/* Acceuil */}
         </Route>
 
@@ -37,7 +38,7 @@ function App() {
           {/* pageqsdqsdqsd 404*/}
         </Route>
       </Switch>
-      {/*<Footer />*/}
+      <Footer />
 
     </div>
   );

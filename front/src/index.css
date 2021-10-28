@@ -6,6 +6,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;
+  background: rgb(231, 229, 229);
+  font-family: 'Comfortaa', cursive;
 }
 
 code {
