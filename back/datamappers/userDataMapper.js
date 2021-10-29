@@ -35,7 +35,7 @@ const userDataMapper = {
         try {
             return await pool.query(query);
            
-        } catch(err) {
+        } catch(error) {
             console.error(error)
         }
     }
