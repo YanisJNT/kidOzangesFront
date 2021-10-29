@@ -9,7 +9,7 @@ import {
   TextArea,
 } from 'semantic-ui-react'
 
-export const SubmitActivity = () => {
+export default function SubmitActivity (){
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [town, setTown] = useState("");
