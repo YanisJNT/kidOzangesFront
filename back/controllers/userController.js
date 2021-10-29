@@ -30,8 +30,10 @@ const userController = {
 
             // if the errors array isn't empty we push all errors
             if(errors.length > 0) {
-                
-                return res.status(500).json({errors});
+                console.log(errors)
+                console.log("if")
+                res.json({errors});
+                throw new Error("test")
             } 
             // inserting the user in database with an encrypted password
             const newUser = await userDataMapper.insertUser(nickname, firstname, lastname, email.toLowerCase(), hashSync(password, 8), gender);
@@ -39,6 +41,7 @@ const userController = {
             res.status(200).json({user: newUser.rows[0]})
         } catch (error) {
             console.log(error)
+            console.log("catch")
             res.status(500).json({error})
         }  
     },
@@ -50,18 +53,29 @@ const userController = {
             const user = result.rows[0];
             // if there's no match user in database we return an error  
             if(!user){
-                return res.status(400).json({error: 'Utilisateur inconnu'})
+                res.json({error: 'Utilisateur inconnu'})
+                throw new Error("Utilisateur inconnu")
             }
             // Users in data base have crypted passwords so we have ton compare them to be sure that the crypted password correspond to the user password in the login form
             const checkingPassword = await compare(req.body.password, user.password)
             // if compared password's good, we send user infos to the front application
             if(checkingPassword){
-                res.json({user});
+                if(!req.session.user) {
+                    req.session.user = [
+                        user.id = user.id,
+                        nickname = user.nickname,
+                        firstname = user.firstname,
+                        lastname = user.lastname,
+                        email = user.email
+                    ]
+                }
+                console.log(req.session.user)
+                return res.json({user: req.session.user});
             }else{
                 res.json({error: 'Mot de passe invalide.'})
             }
         }catch(error){
-            res.status(500).json({error});
+            res.json({error}).status(500);
         }
     }
 };
