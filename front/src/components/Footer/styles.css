@@ -1,3 +1,7 @@
+footer{
+    margin-top: 5rem;
+}
+
 .footer--nav{
     display: flex;
     justify-content: center;
@@ -18,7 +22,7 @@ h2{
     color: white;
 }
 .footer--container{
-    background-color : #95d5a2;
+    background-color : #42a1f5;
     padding: 1rem 0;
     text-align: center;
 }

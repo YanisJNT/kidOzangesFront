@@ -14,7 +14,7 @@ export default function Connexion() {
             >   
                 <Header  className="center aligned large" content='Connexion' />
                 <Modal.Content id="modal--content">
-                    <Form id="form" action="/api/user/login"  method="post">
+                    <Form id="form" action="http://localhost:3000/api/user/login"  method="POST">
                         <Form.Field className="form-field black" id="form-field">
                             <label className="label">Email</label>
                             <input type="email" placeholder="Email" name="email"  required/>

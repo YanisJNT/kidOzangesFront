@@ -8,7 +8,23 @@ const userDataMapper = {
             const query = "SELECT id, nickname, firstname, lastname, email, password, gender FROM \"user\";";
             return await pool.query(query);
         } catch (error) {
+<<<<<<< HEAD
             console.log(error);
+=======
+            throw new Error(error)
+        }
+    },
+
+    getUserByEmail: async(email) => {
+        try {
+            const query = {
+                text: "SELECT id, nickname, firstname, lastname, email, password, gender FROM \"user\" WHERE email=$1;",
+                values: [email]
+            }
+            return pool.query(query)
+        } catch (error) {
+            throw new Error(error)
+>>>>>>> c6d5e35494ca026cd81e79751f280c3dd4d08027
         }
     },
 
