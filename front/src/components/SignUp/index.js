@@ -1,13 +1,16 @@
+
 import { useState, useEffect } from 'react'
 import { Form, Radio, Select } from 'semantic-ui-react'
 
 import axios from 'axios'
+
 import './style.css'
 import { useHistory } from 'react-router'
 
 
 
 export default function SignUp() {
+
   const [userRedirect, setUserRedirect] = useState(false)
   const [nickname, setNickname] = useState("");
   const [firstname, setfirstname] = useState("");
@@ -20,7 +23,9 @@ export default function SignUp() {
   const [error, setError] = useState(false)
 
 
+
   const history = useHistory()
+
 
 
 
@@ -61,11 +66,14 @@ export default function SignUp() {
       console.error(error)
     }
   
+
   }
 
   useEffect(() => {
     
+
     if(userRedirect === true){
+
       const redirect = setTimeout(() => {
         history.push("/")
       },1000)
@@ -74,19 +82,24 @@ export default function SignUp() {
   });
 
 
+
   return (
     <div>
 
+
       <Form id="form" method="POST" onSubmit={handleSubmit} >
         <h1 id="form__title">Inscription</h1>
+
         <Form.Group id="form__group" widths='equal'>
           <Form.Field>
             <Radio
               label='Monsieur'
               name='gender'
               value="M"
+
               checked={gender === "M"}
               onChange={() => { setGender("M") }}
+
 
             />
           </Form.Field>
@@ -96,10 +109,13 @@ export default function SignUp() {
               name='gender'
               value="Mme"
               checked={gender === "Mme"}
+
               onChange={() => { setGender("Mme") }}
+
 
             />
           </Form.Field>
+
 
           <Form.Input
             fluid label='Nickname'
@@ -154,6 +170,7 @@ export default function SignUp() {
         </Form.Group>
 
         <Form.Button type="submit" id="button" >ENVOYER</Form.Button>
+
       </Form>
     </div>
   )

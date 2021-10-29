@@ -5,6 +5,7 @@ import axios from "axios";
 import "./style.css";
 
 export default function Connexion() {
+
   const [open, setOpen] = React.useState(false);
   const [userRedirect, setUserRedirect] = useState(false)
   const [email, setEmail] = useState("");
@@ -84,6 +85,7 @@ export default function Connexion() {
       </Modal.Content>
     </Modal>
   );
+
 }
 
 /*
