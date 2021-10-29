@@ -30,6 +30,7 @@
     padding: 2rem;
     border-radius: 10px;
     background: white;
+    cursor: pointer;
 }
 
 .box--img--note{
