@@ -38,10 +38,10 @@ export default function SignUp() {
       passwordConfirm,
       gender
     })
-
   }
 
   useEffect(() => {
+    
     if(userRedirect){
       const redirect = setTimeout(() => {
         history.push("/")
