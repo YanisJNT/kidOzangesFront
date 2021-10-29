@@ -6,7 +6,7 @@ const userController = require("./controllers/userController");
 const adminController = require("./controllers/adminController");
 const activityController = require("./controllers/activityController"); 
 
-router.get("/", mainController.getReactApp)
+
 //User signup route
 router.post("/api/user/signup", userController.signup);
 //user login route

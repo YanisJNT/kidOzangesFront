@@ -7,5 +7,5 @@ const mainController = {
     }
 
 }
-console.log(__dirname)
+
 module.exports = mainController;
