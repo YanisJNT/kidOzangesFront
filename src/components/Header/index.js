@@ -13,7 +13,7 @@ export default function Header(){
 
             <nav className="navBar">
                 <a href="/">Recherche</a>
-                <a href="/signup">inscription</a>
+                <a href="/signup">Inscription</a>
                 <Connexion/>
             </nav>
 
