@@ -62,6 +62,7 @@ const userController = {
         } catch (error) {
  
             res.status(500)
+          
         }  
     },
 
@@ -74,6 +75,7 @@ const userController = {
             // if there's no match user in database we return an error  
 
             if(!user){
+
                 res.json({error: 'Utilisateur inconnu'});
                 throw new Error("L'utilisateur est déjà en base de données");
             }
@@ -81,7 +83,7 @@ const userController = {
             const checkingPassword = await compare(req.body.password, user.password)
             // if compared password's good, we send user infos to the front application and register the user in the session
             if(checkingPassword){
-                
+
                 if(!req.session.user) {
                     req.session.user = [
                         user.id = user.id,
@@ -97,7 +99,7 @@ const userController = {
                 return res.json({error: 'Mot de passe invalide.'})
             }
         }catch(error){
-            res.status(500).json({error: error});
+            res.json({error}).status(500);
 
         }
     }
