@@ -14,6 +14,7 @@ export default function Header(){
             <nav className="navBar">
                 <a href="/">Recherche</a>
                 <a href="/signup">Inscription</a>
+                <a href="/aboutUs"> A propos </a>
                 <Connexion/>
             </nav>
 
