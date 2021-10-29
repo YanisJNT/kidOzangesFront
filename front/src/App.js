@@ -1,6 +1,7 @@
 import './App.css';
 import Connexion from './components/Connexion'
 import SignUp from './components/SignUp';
+
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './components/Home';
@@ -25,6 +26,7 @@ function App() {
 
         <Route path="/submitactivity" exact>
           <SubmitActivity />      
+
         </Route>
 
         <Route path="/contact" exact>
@@ -41,7 +43,9 @@ function App() {
 
 
         <Route>
+
           <Page404 />
+
         </Route>
       </Switch>
       <Footer />
