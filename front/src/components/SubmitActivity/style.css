@@ -1,0 +1,16 @@
+.container{
+  display: flex;
+  justify-content: center;
+}
+
+#form--activity{
+  display: flex;
+  flex-direction: column;
+  width: 60vw;
+  padding-top: 5rem;
+}
+div.field{
+  width: 60%;
+  text-align: center;
+}
+

@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Open+Sans&display=swap');
+
+
+*{
+  box-sizing: border-box;
+}
+
+#root{
+  background-color: #a5bfdd;
+}
+
+.page404__container{
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  background-color: #a5bfdd;
+}
+.page404__img{
+  width:100px;
+  height:100px;
+}
+
+.page404__title{
+  color: rgb(252, 252, 252);
+  font-size: 15em;
+  text-align: center;
+  padding-top: 6rem;
+  font-family: 'Indie Flower', cursive;
+  padding-bottom: 0px;
+  position: relative;
+  
+}
+
+.page404__para{
+  color: white;
+  font-size: 10em;
+  font-family: 'Indie Flower', cursive;
+  text-align: center;
+  position: absolute;
+  top: 450px;
+  left: 695px;
+  
+}
