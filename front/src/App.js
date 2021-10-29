@@ -1,5 +1,6 @@
 import './App.css';
 import Connexion from './components/Connexion'
+import Contact from './components/Contact';
 import SignUp from './components/SignUp';
 
 import Header from './components/Header';
@@ -30,7 +31,9 @@ function App() {
         </Route>
 
         <Route path="/contact" exact>
-          {/* inscription */}
+
+            <Contact />
+
         </Route>
 
         <Route path="/aboutUs " exact>
