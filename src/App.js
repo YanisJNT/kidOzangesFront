@@ -1,13 +1,14 @@
 import './App.css';
-import Connexion from './components/Connexion'
 import Contact from './components/Contact';
 import SignUp from './components/SignUp';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './components/Home';
-import { SubmitActivity } from './components/SubmitActivity';
-import { Page404 } from './components/Page404';
+import SubmitActivity from './components/SubmitActivity';
+import Page404 from './components/Page404';
+import About from './components/About';
+
 import { Route, Switch, Redirect, useHistory } from 'react-router-dom';
 
 function App() {
@@ -36,11 +37,12 @@ function App() {
 
         </Route>
 
-        <Route path="/aboutUs " exact>
+        <Route path="/aboutus" exact>
+            <About/>
           {/* inscription */}
         </Route>
 
-        <Route path="/admin " exact>
+        <Route path="/admin" exact>
           {/* inscription */}
         </Route>
 

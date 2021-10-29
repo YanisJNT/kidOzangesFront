@@ -36,7 +36,7 @@ export default function SignUp() {
       setUserRedirect(!userRedirect)
       //http://localhost:3000/api/user/signup
 
-      const response = await axios.post("http://localhost:3000/api/user/signup", {
+      const response = await axios.post("https://kidozanges.herokuapp.com/api/user/signup", {
         nickname,
         firstname,
         lastname,
