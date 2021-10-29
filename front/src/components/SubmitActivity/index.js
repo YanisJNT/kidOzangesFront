@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios'
 import './style.css';
 import {
@@ -10,15 +10,25 @@ import {
 } from 'semantic-ui-react'
 
 export const SubmitActivity = () => {
-  const [titleActivity, setTitleActivity] = useState("");
-  const [descriptionActivity, setDescriptionActivity] = useState("");
-  const [postalCode, setPostalCode] = useState("");
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [town, setTown] = useState("");
+  const [free, setFree] = useState(true)
+
+
+  const handleChangeFree = (evt) => {
+    console.log('free')
+    setFree(evt.target.value === true)
+  }
   
 
   const handleSubmitActivity = async (evt) => {
     evt.preventDefault()
     await axios.post("http://localhost:3000/api/submitactivity", {
-
+      title,
+      description,
+      town,
+      free
     })
   }
 
@@ -32,8 +42,8 @@ export const SubmitActivity = () => {
           name='titleActivity'
           label="Titre de l'activitée"
           placeholder="Titre de l'activitée"
-          value={titleActivity}
-          onChange={(evt) => {setTitleActivity(evt.target.value)}}
+          value={title}
+          onChange={(evt) => { setTitle(evt.target.value) }}
         />
 
 
@@ -42,30 +52,35 @@ export const SubmitActivity = () => {
           name='descriptionActivity'
           label="Descrition de l'activitée"
           placeholder="Descrition de l'activitée"
-          value={descriptionActivity}
-          onChange={(evt) => {setDescriptionActivity(evt.target.value)}}
+          value={description}
+          onChange={(evt) => { setDescription(evt.target.value) }}
         />
         <Form.Field
-        name='postalCode'
-        label="Code Postale"
-        placeholder="Code Postale"
-        value={postalCode}
-        onChange={(evt) => {setPostalCode(evt.target.value)}}
+          control={Input}
+          name='postalCode'
+          label="Code Postale"
+          placeholder="Code Postale"
+          value={town}
+          onChange={(evt) => { setTown(evt.target.value) }}
         />
-
-
         <Form.Group inline>
 
           <Form.Field
             control={Radio}
-            label='gratuite'
-            value='gratuite'
+            label='Gratuite'
+            name='freeOrPaying'
+            value="free"
+            checked={free === true}
+            onClick={handleChangeFree}
 
           />
           <Form.Field
             control={Radio}
-            label='payante'
-            value='payante'
+            label='Payante'
+            name='freeOrPaying'
+            value="paying"
+            checked={free === false}
+            onClick={handleChangeFree}
 
           />
         </Form.Group>
