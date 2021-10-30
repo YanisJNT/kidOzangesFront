@@ -1,0 +1,26 @@
+:root{
+    --green-color : #95d5a2;
+}
+
+a{
+    cursor: pointer;
+}
+
+.form-field{
+    width: 55% !important;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+}
+
+
+#form-field > input:focus{
+    border-color: var(--green-color);
+}
+

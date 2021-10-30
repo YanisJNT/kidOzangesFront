@@ -1,0 +1,36 @@
+:root{
+    --bluHeader-color : #42a1f5;
+}
+
+.header{
+    background:var(--bluHeader-color);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.header > .box--title{
+    display: flex;
+    align-items: center;
+}
+
+.header > .box--title > h1{
+    font-size: 4rem;
+}
+
+.header > .navBar > a{
+    margin: 0  1rem;
+    font-size: 2rem;
+    color: black;
+    transform: rotate(25deg);
+}
+
+.header.navBar > a:hover{
+    color: white;
+    transition: all 0.2s;
+}
+
+.header > .navBar > a:active{
+    text-decoration: underline;
+}
