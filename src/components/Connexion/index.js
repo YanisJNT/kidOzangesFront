@@ -18,7 +18,7 @@ export default function Connexion() {
       setUserRedirect(!userRedirect)
 
 
-      const response = await axios.post("http://localhost:3000/api/user/login", {
+      const response = await axios.post("https://kidozanges.herokuapp.com/api/user/login", {
 
         email,
         password
@@ -50,7 +50,7 @@ export default function Connexion() {
 
   useEffect(() => {
 
-    if (userRedirect === true) {
+    if (userRedirect) {
       const redirect = setTimeout(() => {
         setOpen(false)
       }, 1000)
