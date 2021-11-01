@@ -15,7 +15,7 @@ export default function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
-  const [gender, setGender] = useState("M");
+  const [gender, setGender] = useState("");
 
   const [error, setError] = useState("");
 
@@ -69,105 +69,113 @@ export default function SignUp() {
   });
 
   return (
-    <div>
-      <Form id="form" method="POST" onSubmit={handleSubmit}>
-        <h1 id="form__title">Inscription</h1>
+    <div id="signup" className="signup">
+      <Form method="POST" onSubmit={handleSubmit}>
+        <div className="form-signup">
+          <Form.Group id="form__group" widths="equal">
+            <h1 id="form__title">Inscription</h1>
+            <div className="box--radio">
+              <Form.Field>
+                <Radio
+                  label="Monsieur"
+                  name="gender"
+                  value="M"
+                  checked={gender === "M"}
+                  onChange={() => {
+                    setGender("M");
+                  }}
+                />
+              </Form.Field>
+              <Form.Field>
+                <Radio
+                  label="Madame"
+                  name="gender"
+                  value="Mme"
+                  checked={gender === "Mme"}
+                  onChange={() => {
+                    setGender("Mme");
+                  }}
+                />
+              </Form.Field>
+            </div>
 
-        <Form.Group id="form__group" widths="equal">
-          <Form.Field>
-            <Radio
-              label="Monsieur"
-              name="gender"
-              value="M"
-              checked={gender === "M"}
-              onChange={() => {
-                setGender("M");
+            <Form.Input
+              fluid
+              label="Nickname"
+              placeholder="Nickname"
+              name="nickname"
+              value={nickname}
+              onChange={(e) => {
+                setNickname(e.target.value);
               }}
+              required
             />
-          </Form.Field>
-          <Form.Field>
-            <Radio
-              label="Madame"
-              name="gender"
-              value="Mme"
-              checked={gender === "Mme"}
-              onChange={() => {
-                setGender("Mme");
+
+            <Form.Input
+              fluid
+              label="Firstname"
+              placeholder="firstname"
+              name="firstname"
+              value={firstname}
+              onChange={(e) => {
+                setfirstname(e.target.value);
               }}
+              required
             />
-          </Form.Field>
+            <Form.Input
+              fluid
+              label="Lastname"
+              placeholder="Lastname"
+              name="lastname"
+              value={lastname}
+              onChange={(e) => {
+                setLastname(e.target.value);
+              }}
+              required
+            />
 
-          <Form.Input
-            fluid
-            label="Nickname"
-            placeholder="nickname"
-            name="nickname"
-            value={nickname}
-            onChange={(e) => {
-              setNickname(e.target.value);
-            }}
-          />
+            <Form.Input
+              fluid
+              label="Email"
+              placeholder="Email"
+              name="email"
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+              required
+            />
+            <Form.Input
+              fluid
+              label="Password"
+              placeholder="Password"
+              name="password"
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+              required
+            />
 
-          <Form.Input
-            fluid
-            label="Firstname"
-            placeholder="firstname"
-            name="firstname"
-            value={firstname}
-            onChange={(e) => {
-              setfirstname(e.target.value);
-            }}
-          />
-          <Form.Input
-            fluid
-            label="Lastname"
-            placeholder="Lastname"
-            name="lastname"
-            value={lastname}
-            onChange={(e) => {
-              setLastname(e.target.value);
-            }}
-          />
+            <Form.Input
+              fluid
+              label="Confirmer votre password"
+              placeholder="Password"
+              name="passwordConfirm"
+              value={passwordConfirm}
+              onChange={(e) => {
+                setPasswordConfirm(e.target.value);
+              }}
+              required
+            />
 
-          <Form.Input
-            fluid
-            label="Email"
-            placeholder="email"
-            name="email"
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-          />
-          <Form.Input
-            fluid
-            label="Password"
-            placeholder="password"
-            name="password"
-            value={password}
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-          />
+            <Error userRedirect={userRedirect} error={error} />
 
-          <Form.Input
-            fluid
-            label="Confirmer votre password"
-            placeholder="password"
-            name="passwordConfirm"
-            value={passwordConfirm}
-            onChange={(e) => {
-              setPasswordConfirm(e.target.value);
-            }}
-            required
-          />
-        </Form.Group>
-
-        <Error userRedirect={userRedirect}  error={error}/>
-
-        <Form.Button type="submit" id="button">
-          ENVOYER
-        </Form.Button>
+            <Form.Button type="submit" id="button">
+              ENVOYER
+            </Form.Button>
+          </Form.Group>
+        </div>
       </Form>
     </div>
   );
