@@ -8,6 +8,7 @@ import Home from './components/Home';
 import SubmitActivity from './components/SubmitActivity';
 import Page404 from './components/Page404';
 import About from './components/About';
+import Logout from './components/Logout'
 
 import { Route, Switch, Redirect, useHistory } from 'react-router-dom';
 
@@ -40,6 +41,10 @@ function App() {
         <Route path="/aboutus" exact>
             <About/>
           {/* inscription */}
+        </Route>
+
+        <Route path="/logout" exact>
+            <Logout/>
         </Route>
 
         <Route path="/admin" exact>

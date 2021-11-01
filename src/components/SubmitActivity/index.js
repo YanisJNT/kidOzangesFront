@@ -12,23 +12,25 @@ import {
 export default function SubmitActivity (){
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [town, setTown] = useState("");
-  const [free, setFree] = useState(true)
+  const [zipcode, setZipCode] = useState("");
+  const [free, setFree] = useState()
 
 
-  const handleChangeFree = (evt) => {
-    console.log('free')
-    setFree(evt.target.value === true)
-  }
   
 
   const handleSubmitActivity = async (evt) => {
     evt.preventDefault()
-    await axios.post("http://localhost:3000/api/submitactivity", {
+    const token = localStorage.getItem("token");
+    console.log(token)
+
+    await axios.post("https://kidozanges.herokuapp.com/api/submitactivity",{
+      headers: {
+        'authorization': `Bearer ${token}`
+      },   
       title,
       description,
-      town,
-      free
+      zipcode,
+      free,
     })
   }
 
@@ -39,7 +41,7 @@ export default function SubmitActivity (){
 
         <Form.Field
           control={Input}
-          name='titleActivity'
+          name='title'
           label="Titre de l'activitée"
           placeholder="Titre de l'activitée"
           value={title}
@@ -49,7 +51,7 @@ export default function SubmitActivity (){
 
         <Form.Field
           control={TextArea}
-          name='descriptionActivity'
+          name='description'
           label="Descrition de l'activitée"
           placeholder="Descrition de l'activitée"
           value={description}
@@ -57,11 +59,11 @@ export default function SubmitActivity (){
         />
         <Form.Field
           control={Input}
-          name='postalCode'
+          name='zipcode'
           label="Code Postale"
           placeholder="Code Postale"
-          value={town}
-          onChange={(evt) => { setTown(evt.target.value) }}
+          value={zipcode}
+          onChange={(evt) => { setZipCode(evt.target.value) }}
         />
         <Form.Group inline>
 
@@ -69,18 +71,24 @@ export default function SubmitActivity (){
             control={Radio}
             label='Gratuite'
             name='freeOrPaying'
-            value="free"
-            checked={free === true}
-            onClick={handleChangeFree}
+            value={free}
+            checked={free === "free"}
+            onChange={() => {
+                setFree("free");
+            }}
+    
 
           />
           <Form.Field
             control={Radio}
             label='Payante'
             name='freeOrPaying'
-            value="paying"
-            checked={free === false}
-            onClick={handleChangeFree}
+            value={free}
+            checked={free === "noFree"}
+            onChange={() => {
+                setFree("noFree");
+            }}
+      
 
           />
         </Form.Group>
