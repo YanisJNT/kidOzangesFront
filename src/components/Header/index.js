@@ -9,15 +9,15 @@ export default function Header(){
             return(
                 <nav className="navBar">
                     <a href="/">Recherche</a>
-                    <a href="/logout">déconnexion</a>
-                    <a href="/">Mon profile</a>
+                    <a href="/logout">Deconnexion</a>
+                    <a href="/">Mon profil</a>
                 </nav>
             )
         } else{
             return(
                 <nav className="navBar">
                     <a href="/">Recherche</a>
-                    <a href="/">Inscription</a>
+                    <a href="/signup">Inscription</a>
                     <Connexion/>
                 </nav>
             )

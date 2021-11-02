@@ -41,8 +41,8 @@ export default function SubmitActivity (){
         <Form.Field
           control={Input}
           name='title'
-          label="Titre de l'activitée"
-          placeholder="Titre de l'activitée"
+          label="Titre de l'activité"
+          placeholder="Titre de l'activité"
           value={title}
           onChange={(evt) => { setTitle(evt.target.value) }}
         />
@@ -51,16 +51,16 @@ export default function SubmitActivity (){
         <Form.Field
           control={TextArea}
           name='description'
-          label="Descrition de l'activitée"
-          placeholder="Descrition de l'activitée"
+          label="Descrition de l'activité"
+          placeholder="Descrition de l'activité"
           value={description}
           onChange={(evt) => { setDescription(evt.target.value) }}
         />
         <Form.Field
           control={Input}
           name='zipcode'
-          label="Code Postale"
-          placeholder="Code Postale"
+          label="Code Postal"
+          placeholder="Code Postal"
           value={zipcode}
           onChange={(evt) => { setZipCode(evt.target.value) }}
         />
