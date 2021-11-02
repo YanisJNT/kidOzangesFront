@@ -10,12 +10,13 @@ import About from './components/About';
 import LegalNotice from './components/MentionsLégales';
 
 import { Route, Switch, Redirect, useHistory } from 'react-router-dom';
+import Logout from './components/Logout';
 
 function App() {
-
   return (
     <div className="App">
       <Header />
+     
       <Switch>
         <Route path="/" exact>
           <Home />
@@ -42,6 +43,10 @@ function App() {
           {/* inscription */}
         </Route>
 
+        <Route path="/logout" exact>
+            <Logout/>
+        </Route>
+
         <Route path="/admin" exact>
           {/* inscription */}
         </Route>
@@ -49,10 +54,9 @@ function App() {
         <LegalNotice />
         </Route>
         <Route>
-
           <Page404 />
-
         </Route>
+
       </Switch>
       <Footer />
 
