@@ -1,17 +1,17 @@
 
 
-.article--main{
+#main .article--main{
     width: 100%;
     padding: 1rem  0;  
     text-align: center; 
 }
 
-.article--main > h2{
+#main .article--main > h2{
     font-size: 2rem;
     font-weight: bold;
 }
 
-.box-best--actives{
+#main .box-best--actives{
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -19,7 +19,7 @@
     justify-content: center;
 }
 
-.box-card{
+#main .box-card{
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -33,7 +33,7 @@
     cursor: pointer;
 }
 
-.box--img--note{
+#main .box--img--note{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -41,18 +41,18 @@
     width: 50%;
 }
 
-.box--img--note > img{
+#main .box--img--note > img{
     margin-bottom: 20px;
     border-radius: 10px;
 }
 
 
-.text{
+#main .text{
     width: 50%;
     padding: 0 2rem;
 }
 
-.text > h4{
+#main .text > h4{
     font-size: 2rem;
     margin-bottom: 30px;
 }

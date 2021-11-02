@@ -8,14 +8,14 @@ import Home from './components/Home';
 import SubmitActivity from './components/SubmitActivity';
 import Page404 from './components/Page404';
 import About from './components/About';
-
-import { Route, Switch, Redirect, useHistory } from 'react-router-dom';
+import Logout from './components/Logout';
+import { Route, Switch } from 'react-router-dom';
 
 function App() {
-
   return (
     <div className="App">
       <Header />
+     
       <Switch>
         <Route path="/" exact>
           <Home />
@@ -42,16 +42,19 @@ function App() {
           {/* inscription */}
         </Route>
 
+        <Route path="/logout" exact>
+            <Logout/>
+        </Route>
+
         <Route path="/admin" exact>
           {/* inscription */}
         </Route>
 
 
         <Route>
-
           <Page404 />
-
         </Route>
+
       </Switch>
       <Footer />
 
