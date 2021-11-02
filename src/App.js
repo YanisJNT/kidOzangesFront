@@ -9,7 +9,7 @@ import Page404 from './components/Page404';
 import About from './components/About';
 import LegalNotice from './components/MentionsLégales';
 
-import { Route, Switch, Redirect, useHistory } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Logout from './components/Logout';
 
 function App() {
