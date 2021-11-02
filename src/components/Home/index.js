@@ -5,7 +5,7 @@ export default function Header(){
 
 
     return(
-        <main>
+        <main id="main">
             <article className="article--main">
                 <h2>Pas envie de sortir ?</h2>
                 <p>

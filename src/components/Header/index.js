@@ -2,7 +2,27 @@ import './style.css'
 import Logo from '../../Logo_v1.png'
 import Connexion from '../Connexion'
 export default function Header(){
+    const token = localStorage.getItem("token");
 
+    const loginNav = () => {
+        if(token){
+            return(
+                <nav className="navBar">
+                    <a href="/">Recherche</a>
+                    <a href="/logout">Deconnexion</a>
+                    <a href="/">Mon profil</a>
+                </nav>
+            )
+        } else{
+            return(
+                <nav className="navBar">
+                    <a href="/">Recherche</a>
+                    <a href="/signup">Inscription</a>
+                    <Connexion/>
+                </nav>
+            )
+        }
+    }
 
     return(
         <header className="header">
@@ -11,12 +31,9 @@ export default function Header(){
                 <h1>Kid'Oz'Anges</h1>
             </div>
 
-            <nav className="navBar">
-                <a href="/">Recherche</a>
-                <a href="/signup">Inscription</a>
-                <a href="/aboutUs"> A propos </a>
-                <Connexion/>
-            </nav>
+
+            
+            {loginNav()}
 
         </header>
     )
