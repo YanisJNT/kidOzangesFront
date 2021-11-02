@@ -1,94 +1,76 @@
 import './style.css'
-import { Card, Icon, Image } from 'semantic-ui-react'
+import Logo from '../../img/Yanis.png'
+import Fred from '../../img/Fred.jpeg'
+import { Card, Image } from 'semantic-ui-react'
 export default function About() {
 
     return (
         <div id="about">
             <Card>
-                <Image src='https://react.semantic-ui.com/images/avatar/large/matthew.png' wrapped ui={false} />
+                <Image src={Logo} wrapped ui={false} />
                 <Card.Content>
-                    <Card.Header>Matthew</Card.Header>
+                    <Card.Header>Yanis</Card.Header>
                     <Card.Meta>
-                        <span className='date'>Joined in 2015</span>
+                        <span className='about--name'>Developpeur FrontEnd / Lead Dev Front</span>
                     </Card.Meta>
                     <Card.Description>
-                        Matthew is a musician living in Nashville.
+                        Yanis, 18 ans Développeur FrontEnd/Lead Dev
                     </Card.Description>
                 </Card.Content>
                 <Card.Content extra>
-                    <a>
-                        <Icon name='user' />
-                        22 Friends
-                    </a>
                 </Card.Content>
             </Card>
             <Card>
-                <Image src='https://react.semantic-ui.com/images/avatar/large/matthew.png' wrapped ui={false} />
+                <Image src={Fred} wrapped ui={false} />
                 <Card.Content>
-                    <Card.Header>Matthew</Card.Header>
+                    <Card.Header>Fredéric</Card.Header>
                     <Card.Meta>
-                        <span className='date'>Joined in 2015</span>
+                        <span className='about--name'>Developpeur BackEnd</span>
                     </Card.Meta>
                     <Card.Description>
-                        Matthew is a musician living in Nashville.
+                        Frédéric,  41 ans, Développeur BackEnd
                     </Card.Description>
                 </Card.Content>
                 <Card.Content extra>
-                    <a>
-                        <Icon name='user' />
-                        22 Friends
-                    </a>
                 </Card.Content>
             </Card><Card>
                 <Image src='https://react.semantic-ui.com/images/avatar/large/matthew.png' wrapped ui={false} />
                 <Card.Content>
-                    <Card.Header>Matthew</Card.Header>
+                    <Card.Header>Fabien</Card.Header>
                     <Card.Meta>
-                        <span className='date'>Joined in 2015</span>
+                        <span className='name'>Développeur BackEnd</span>
                     </Card.Meta>
                     <Card.Description>
-                        Matthew is a musician living in Nashville.
+                        Fabien, 29 ans, Développeur BackEnd / Lead Developpeur BackEnd
                     </Card.Description>
                 </Card.Content>
                 <Card.Content extra>
-                    <a>
-                        <Icon name='user' />
-                        22 Friends
-                    </a>
                 </Card.Content>
             </Card><Card>
                 <Image src='https://react.semantic-ui.com/images/avatar/large/matthew.png' wrapped ui={false} />
                 <Card.Content>
-                    <Card.Header>Matthew</Card.Header>
+                    <Card.Header>Alexandre</Card.Header>
                     <Card.Meta>
-                        <span className='date'>Joined in 2015</span>
+                        <span className='name'>Développeur FrontEnd</span>
                     </Card.Meta>
                     <Card.Description>
-                        Matthew is a musician living in Nashville.
+                        Alexandre, 37 ans, Développeur FrontEnd
                     </Card.Description>
                 </Card.Content>
                 <Card.Content extra>
-                    <a>
-                        <Icon name='user' />
-                        22 Friends
-                    </a>
                 </Card.Content>
             </Card><Card>
                 <Image src='https://react.semantic-ui.com/images/avatar/large/matthew.png' wrapped ui={false} />
                 <Card.Content>
-                    <Card.Header>Matthew</Card.Header>
+                    <Card.Header>Cossi</Card.Header>
                     <Card.Meta>
-                        <span className='date'>Joined in 2015</span>
+                        <span className='name'>Cossi, Développeur FrontEnd</span>
                     </Card.Meta>
                     <Card.Description>
-                        Matthew is a musician living in Nashville.
+                        Cossi, 26 ans, Développeur FrontEnd.
                     </Card.Description>
                 </Card.Content>
                 <Card.Content extra>
-                    <a>
-                        <Icon name='user' />
-                        22 Friends
-                    </a>
                 </Card.Content>
             </Card>
         </div>
