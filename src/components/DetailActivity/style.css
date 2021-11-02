@@ -1,0 +1,45 @@
+.activity__container {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  height: 100vh;
+  margin: 5rem;
+}
+
+.activity__presentation {
+  display: flex;
+}
+
+.activity__presentation {
+  display: flex;
+}
+
+.activity__img {
+  padding: 1rem;
+  width: 500px;
+  height: 400px;
+}
+
+.activity__title {
+  padding: 3rem;
+  padding-left: 25rem;
+  padding-top: 10rem;
+  font-size: 5em;
+  margin: 0;
+}
+
+.activity__detail--container {
+  text-align: center;
+}
+
+.activity__detail {
+  font-size: 1.4em;
+  font-weight: bold;
+  padding: 2rem;
+}
+
+.activity__url {
+  text-align: center;
+  margin: 5rem;
+  padding-bottom: 5rem;
+}
