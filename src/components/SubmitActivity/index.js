@@ -16,7 +16,6 @@ export default function SubmitActivity (){
   const [free, setFree] = useState()
 
 
-  
 
   const handleSubmitActivity = async (evt) => {
     evt.preventDefault()

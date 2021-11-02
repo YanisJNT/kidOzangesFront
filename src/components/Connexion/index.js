@@ -16,8 +16,6 @@ export default function Connexion() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-
-
   const handleSubmit = async (event) => {
     try {
       event.preventDefault()
@@ -62,7 +60,6 @@ export default function Connexion() {
     }
   });
   return (
-
       <Modal
         id="login"
         closeIcon
