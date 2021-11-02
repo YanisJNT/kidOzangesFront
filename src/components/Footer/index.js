@@ -7,7 +7,7 @@ export default function Footer(){
                 <nav className="footer--nav">
                     <a href="/contact"> Contacts</a>
                     <a href="/aboutus">A propos</a>
-                    <a href="/">Mention légales</a>
+                    <a href="/LegalNotice">Mention légales</a>
                 </nav>
             </div>
         </footer>

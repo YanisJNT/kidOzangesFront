@@ -1,13 +1,13 @@
 import './App.css';
 import Contact from './components/Contact';
 import SignUp from './components/SignUp';
-
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './components/Home';
 import SubmitActivity from './components/SubmitActivity';
 import Page404 from './components/Page404';
 import About from './components/About';
+import LegalNotice from './components/MentionsLégales';
 
 import { Route, Switch, Redirect, useHistory } from 'react-router-dom';
 
@@ -45,8 +45,9 @@ function App() {
         <Route path="/admin" exact>
           {/* inscription */}
         </Route>
-
-
+        <Route path="/LegalNotice" exact>
+        <LegalNotice />
+        </Route>
         <Route>
 
           <Page404 />

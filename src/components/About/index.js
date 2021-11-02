@@ -38,7 +38,7 @@ export default function About() {
                 <Card.Content>
                     <Card.Header>Fabien</Card.Header>
                     <Card.Meta>
-                        <span className='name'>Développeur BackEnd</span>
+                        <span className='name'>Développeur BackEnd / Lead Dev BackEnd</span>
                     </Card.Meta>
                     <Card.Description>
                         Fabien, 29 ans, Développeur BackEnd / Lead Developpeur BackEnd
