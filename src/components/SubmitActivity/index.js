@@ -7,8 +7,10 @@ export default function SubmitActivity() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [zipcode, setZipCode] = useState("");
+  
   const [free, setFree] = useState();
   const [town,setTown] = useState("Nice")
+
 
   const handleSubmitActivity = async (evt) => {
     evt.preventDefault();
@@ -36,7 +38,7 @@ export default function SubmitActivity() {
       <Form id="form--activity" method="POST" onSubmit={handleSubmitActivity}>
         <Form.Field
           control={Input}
-          name="title"
+          name='title'
           label="Titre de l'activité"
           placeholder="Titre de l'activité"
           value={title}
@@ -47,7 +49,7 @@ export default function SubmitActivity() {
 
         <Form.Field
           control={TextArea}
-          name="description"
+          name='description'
           label="Descrition de l'activité"
           placeholder="Descrition de l'activité"
           value={description}
@@ -57,8 +59,10 @@ export default function SubmitActivity() {
         />
         <Form.Field
           control={Input}
+
           type="number"
           name="zipcode"
+
           label="Code Postal"
           placeholder="Code Postal"
           value={zipcode}
