@@ -57,6 +57,7 @@ export default function SubmitActivity() {
         />
         <Form.Field
           control={Input}
+          type="number"
           name="zipcode"
           label="Code Postal"
           placeholder="Code Postal"
