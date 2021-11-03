@@ -5,15 +5,14 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './components/Home';
 import SubmitActivity from './components/SubmitActivity';
+import DetailActivity from './components/DetailActivity';
 import Page404 from './components/Page404';
 import About from './components/About';
 
 import LegalNotice from './components/MentionsLégales';
 
-import { Route, Switch, Redirect, useHistory } from 'react-router-dom';
-
+import { Route, Switch } from 'react-router-dom';
 import Logout from './components/Logout';
-
 
 function App() {
   return (
@@ -32,6 +31,12 @@ function App() {
 
         <Route path="/submitactivity" exact>
           <SubmitActivity />
+
+
+        </Route>
+
+        <Route path="/detailactivity/:id" exact>
+          <DetailActivity />      
 
         </Route>
 

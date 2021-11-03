@@ -2,13 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import Loading from "./components/Loading"
 import { BrowserRouter } from 'react-router-dom';
+import loadable from '@loadable/component';
 
+const OtherComponent = loadable(() => import('./App'),{
+  fallback:<Loading/>
+})
 
 ReactDOM.render(
-
     <BrowserRouter>
-      <App />
+      <OtherComponent/>
     </BrowserRouter>,
 
   document.getElementById('root')
