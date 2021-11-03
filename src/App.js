@@ -33,7 +33,7 @@ function App() {
 
         </Route>
 
-        <Route path="/detailactivity" exact>
+        <Route path="/detailactivity/:id" exact>
           <DetailActivity />      
 
         </Route>
