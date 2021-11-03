@@ -31,6 +31,8 @@ export default function Header(){
                 <h1>Kid'Oz'Anges</h1>
             </div>
 
+
+            
             {loginNav()}
 
         </header>

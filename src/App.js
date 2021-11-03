@@ -8,6 +8,7 @@ import SubmitActivity from './components/SubmitActivity';
 import DetailActivity from './components/DetailActivity';
 import Page404 from './components/Page404';
 import About from './components/About';
+
 import LegalNotice from './components/MentionsLégales';
 
 import { Route, Switch } from 'react-router-dom';
@@ -30,6 +31,7 @@ function App() {
 
         <Route path="/submitactivity" exact>
           <SubmitActivity />
+
 
         </Route>
 
