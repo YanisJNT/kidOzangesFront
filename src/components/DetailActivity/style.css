@@ -12,12 +12,14 @@
 }
 
 .activity__title{
-  font-size: 5em;
+  font-size: 4.5em;
   text-align: center;
+  margin: 2rem 0;
 }
 
 .activity__town{
   font-size: 2em;
+  padding-top: 1.5rem;
 }
 
 .activity__presentation{
@@ -28,11 +30,16 @@
   justify-content: center;
 
 }
+.activity__description{
+  padding: 1.5rem;
+  font-size: 1.2em;
+}
 
 .form__detailActivity{
   display: flex;
   flex-direction: column;
   width: 60%;
+  margin-top: 2rem;
 }
 
 .rating__activity{
@@ -40,7 +47,9 @@
   padding-bottom: 1rem;
   margin-bottom: 2rem;
 }
-
+.title__detailActivity{
+  padding: .5rem;
+}
 
 .textarea__detailActivity{
   margin-bottom: .2rem;  
