@@ -1,5 +1,4 @@
 import './App.css';
-import Contact from './components/Contact';
 import SignUp from './components/SignUp';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -10,6 +9,7 @@ import Page404 from './components/Page404';
 import About from './components/About';
 
 import LegalNotice from './components/MentionsLégales';
+import Profil from './components/Profil';
 
 import { Route, Switch } from 'react-router-dom';
 import Logout from './components/Logout';
@@ -39,13 +39,6 @@ function App() {
           <DetailActivity />      
 
         </Route>
-
-        <Route path="/contact" exact>
-
-          <Contact />
-
-        </Route>
-
         <Route path="/aboutus" exact>
             <About/>
           {/* inscription */}
@@ -60,6 +53,9 @@ function App() {
         </Route>
         <Route path="/LegalNotice" exact>
         <LegalNotice />
+        </Route>
+        <Route path="/Profil" exact>
+            <Profil />
         </Route>
         <Route>
           <Page404 />

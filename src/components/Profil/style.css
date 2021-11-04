@@ -1,0 +1,14 @@
+#profil{
+display: flex;
+justify-content:space-between;
+flex-direction:column;
+text-align: center;
+margin-top: 2rem;
+}
+.user circle icon profil{
+display: flex;
+justify-content: center;
+flex-direction: column;
+text-align: center;
+
+}
