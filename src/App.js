@@ -54,7 +54,7 @@ function App() {
         <Route path="/LegalNotice" exact>
         <LegalNotice />
         </Route>
-        <Route path="/Profil" exact>
+        <Route path="/profil" exact>
             <Profil />
         </Route>
         <Route>
