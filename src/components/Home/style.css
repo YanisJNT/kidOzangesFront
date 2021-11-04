@@ -30,6 +30,7 @@
     border-radius: 10px;
     background: white;
     cursor: pointer;
+    position: relative;
 }
 .div-nav{
     color: black;

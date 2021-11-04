@@ -52,11 +52,9 @@ export default function Connexion() {
 
     if (userRedirect) {
       const redirect = setTimeout(() => {
-        window.location.reload();
+        history.push("/");
+        window.location.reload()
         setOpen(false)
-        if (open === false) {
-          history.push("/");
-        }
       }, 1000)
       return () => clearTimeout(redirect)
     }

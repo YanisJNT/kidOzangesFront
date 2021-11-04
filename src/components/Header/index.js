@@ -13,7 +13,7 @@ export default function Header(){
                 <nav className="navBar">
                     <NavLink to="/">Recherche</NavLink>
                     <NavLink to="/profil"><Icon  name='user circle' /></NavLink>
-                    <NavLink to="/logout"><Icon  name='log out' /></NavLink>
+                    <NavLink to="/logout"><Icon color="red"  name='log out' /></NavLink>
                 </nav>
             )
         } else{

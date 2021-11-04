@@ -7,7 +7,6 @@ export default function Profil() {
 
     return (
         <div id="profil">
-            <i className="user circle icon profil"></i>
             <p className="profil--subtitle">{dataToken.nickname} </p>
             <p >{dataToken.lastname}</p>
             <p>{dataToken.firstname}</p>
