@@ -11,26 +11,30 @@ export default function SubmitActivity() {
   const [free, setFree] = useState("");
   const [town,setTown] = useState("");
   const [dataTown,setDataTown] = useState("");
+  const [picture, setPicture] = useState();
+  const [src, setSrc] = useState('');
   const [activeChangeInput,setActiveChangeInput] = useState(false)
   const [limitData,setLimitData] = useState(5)
-
-
+  
+  
   const handleSubmitActivity = async (evt) => {
     evt.preventDefault();
     const token = localStorage.getItem("token");
     console.log(token);
+    
+    const formData = new FormData()
+    formData.append('picture',picture)
+    formData.append('title',title)
+    formData.append('description',description)
+    formData.append('zipcode',zipcode)
+    formData.append('free',free)
+    formData.append('town',town)
 
-    axios.post("https://kidozanges.herokuapp.com/api/submitactivity",
-    {
-      title,
-      description,
-      zipcode,
-      free,
-      town
-    },
+    axios.post("https://kidozanges.herokuapp.com/api/submitactivity", formData,
     {
       headers: {
         authorization:`Bearer ${token}`,
+        Accept:"application/json"
       },
     },
     
@@ -81,7 +85,7 @@ export default function SubmitActivity() {
 
   return (
     <div className="container">
-      <Form id="form--activity" method="POST" onSubmit={handleSubmitActivity}>
+      <Form id="form--activity" method="POST" onSubmit={handleSubmitActivity} encType="multipart/form-data"> 
         <Form.Field
           control={Input}
           name='title'
@@ -92,7 +96,18 @@ export default function SubmitActivity() {
             setTitle(evt.target.value);
           }}
         />
-
+        <Form.Field
+        control={Input}
+        type="file"
+        name='télécharger une image'
+        placeholder="fichier"
+        onChange={(evt) => {
+          setPicture(evt.target.files[0]);
+          setSrc(evt.target.files[0].name)
+          console.log(evt.target.files[0])
+        }}
+        />
+        <img src={src} alt="" width="250" height="250" />
         <Form.Field
           control={TextArea}
           name='description'
