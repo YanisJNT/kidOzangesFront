@@ -9,7 +9,9 @@ import axios from 'axios'
 export default function DetailActivity() {
 
   const { id } = useParams()
-  const [data, setData] = useState()
+  const [town, setTown] = useState()
+  const [title, setTitle] = useState()
+  const [description, setDescription] = useState()
   const [posinset, setPosinset] = useState("3")
   const handleChange = (evt) => {
     setPosinset(evt.target.ariaPosInSet)
@@ -17,8 +19,10 @@ export default function DetailActivity() {
 
   axios.get(`https://kidozanges.herokuapp.com/api/activity/${id}`)
     .then((response) => {
-     // setData(response.data)
-      console.log(response.data.activity.description);
+     console.log(response.data)
+      setTown(response.data.activity.town)
+      setTitle(response.data.activity.title)
+      setDescription(response.data.activity.description)
     })
     .catch((error)=>{
       console.error(error)
@@ -27,15 +31,16 @@ export default function DetailActivity() {
 
 
     <div className="activity__container">
-      <p>{data}</p>
+      
       <div className="activity__presentation">
         <img src={'https://tse3.mm.bing.net/th?id=OIP.voR5IYjSALKRwo92e5gKPAHaEK&pid=Api&P=0&w=338&h=191'} className="activity__detail--img" alt="bordel" />
         <Rating className="rating__Ofactivity" size="huge" icon='star' defaultRating={0} maxRating={5} />
-        <h1 className="activity__title">Titre de l'activité- {id}</h1>
-        <p className="activity__detail">Ville de l'activité:</p>
+        <h1 className="activity__title">{title}</h1>
+        <p className="activity__town">{town}</p>
+        <p className="activity__description">{description}</p>
 
         <form className="form__detailActivity" action="" method="post">
-          <label htmlFor="textarea">Description de l'activité</label>
+          <label htmlFor="textarea">Commentaire</label>
           <textarea className="textarea__detailActivity" name="test" id="textarea" cols="30" rows="10"></textarea>
           <Rating className="rating__activity" maxRating={5} value={posinset} defaultRating={3} icon='star' size='huge' onClick={handleChange} />
           <input type="hidden" name="rate" value={posinset} />
@@ -48,4 +53,3 @@ export default function DetailActivity() {
     </div>
   )
 }
-
