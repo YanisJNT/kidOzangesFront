@@ -1,19 +1,20 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import Loading from "./components/Loading"
 import { BrowserRouter } from 'react-router-dom';
-import loadable from '@loadable/component';
 
-const OtherComponent = loadable(() => import('./App'),{
-  fallback:<Loading/>
-})
+import React , { Suspense } from 'react';
+
+
+const AppLoad  = React.lazy(()=>import("./App"))
 
 ReactDOM.render(
-    <BrowserRouter>
-      <OtherComponent/>
-    </BrowserRouter>,
+    <Suspense fallback={<Loading/>}>
+      <BrowserRouter>
+          <AppLoad/>
+      </BrowserRouter>
+    </Suspense>,
 
   document.getElementById('root')
 );

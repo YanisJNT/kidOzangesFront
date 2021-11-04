@@ -7,14 +7,28 @@ import SubmitActivity from './components/SubmitActivity';
 import DetailActivity from './components/DetailActivity';
 import Page404 from './components/Page404';
 import About from './components/About';
+import Loading from './components/Loading'
 
 import LegalNotice from './components/MentionsLégales';
 import Profil from './components/Profil';
+import Admin from './components/Admin'
 
 import { Route, Switch } from 'react-router-dom';
 import Logout from './components/Logout';
+//import loadable from '@loadable/component';
+
+import React , { Suspense } from 'react';
+
+
+/*const SignUpLoad = loadable(() => import('./components/SignUp'),{
+  fallback:<Loading/>,
+})*/
+
 
 function App() {
+
+  const SignUpLoad  = React.lazy(()=>import("./components/SignUp"))
+
   return (
     <div className="App">
       <Header />
@@ -26,7 +40,9 @@ function App() {
         </Route>
 
         <Route path="/signup" exact>
-          <SignUp />
+          <Suspense fallback={<Loading/>}>
+            <SignUpLoad/>
+          </Suspense>
         </Route>
 
         <Route path="/submitactivity" exact>
@@ -49,7 +65,7 @@ function App() {
         </Route>
 
         <Route path="/admin" exact>
-          {/* inscription */}
+          <Admin/>
         </Route>
         <Route path="/LegalNotice" exact>
         <LegalNotice />
