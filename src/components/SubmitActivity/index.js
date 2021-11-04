@@ -8,8 +8,11 @@ export default function SubmitActivity() {
   const [description, setDescription] = useState("");
   const [zipcode, setZipCode] = useState("");
   
-  const [free, setFree] = useState();
-  const [town,setTown] = useState("Nice")
+  const [free, setFree] = useState("");
+  const [town,setTown] = useState("");
+  const [dataTown,setDataTown] = useState("");
+  const [activeChangeInput,setActiveChangeInput] = useState(false)
+  const [limitData,setLimitData] = useState(5)
 
 
   const handleSubmitActivity = async (evt) => {
@@ -33,6 +36,49 @@ export default function SubmitActivity() {
     
     )
   };
+
+  const inputCode = async () => {
+    try{
+      const responce = await axios.get(`https://geo.api.gouv.fr/communes?nom=${town}&fields=nom,codeDepartement&limit=${limitData}&boost=population`);
+      console.log(responce.data)
+      // eslint-disable-next-line array-callback-return
+      setDataTown(responce.data)
+    }
+    catch(error){
+      console.log(error)
+    }
+  }
+
+  const jsxVille = () => {
+    if(activeChangeInput){
+      const res = dataTown.map(home => {
+        const getName = () => {
+          setTown(home.nom)
+          document.querySelector("#form--activity ul").style.display="none"
+          setZipCode(home.codeDepartement)
+        }
+      
+
+        const jsx = <li onClick={getName} key={home.code}>{home.nom} ({home.codeDepartement})</li>
+        return jsx 
+      })
+
+
+
+
+
+
+
+      return res
+    }
+  }
+
+  useEffect(() => {
+    inputCode()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [town])
+
+
   return (
     <div className="container">
       <Form id="form--activity" method="POST" onSubmit={handleSubmitActivity}>
@@ -55,21 +101,27 @@ export default function SubmitActivity() {
           value={description}
           onChange={(evt) => {
             setDescription(evt.target.value);
+
           }}
         />
         <Form.Field
           control={Input}
 
-          type="number"
-          name="zipcode"
-
-          label="Code Postal"
-          placeholder="Code Postal"
-          value={zipcode}
+          type="text"
+          name="town"
+          icon="search"
+          label="Ville"
+          placeholder="Entrez une ville"
+          value={town}
           onChange={(evt) => {
-            setZipCode(evt.target.value);
+            setTown(evt.target.value);
+            setActiveChangeInput(true)
+            document.querySelector("#form--activity ul").style.display="block"
           }}
         />
+        <ul>
+          {jsxVille()}
+        </ul>
         <Form.Group inline>
           <Form.Field
             control={Radio}
