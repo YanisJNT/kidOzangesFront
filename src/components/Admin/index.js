@@ -10,7 +10,9 @@ export default function Admin() {
                 <section className="box--admin activites">
                     <h3>Activites</h3>
                     <article className="box-activites">
-                        <p>qsdqsd</p>
+                        <div className="box-text">
+                            <h4>qsdsqdqs</h4>
+                        </div>
                         <div className="box-icon">
                             <Icon color="green" name='check circle' />
                             <Icon color="red"  name='close' />
