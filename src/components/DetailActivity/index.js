@@ -1,17 +1,16 @@
 import React from 'react'
+import Comments from './Comments'
 import { Rating } from 'semantic-ui-react'
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router'
 import './style.css'
 import axios from 'axios'
-import jwt_decode from 'jwt-decode'
-
 
 
 export default function DetailActivity() {
-const token = localStorage.getItem("token")
-//const dataToken = jwt_decode(token)
-console.log(token)
+  const token = localStorage.getItem("token")
+  //const dataToken = jwt_decode(token)
+  console.log(token)
 
 
   const { id } = useParams()
@@ -22,9 +21,11 @@ console.log(token)
   const [comment, setComment] = useState()
   const [isFree, setIsFree] = useState()
   const [posinset, setPosinset] = useState("3")
+  const [picture, setPicture] = useState()
+  const [receiveComment, setReceiveComment] = useState("")
 
   let rate = posinset
-
+  
   //handler to give rate
   const handleChange = (evt) => {
     setPosinset(evt.target.ariaPosInSet)
@@ -40,13 +41,13 @@ console.log(token)
   const handleSubmitComment = async (evt) => {
     evt.preventDefault();
     const response = await axios.post(`https://kidozanges.herokuapp.com/api/activity/${id}/comment`, {
-       
+
       title,
       rate,
       comment,
-    },{
-      headers:{
-        authorization:`Bearer ${token}`
+    }, {
+      headers: {
+        authorization: `Bearer ${token}`
       }
     })
   }
@@ -58,6 +59,9 @@ console.log(token)
         setActivityTitle(response.data.activity.title)
         setDescription(response.data.activity.description)
         setIsFree(response.data.activity.free)
+        setPicture(response.data.activity.url)
+        setReceiveComment(response.data.comments)
+
       })
       .catch((error) => {
         console.error(error)
@@ -66,9 +70,10 @@ console.log(token)
 
   return (
     <div className="activity__container">
+
       <div className="activity__presentation">
         <img
-          src={'https://tse3.mm.bing.net/th?id=OIP.voR5IYjSALKRwo92e5gKPAHaEK&pid=Api&P=0&w=338&h=191'}
+          src={picture}
           className="activity__detail--img"
           alt="bordel"
         />
@@ -135,8 +140,9 @@ console.log(token)
         </form>
 
         <p className="activity__url">url site</p>
-
+        <h1>{receiveComment}</h1>
       </div>
+      <Comments />
     </div>
   )
 }
