@@ -54,7 +54,6 @@ export default function DetailActivity() {
     })
   }
 
-
   useEffect(() => {
     axios.get(`https://kidozanges.herokuapp.com/api/activity/${id}`)
       .then((response) => {
