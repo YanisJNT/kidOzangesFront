@@ -1,17 +1,17 @@
 import React from 'react'
+import Comments from './Comments'
 import { Rating } from 'semantic-ui-react'
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router'
-import './style.css'
 import axios from 'axios'
 import jwt_decode from 'jwt-decode'
-
+import './style.css'
 
 
 export default function DetailActivity() {
-const token = localStorage.getItem("token")
-//const dataToken = jwt_decode(token)
-console.log(token)
+  const token = localStorage.getItem("token")
+  //const dataToken = jwt_decode(token)
+  //let user = dataToken.nickname
 
 
   const { id } = useParams()
@@ -21,10 +21,12 @@ console.log(token)
   const [description, setDescription] = useState("")
   const [comment, setComment] = useState()
   const [isFree, setIsFree] = useState()
-  const [posinset, setPosinset] = useState("3")
+  const [posinset, setPosinset] = useState("0")
+  const [picture, setPicture] = useState()
+  const [receiveComment, setReceiveComment] = useState([])
 
   let rate = posinset
-
+  
   //handler to give rate
   const handleChange = (evt) => {
     setPosinset(evt.target.ariaPosInSet)
@@ -37,38 +39,44 @@ console.log(token)
     setTitle(evt.target.value)
   }
   //handle to submit rate and comment
+  
   const handleSubmitComment = async (evt) => {
     evt.preventDefault();
     const response = await axios.post(`https://kidozanges.herokuapp.com/api/activity/${id}/comment`, {
-       
+    
       title,
       rate,
       comment,
-    },{
-      headers:{
-        authorization:`Bearer ${token}`
+    }, {
+      headers: {
+        authorization: `Bearer ${token}`
       }
     })
   }
+
   useEffect(() => {
     axios.get(`https://kidozanges.herokuapp.com/api/activity/${id}`)
       .then((response) => {
-        console.log("réponse axios", response.data)
+        //console.log("réponse axios", response.data)
         setTown(response.data.activity.town)
         setActivityTitle(response.data.activity.title)
         setDescription(response.data.activity.description)
         setIsFree(response.data.activity.free)
+        setPicture(response.data.activity.url)
+        setReceiveComment(response.data.comments)
+
       })
       .catch((error) => {
         console.error(error)
       })
-  }, [id])
-
+  },[id])
+  console.log(receiveComment)
   return (
     <div className="activity__container">
+    
       <div className="activity__presentation">
         <img
-          src={'https://tse3.mm.bing.net/th?id=OIP.voR5IYjSALKRwo92e5gKPAHaEK&pid=Api&P=0&w=338&h=191'}
+          src={picture}
           className="activity__detail--img"
           alt="bordel"
         />
@@ -77,8 +85,10 @@ console.log(token)
           className="rating__Ofactivity"
           size="huge"
           icon='star'
+          rating={3.6}
           defaultRating={0}
           maxRating={5}
+          disabled
         />
         {
           (isFree) ?
@@ -88,7 +98,9 @@ console.log(token)
         <h1 className="activity__title">{activityTitle}</h1>
         <p className="activity__town">{town}</p>
         <p className="activity__description">{description}</p>
-
+        <Comments 
+        listComment={receiveComment} 
+        />
         <form className="form__detailActivity"
           action=""
           onSubmit={handleSubmitComment}
@@ -133,10 +145,12 @@ console.log(token)
           >
             ENVOYER</button>
         </form>
+        
 
         <p className="activity__url">url site</p>
-
+        
       </div>
+      
     </div>
   )
 }
