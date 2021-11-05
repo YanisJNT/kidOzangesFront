@@ -1,14 +1,25 @@
 #profil{
-display: flex;
-justify-content:space-between;
-flex-direction:column;
-text-align: center;
-margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction:column;
+    text-align: center;
+    margin-top: 2rem;
+    width: 100%;
 }
-.user circle icon profil{
-display: flex;
-justify-content: center;
-flex-direction: column;
-text-align: center;
 
+.box--profil{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    width: 50%;
+}
+.form-nickname{
+    display:none;
+    width: 2rem;
+}
+.form-email{
+    display:none
 }
