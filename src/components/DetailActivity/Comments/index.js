@@ -1,41 +1,32 @@
 import React from 'react'
-import { Button, Comment, Form } from 'semantic-ui-react'
+import { Button, Comment, Form, Header } from 'semantic-ui-react'
 
-const Comments = () => {
-  const comments = [
-    { user: "alex", commentaire: "blablabla" },
-    { user: "rolex", commentaire: "bluild,lhndknhblabla" },
-    { user: "bistouflex", commentaire: "La meilleur cachette c'est les toilettes" }
-  ]
-//console.log("free",response)
+const date = new Date()
 
-
-  return (
-    <div>
-      {
-        comments.map((com) =>
-        <Comment.Group>
-    <Comment>
-      <Comment.Avatar as='a' src='/images/avatar/small/joe.jpg' />
+const Comments = ({listComment}) => (
+  <>
+  <Comment.Group size='massive'>
+  
+  
+ {
+  listComment.map(com =>{
+    return(
+      <Comment>
       <Comment.Content>
-        <Comment.Author>{com.user}</Comment.Author>
+        <Comment.Author as='a'>{com.nickname}</Comment.Author>
+        
         <Comment.Metadata>
-          <div>1 day ago</div>
+        {/*<span>{date.getDate()}/{date.getMonth()}/{date.getFullYear()}</span>*/}
         </Comment.Metadata>
-        <Comment.Text>
-          <p>
-          {com.commentaire}
-          </p>
-        </Comment.Text>
+        <Comment.Text>{com.description}</Comment.Text>
       </Comment.Content>
     </Comment>
-    </Comment.Group>
-    
-        )}
-        
-  
-    </div>
-  )
+    )
+  })
 }
+  </Comment.Group>
+        </>
+      )
+
 
 export default Comments

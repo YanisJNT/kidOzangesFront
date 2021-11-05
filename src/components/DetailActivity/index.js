@@ -3,14 +3,15 @@ import Comments from './Comments'
 import { Rating } from 'semantic-ui-react'
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router'
-import './style.css'
 import axios from 'axios'
+import jwt_decode from 'jwt-decode'
+import './style.css'
 
 
 export default function DetailActivity() {
   const token = localStorage.getItem("token")
   //const dataToken = jwt_decode(token)
-  console.log(token)
+  //let user = dataToken.nickname
 
 
   const { id } = useParams()
@@ -20,9 +21,9 @@ export default function DetailActivity() {
   const [description, setDescription] = useState("")
   const [comment, setComment] = useState()
   const [isFree, setIsFree] = useState()
-  const [posinset, setPosinset] = useState("3")
+  const [posinset, setPosinset] = useState("0")
   const [picture, setPicture] = useState()
-  const [receiveComment, setReceiveComment] = useState("")
+  const [receiveComment, setReceiveComment] = useState([])
 
   let rate = posinset
   
@@ -34,15 +35,12 @@ export default function DetailActivity() {
   const handleCommentChange = (evt) => {
     setComment(evt.target.value)
   }
-  const handleTitleComment = (evt) => {
-    setTitle(evt.target.value)
-  }
   //handle to submit rate and comment
   const handleSubmitComment = async (evt) => {
     evt.preventDefault();
     const response = await axios.post(`https://kidozanges.herokuapp.com/api/activity/${id}/comment`, {
 
-      title,
+      
       rate,
       comment,
     }, {
@@ -54,7 +52,7 @@ export default function DetailActivity() {
   useEffect(() => {
     axios.get(`https://kidozanges.herokuapp.com/api/activity/${id}`)
       .then((response) => {
-        console.log("réponse axios", response.data)
+        //console.log("réponse axios", response.data)
         setTown(response.data.activity.town)
         setActivityTitle(response.data.activity.title)
         setDescription(response.data.activity.description)
@@ -66,11 +64,11 @@ export default function DetailActivity() {
       .catch((error) => {
         console.error(error)
       })
-  }, [id])
-
+  },[id])
+  console.log(receiveComment)
   return (
     <div className="activity__container">
-
+    
       <div className="activity__presentation">
         <img
           src={picture}
@@ -82,8 +80,10 @@ export default function DetailActivity() {
           className="rating__Ofactivity"
           size="huge"
           icon='star'
+          rating={3.6}
           defaultRating={0}
           maxRating={5}
+          disabled
         />
         {
           (isFree) ?
@@ -93,19 +93,14 @@ export default function DetailActivity() {
         <h1 className="activity__title">{activityTitle}</h1>
         <p className="activity__town">{town}</p>
         <p className="activity__description">{description}</p>
-
+        <Comments 
+        listComment={receiveComment} 
+        />
         <form className="form__detailActivity"
           action=""
           onSubmit={handleSubmitComment}
           method="POST">
-          <label
-            htmlFor="title">titre du commentaire</label>
-          <input
-            className="title__detailActivity"
-            type="text"
-            name="title"
-            onChange={handleTitleComment}
-            value={title}></input>
+          
           <label
             htmlFor="textarea">Commentaire
           </label>
@@ -138,11 +133,12 @@ export default function DetailActivity() {
           >
             ENVOYER</button>
         </form>
+        
 
         <p className="activity__url">url site</p>
-        <h1>{receiveComment}</h1>
+        
       </div>
-      <Comments />
+      
     </div>
   )
 }
