@@ -1,11 +1,12 @@
 import React from 'react'
-import { Button, Comment, Form, Header } from 'semantic-ui-react'
+import { Comment } from 'semantic-ui-react'
+
 
 const date = new Date()
 
 const Comments = ({listComment}) => (
   <>
-  <Comment.Group size='massive'>
+  <Comment.Group size='large'>
   
   
  {

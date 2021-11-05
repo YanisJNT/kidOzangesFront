@@ -35,12 +35,16 @@ export default function DetailActivity() {
   const handleCommentChange = (evt) => {
     setComment(evt.target.value)
   }
+  const handleTitleComment = (evt) => {
+    setTitle(evt.target.value)
+  }
   //handle to submit rate and comment
+  
   const handleSubmitComment = async (evt) => {
     evt.preventDefault();
     const response = await axios.post(`https://kidozanges.herokuapp.com/api/activity/${id}/comment`, {
-
-      
+    
+      title,
       rate,
       comment,
     }, {
@@ -49,6 +53,8 @@ export default function DetailActivity() {
       }
     })
   }
+
+
   useEffect(() => {
     axios.get(`https://kidozanges.herokuapp.com/api/activity/${id}`)
       .then((response) => {
@@ -100,7 +106,14 @@ export default function DetailActivity() {
           action=""
           onSubmit={handleSubmitComment}
           method="POST">
-          
+          <label
+            htmlFor="title">titre du commentaire</label>
+          <input
+            className="title__detailActivity"
+            type="text"
+            name="title"
+            onChange={handleTitleComment}
+            value={title}></input>
           <label
             htmlFor="textarea">Commentaire
           </label>
