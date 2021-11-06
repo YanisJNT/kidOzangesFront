@@ -1,0 +1,9 @@
+#loading p{
+    text-align: center;
+}
+
+#loading{
+    background: red;
+    width:100%;
+    height: 50px;
+}
