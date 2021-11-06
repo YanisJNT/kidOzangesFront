@@ -1,20 +1,9 @@
 import './style.css'
 import { Icon } from 'semantic-ui-react'
+import { useEffect, useState } from 'react';
 import axios from "axios";
-
 export default function Admin() {
-
-
-
-    axios.get("https://kidozanges.herokuapp.com/admin")
-        .then((response) => {
-            console.log(response);
-        })
-        .catch((error) => {
-            console.error(error)
-        })
-
-
+   
     return (
         <main id="admin">
             <h1>Page Admin</h1>
