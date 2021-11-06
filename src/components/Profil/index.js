@@ -1,7 +1,8 @@
 import './style.css'
 import jwt_decode from 'jwt-decode'
-import { useState } from 'react'
-import Modify from '../ModifyButton'
+
+import { useState, useEffect } from 'react'
+import userEvent from '@testing-library/user-event'
 
 export default function Profil() {
     const token = localStorage.getItem("token")
@@ -16,6 +17,17 @@ export default function Profil() {
         setNickname(!nickname)
         document.querySelector(".profil--subtitle").style.display="none";
         document.querySelector(".form-nickname").style.display="block";
+
+    const [data, setData] = useState("")
+
+
+
+    const change = (event) => {
+        const value = event.target.value;
+        console.log(value);
+        setData(value)
+    }
+
 
     }
 
@@ -39,7 +51,6 @@ export default function Profil() {
 
     }
 
-    
     return (
         <div id="profil">
         <div className="box--profil">
@@ -59,13 +70,10 @@ export default function Profil() {
             </form>
             <button className="profil--button" onClick={handleEmail}> Modifier l'email </button>
             <p>{dataToken.gender}</p>
+            <input type="file" name="file_path" value={data} onChange={change}     />
+            <img src={data} alt="" width="250" height="250" />
         </div>
         </div>
     )
 }
 
-// L'idée du button modifier : il doit modifier le state du token.nickmane en fonction de ce que l'utilisateur va rentrer dans un input qui apparaitra
-// 1 : créer un créer un state
-// 2 : mettre en state initial le button avec la valeur du token 'nickname' de départ>
-// 3 : modifier le state avec le setter du hook 'setnickname'
-// 4 : appeler 

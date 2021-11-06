@@ -7,14 +7,46 @@ import SubmitActivity from './components/SubmitActivity';
 import DetailActivity from './components/DetailActivity';
 import Page404 from './components/Page404';
 import About from './components/About';
+import Loading from './components/Loading'
 
 import LegalNotice from './components/MentionsLégales';
 import Profil from './components/Profil';
-
-import { Route, Switch } from 'react-router-dom';
+import Admin from './components/Admin'
 import Logout from './components/Logout';
+//import loadable from '@loadable/component';
+import React from 'react';
+import { Route, Switch,Redirect } from 'react-router-dom';
+import jwt_decode from 'jwt-decode'
+
+/*const SignUpLoad = loadable(() => import('./components/SignUp'),{
+  fallback:<Loading/>,
+})*/
+
 
 function App() {
+  const checkPerm = () => {
+    const token =  localStorage.getItem("token")
+    
+    if(!token){
+      console.log("pas connecté")
+      return(
+        <Redirect to="/"/>
+      )
+
+    } 
+    else{
+      const dataToken = jwt_decode(token)
+      console.log(dataToken.role)
+
+      if(dataToken.role === "admin"){
+        console.log("qsdqsdqsdqsdqdqsdqsd")
+        return(
+          <Admin/>
+        )
+      }
+    }
+  }
+
   return (
     <div className="App">
       <Header />
@@ -26,7 +58,7 @@ function App() {
         </Route>
 
         <Route path="/signup" exact>
-          <SignUp />
+          <SignUp/>
         </Route>
 
         <Route path="/submitactivity" exact>
@@ -44,13 +76,26 @@ function App() {
           {/* inscription */}
         </Route>
 
+        <Route path="/admin"   exact >
+            {checkPerm()}
+        </Route>
+
         <Route path="/logout" exact>
             <Logout/>
         </Route>
 
-        <Route path="/admin" exact>
-          {/* inscription */}
-        </Route>
+      
+        
+       {
+         /*
+          <Route 
+          path="/some-path" 
+          render={() => !isAuthenticated ?
+          <Login/> :
+          <Redirect to="/some-path" />
+      }/>
+*/
+       }
         <Route path="/LegalNotice" exact>
         <LegalNotice />
         </Route>
