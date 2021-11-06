@@ -22,8 +22,6 @@ export default function Connexion() {
     try {
       event.preventDefault()
 
-
-
       const response = await axios.post("https://kidozanges.herokuapp.com/api/user/login", { email, password, })
 
       if (response.data.error) {
@@ -35,11 +33,6 @@ export default function Connexion() {
         console.log(response.data.user)
         localStorage.setItem("token", response.data.accessToken);
       }
-
-
-
-      //setError(response.data.errors
-
 
     }
     catch (error) {

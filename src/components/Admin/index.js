@@ -1,7 +1,19 @@
 import './style.css'
 import { Icon } from 'semantic-ui-react'
+import axios from "axios";
 
 export default function Admin() {
+
+
+
+    axios.get("https://kidozanges.herokuapp.com/admin")
+        .then((response) => {
+            console.log(response);
+        })
+        .catch((error) => {
+            console.error(error)
+        })
+
 
     return (
         <main id="admin">
@@ -15,7 +27,7 @@ export default function Admin() {
                         </div>
                         <div className="box-icon">
                             <Icon color="green" name='check circle' />
-                            <Icon color="red"  name='close' />
+                            <Icon color="red" name='close' />
                         </div>
                     </article>
                 </section>
