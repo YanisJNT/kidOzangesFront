@@ -57,7 +57,6 @@ export default function DetailActivity() {
   useEffect(() => {
     axios.get(`https://kidozanges.herokuapp.com/api/activity/${id}`)
       .then((response) => {
-        //console.log("réponse axios", response.data)
         setTown(response.data.activity.town)
         setActivityTitle(response.data.activity.title)
         setDescription(response.data.activity.description)
