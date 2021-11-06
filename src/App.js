@@ -76,7 +76,9 @@ function App() {
           {/* inscription */}
         </Route>
 
-        <Route path="/admin" render={checkPerm}  exact /> 
+        <Route path="/admin"   exact >
+            {checkPerm()}
+        </Route>
 
         <Route path="/logout" exact>
             <Logout/>
