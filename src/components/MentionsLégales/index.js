@@ -4,11 +4,7 @@ export default function LegalNotice() {
     return (
         <div>
             <h1 className="LegalNotice--title"> Mentions Légales et politique de confidentialité</h1>
-            <p> La société Kid-Oz-Anges, soucieuse des droits des individus, notamment au regard des traitements automatisés et dans une volonté de transparence avec ses clients, a mis en place une politique reprenant l’ensemble de ces traitements, des finalités poursuivies par ces derniers ainsi que des moyens d’actions à la disposition des individus afin qu’ils puissent au mieux exercer leurs droits. 
-Pour toute information complémentaire sur la protection des données personnelles, nous vous invitons à consulter le site : https://www.cnil.fr/
- 
-La poursuite de la navigation sur ce site vaut acceptation sans réserve des dispositions et conditions d'utilisation qui suivent. 
-La version actuellement en ligne de ces conditions d'utilisation est la seule opposable pendant toute la durée d'utilisation du site et jusqu'à ce qu'une nouvelle version la remplace.
+            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam labore dignissimos laboriosam repudiandae odit distinctio quo nihil fugit blanditiis necessitatibus rerum inventore ex ab asperiores nemo, vel recusandae eum voluptatem earum ea dicta! Itaque nisi, blanditiis rerum eos natus voluptas nemo consectetur vitae iure! Inventore amet consequatur nostrum mollitia maiores impedit, necessitatibus voluptatum, ex sapiente error, praesentium repellendus magni distinctio pariatur beatae reprehenderit odit vel vitae facere quam minus nihil nisi soluta. Rem perspiciatis mollitia ullam consequatur sed maiores veritatis!
 </p>
 <br />
 <h2 className="LegalNotice--subtitle"> Article 1 - Mentions légales </h2>
@@ -19,16 +15,11 @@ La version actuellement en ligne de ces conditions d'utilisation est la seule op
   
  1.2 Éditeur (ci-après « l'éditeur ») : 
   
- Kid-Oz-Anges Sasu au capital de 1 000 €
- dont le siège social est situé : 13 Rue Camille Pelletan Cenon 
- représentée par Frédéric Tron, en sa qualité de Product Owner
- immatriculée au RCS de Bordeaux
- n° de téléphone : 0769331387
- adresse mail : kidozanges@gmail.com
+Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique quod voluptatum repellendus quas eum adipisci ipsa quae quibusdam facere qui animi vero omnis molestiae perspiciatis quasi quo fugiat aspernatur, nesciunt sunt nihil officia? Dicta unde recusandae suscipit quaerat necessitatibus tempore et fugit ea. Reprehenderit corporis quis voluptate ex ratione obcaecati a voluptates ducimus necessitatibus nobis impedit, nihil sed laudantium magnam veritatis tempore voluptas unde enim voluptatibus culpa beatae aut? Aliquam voluptas aspernatur tempore fugit eum dicta, accusantium quidem? Voluptatibus, laborum. Illum quam repudiandae atque veritatis laboriosam repellat maxime animi. Incidunt.
   
  1.3 Hébergeur (ci-après « l'hébergeur ») : 
   
- Kid-Oz-Anges est hébergé par Netlify, dont le siège social est situé 13 Rue Camille Pelletan 33150 Bordeaux.
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab fugit nesciunt commodi obcaecati consectetur totam.
   </p>
   <h2 className="LegalNotice--subtitle"> Article 2 - Accès au site</h2>
   <p> L'accès au site et son utilisation sont réservés à un usage strictement personnel. Vous vous engagez à ne pas utiliser ce site et les informations ou données qui y figurent à des fins commerciales, politiques, publicitaires et pour toute forme de sollicitation commerciale et notamment l'envoi de courriers électroniques non sollicités.</p>
