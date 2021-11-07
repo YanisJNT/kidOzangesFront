@@ -29,6 +29,10 @@ export default function Admin() {
     return (
         <main id="admin">
             <h1>Page Admin</h1>
+            <nav>
+                <a href="/">Activites</a>
+                <a href="/">Commentaires</a>
+            </nav>
             <div className="box-autho">
                 <section className="box--admin activites">
                     <h3>Activites</h3>

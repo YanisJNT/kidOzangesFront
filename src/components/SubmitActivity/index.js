@@ -29,12 +29,12 @@ export default function SubmitActivity() {
     formData.append('zipcode',zipcode)
     formData.append('free',free)
     formData.append('town',town)
+    console.log(formData)
 
     axios.post("https://kidozanges.herokuapp.com/api/submitactivity", formData,
     {
       headers: {
         authorization:`Bearer ${token}`,
-        Accept:"application/json"
       },
     },
     

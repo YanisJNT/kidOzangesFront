@@ -7,7 +7,6 @@ import SubmitActivity from './components/SubmitActivity';
 import DetailActivity from './components/DetailActivity';
 import Page404 from './components/Page404';
 import About from './components/About';
-import Loading from './components/Loading'
 
 import LegalNotice from './components/MentionsLégales';
 import Profil from './components/Profil';
