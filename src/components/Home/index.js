@@ -20,7 +20,7 @@ export default function Header() {
             <section className="box-best--actives">
 
                 <div className="box-card" >
-                    <NavLink className="div-nav" to="/detailactivity/67">
+                    <NavLink className="div-nav" to="/detailactivity/3">
                         <article className="article--main">
                             <div className="box--img--note">
                                 <img src="https://tse3.mm.bing.net/th?id=OIP.voR5IYjSALKRwo92e5gKPAHaEK&pid=Api&P=0&w=338&h=191" alt="" />
