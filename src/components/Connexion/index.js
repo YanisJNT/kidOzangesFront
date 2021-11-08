@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Modal, Form } from "semantic-ui-react";
+import { Button, Modal, Form,Header } from "semantic-ui-react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./style.css";
@@ -22,8 +22,6 @@ export default function Connexion() {
     try {
       event.preventDefault()
 
-
-
       const response = await axios.post("https://kidozanges.herokuapp.com/api/user/login", { email, password, })
 
       if (response.data.error) {
@@ -34,12 +32,8 @@ export default function Connexion() {
         setUserRedirect(true)
         console.log(response.data.user)
         localStorage.setItem("token", response.data.accessToken);
+
       }
-
-
-
-      //setError(response.data.errors
-
 
     }
     catch (error) {
@@ -52,11 +46,9 @@ export default function Connexion() {
 
     if (userRedirect) {
       const redirect = setTimeout(() => {
-        window.location.reload();
+        history.push("/");
+        window.location.reload()
         setOpen(false)
-        if (open === false) {
-          history.push("/");
-        }
       }, 1000)
       return () => clearTimeout(redirect)
     }
