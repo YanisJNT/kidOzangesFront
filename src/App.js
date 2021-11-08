@@ -12,25 +12,30 @@ import LegalNotice from './components/MentionsLégales';
 import Profil from './components/Profil';
 import Admin from './components/Admin'
 import Logout from './components/Logout';
+import SearchActivity from './components/SearchActivity';
 //import loadable from '@loadable/component';
 import React from 'react';
 import { Route, Switch,Redirect } from 'react-router-dom';
 import jwt_decode from 'jwt-decode'
 
 
+
 function App() {
   const token =  localStorage.getItem("token")
   // condition for check token
-  /*if(token){
-    const data =  jwt_decode(token)
-    const date = new Date()
-    const getime  = Math.round(date.getTime() /  1000)
-    if(getime >  data.exp){
-      return(
-        <Redirect to="/logout"/>
-      )
-    }
-  }*/
+
+  // eslint-disable-next-line no-restricted-globals
+  // if(token){
+  //   const data =  jwt_decode(token)
+  //   const date = new Date()
+  //   const getime  = Math.round(date.getTime() /  1000)
+  //   if(getime >  data.exp){
+  //     return(
+  //       <Redirect to="/logout"/>
+  //     )
+  //   }
+  // }
+
 
   // check si l'user a la perm admin
   const checkPermAdmin = () => {
@@ -45,6 +50,7 @@ function App() {
     else{
       const dataToken = jwt_decode(token)
       console.log(dataToken.role)
+      console.log("NIckname :   " +   dataToken.nickname)
 
       if(dataToken.role === "admin"){
         console.log("qsdqsdqsdqsdqdqsdqsd")
@@ -80,6 +86,7 @@ function App() {
           <DetailActivity />      
 
         </Route>
+
         <Route path="/aboutus" exact>
             <About/>
           {/* inscription */}
@@ -89,9 +96,15 @@ function App() {
             {checkPermAdmin()}
         </Route>
 
+        <Route path="/searchActivity">
+            <SearchActivity/>
+        </Route>    
+
         <Route path="/logout" exact>
             <Logout/>
         </Route>
+
+    
 
       
         
