@@ -1,3 +1,4 @@
+/*
 .activity__container{
   display: flex;
   flex-direction: column;
@@ -6,7 +7,9 @@
   width: 100%;
   margin: 1%;
 }
-
+.payable{
+  font: bold;
+}
 .activity__detail--img{
   width: 60%;
 }
@@ -18,7 +21,7 @@
 }
 
 .activity__town{
-  font-size: 2em;
+  font-size: 1.3em;
   padding-top: 1.5rem;
 }
 
@@ -30,9 +33,9 @@
   justify-content: center;
 
 }
-.activity__description{
+.activcolor: red;ity__description{
   padding: 1.5rem;
-  font-size: 1.2em;
+  font-size: 2em;
 }
 
 .form__detailActivity{
@@ -50,6 +53,12 @@
 .title__detailActivity{
   padding: .5rem;
 }
+.activity__detail--rate{
+  color: rgb(81, 142, 228);
+  font-size: 1.2rem;
+  font-weight: bold;
+  
+}
 
 .textarea__detailActivity{
   margin-bottom: .2rem;  
@@ -61,4 +70,48 @@
 
 .activity__url{
   margin-top: 5rem;
+}
+*/
+.activity__container{
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin: 0 20%;
+  text-align: center;
+}
+
+.activity__presentation{
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.form__detailActivity{
+  display: flex;
+  flex-direction: column;
+
+}
+
+.chat__comment--container{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 5% 20%;
+}
+
+.textarea__detailActivity{
+  margin-bottom: .2rem;  
+}
+.button__activity{
+  width: 15%;
+  padding: .5rem;
+}
+
+.activity__town{
+  font-size: 1.3em;
+  padding-top: 1.5rem;
+}
+.rating__activity{
+  width: 30%;
+  padding: 1rem;
 }
