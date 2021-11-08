@@ -24,7 +24,7 @@ function App() {
   if(token){
     const data =  jwt_decode(token)
     const date = new Date()
-    const getime  = date.getTime() /  1000
+    const getime  = Math.round(date.getTime() /  1000)
     if(getime >  data.exp){
       return(
         <Redirect to="/logout"/>
