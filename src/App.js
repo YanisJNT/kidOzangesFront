@@ -21,7 +21,7 @@ import jwt_decode from 'jwt-decode'
 function App() {
   const token =  localStorage.getItem("token")
   // condition for check token
-  if(token){
+  /*if(token){
     const data =  jwt_decode(token)
     const date = new Date()
     const getime  = Math.round(date.getTime() /  1000)
@@ -30,7 +30,7 @@ function App() {
         <Redirect to="/logout"/>
       )
     }
-  }
+  }*/
 
   // check si l'user a la perm admin
   const checkPermAdmin = () => {

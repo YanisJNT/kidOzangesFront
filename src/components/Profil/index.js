@@ -1,46 +1,51 @@
 import './style.css'
 import jwt_decode from 'jwt-decode'
-
-import { useState } from 'react'
+import axios from 'axios'
+import { useState,useEffect } from 'react'
 
 export default function Profil() {
     const token = localStorage.getItem("token")
-    const dataToken = jwt_decode(token)
-    console.log(dataToken)
-    const [nickname, setNickname] = useState(false)
-    const [email, setEmail] = useState(false)
-    const [newNickname, setNewNickname] = useState()
+    let   dataToken = jwt_decode(token)
+    const [nickname, setNickname] = useState(dataToken.nickname)
+    const [newNickname, setNewNickname] = useState("sqdqsdqsd")
     const [newEmail, setNewEmail] = useState()
-    const [data, setData] = useState("")
 
-
+    
     const handleNickname = (event) => {
         event.preventDefault()
-        setNickname(!nickname)
         document.querySelector(".profil--subtitle").style.display = "none";
         document.querySelector(".form-nickname").style.display = "block";
-
     }
 
     const handleEmail = (event) => {
         event.preventDefault()
-        setEmail(!email)
         document.querySelector(".profil--subtitle--email").style.display = "none";
         document.querySelector(".form-email").style.display = "block";
 
     }
 
-    const submitNickname = (event) => {
+    const submitNickname = async (event) => {
         event.preventDefault();
-        console.log(newNickname)
+        const token  =  localStorage.getItem("token")
 
+        const response  =  await axios.patch("https://kidozanges.herokuapp.com/api/user/updatenickname",{
+            nickname : newNickname
+        },{
+            headers: {
+                authorization: `Bearer ${token}`
+            }
+        })
+
+        dataToken.nickname =  newNickname
+        console.log(response.data)
+        //window.location.reload();
     }
 
     const submitEmail = (event) => {
         event.preventDefault();
-        console.log(newEmail)
-
+        console.log(newEmail);
     }
+    console.log(dataToken.nickname)
 
     return (
         <div id="profil">
