@@ -40,7 +40,6 @@ export default function Admin() {
                         <div className="box-text">
                             <h4>{activity[0].title}</h4>
                             <p>{activity[0].description}</p>
-
                         </div>
                         <div className="box-icon">
                             <Icon color="green" name='check circle' />

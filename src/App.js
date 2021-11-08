@@ -17,13 +17,23 @@ import React from 'react';
 import { Route, Switch,Redirect } from 'react-router-dom';
 import jwt_decode from 'jwt-decode'
 
-/*const SignUpLoad = loadable(() => import('./components/SignUp'),{
-  fallback:<Loading/>,
-})*/
-
 
 function App() {
-  const checkPerm = () => {
+  const token =  localStorage.getItem("token")
+  // condition for check token
+  if(token){
+    const data =  jwt_decode(token)
+    const date = new Date()
+    const getime  = Math.round(date.getTime() /  1000)
+    if(getime >  data.exp){
+      return(
+        <Redirect to="/logout"/>
+      )
+    }
+  }
+
+  // check si l'user a la perm admin
+  const checkPermAdmin = () => {
     const token =  localStorage.getItem("token")
     
     if(!token){
@@ -31,7 +41,6 @@ function App() {
       return(
         <Redirect to="/"/>
       )
-
     } 
     else{
       const dataToken = jwt_decode(token)
@@ -44,6 +53,7 @@ function App() {
         )
       }
     }
+
   }
 
   return (
@@ -76,7 +86,7 @@ function App() {
         </Route>
 
         <Route path="/admin"   exact >
-            {checkPerm()}
+            {checkPermAdmin()}
         </Route>
 
         <Route path="/logout" exact>
