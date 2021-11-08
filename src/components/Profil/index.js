@@ -1,7 +1,7 @@
 import './style.css'
 import jwt_decode from 'jwt-decode'
 import axios from 'axios'
-import { useState,useEffect } from 'react'
+import { useState,useEffect, useRef } from 'react'
 
 export default function Profil() {
     const token = localStorage.getItem("token")
@@ -28,11 +28,22 @@ export default function Profil() {
         document.querySelector(".form-email").style.display = "block";
 
     }
+    
+    useEffect(()=> {
+        axios.get("https://kidozanges.herokuapp.com/api/user/", {
+        headers: {
+            authorization: `Bearer ${token}`
+        },
+    })
+        .then((response) => {
+           setNickname(response.data.user.nickname)
+        })
+        .catch(error=> console.log(error))})
 
     const submitNickname = async (event) => {
         event.preventDefault();
         const token  =  localStorage.getItem("token")
-
+        
         const response  =  await axios.patch("https://kidozanges.herokuapp.com/api/user/updatenickname",{
             nickname : newNickname
         },{
@@ -79,4 +90,3 @@ export default function Profil() {
         </div>
     )
 }
-
