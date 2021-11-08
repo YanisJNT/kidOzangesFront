@@ -32,6 +32,7 @@ export default function Connexion() {
         setUserRedirect(true)
         console.log(response.data.user)
         localStorage.setItem("token", response.data.accessToken);
+
       }
 
     }

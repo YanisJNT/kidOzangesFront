@@ -1,51 +1,65 @@
 import './style.css'
 import jwt_decode from 'jwt-decode'
-
-import { useState } from 'react'
+import axios from 'axios'
+import { useState,useEffect } from 'react'
 
 export default function Profil() {
     const token = localStorage.getItem("token")
-    const dataToken = jwt_decode(token)
-    console.log(dataToken)
-    const [nickname, setNickname] = useState(false)
+    let  dataToken = jwt_decode(token)
+    const [nickname, setNickname] = useState(dataToken.nickname)
     const [email, setEmail] = useState(false)
     const [newNickname, setNewNickname] = useState()
     const [newEmail, setNewEmail] = useState()
-    const [data, setData] = useState("")
+    const [data, setData] = useState(false)
+    
+
+    console.log(dataToken)
 
 
     const handleNickname = (event) => {
         event.preventDefault()
-        setNickname(!nickname)
         document.querySelector(".profil--subtitle").style.display = "none";
         document.querySelector(".form-nickname").style.display = "block";
-
     }
 
     const handleEmail = (event) => {
         event.preventDefault()
-        setEmail(!email)
         document.querySelector(".profil--subtitle--email").style.display = "none";
         document.querySelector(".form-email").style.display = "block";
 
     }
 
-    const submitNickname = (event) => {
+    const submitNickname = async (event) => {
         event.preventDefault();
-        console.log(newNickname)
+        const token  =  localStorage.getItem("token")
 
+        const response  =  await axios.patch("https://kidozanges.herokuapp.com/api/user/updatenickname",{
+            nickname : newNickname
+        },{
+            headers: {
+                authorization: `Bearer ${token}`
+            }
+        })
+        setData(true)
+        dataToken.nickname =  newNickname
+
+        console.log(dataToken)
+ 
+        console.log(response.data.newNickname);
+        setNickname(response.data.newNickname)
+        document.querySelector(".profil--subtitle").textContent = nickname;
+        //window.location.reload();
     }
 
     const submitEmail = (event) => {
         event.preventDefault();
-        console.log(newEmail)
-
+        console.log(newEmail);
     }
 
     return (
         <div id="profil">
             <div className="box--profil">
-                <p className="profil--subtitle">{dataToken.nickname} </p>
+                <p className="profil--subtitle">{nickname} </p>
                 <button className="profil--button" onClick={handleNickname}> Modifier le surnom </button>
 
                 <form action="" className="form-nickname" onSubmit={submitNickname}>
