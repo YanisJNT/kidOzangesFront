@@ -4,7 +4,7 @@ import { Rating } from 'semantic-ui-react'
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router'
 import axios from 'axios'
-import jwt_decode from 'jwt-decode'
+//import jwt_decode from 'jwt-decode'
 import './style.css'
 
 
@@ -24,9 +24,12 @@ export default function DetailActivity() {
   const [posinset, setPosinset] = useState("0")
   const [picture, setPicture] = useState()
   const [receiveComment, setReceiveComment] = useState([])
+  const [activityAverageRate, setActivityAverageRate] = useState()
+  const [zipCode, setZipCode] = useState()
+
 
   let rate = posinset
-  
+
   //handler to give rate
   const handleChange = (evt) => {
     setPosinset(evt.target.ariaPosInSet)
@@ -39,11 +42,10 @@ export default function DetailActivity() {
     setTitle(evt.target.value)
   }
   //handle to submit rate and comment
-  
+
   const handleSubmitComment = async (evt) => {
     evt.preventDefault();
     const response = await axios.post(`https://kidozanges.herokuapp.com/api/activity/${id}/comment`, {
-    
       title,
       rate,
       comment,
@@ -63,42 +65,49 @@ export default function DetailActivity() {
         setIsFree(response.data.activity.free)
         setPicture(response.data.activity.url)
         setReceiveComment(response.data.comments)
-
+        setActivityAverageRate(response.data.rate.moyenne)
+        setZipCode(response.data.activity.zipcode)
+        console.log(response.data)
       })
       .catch((error) => {
         console.error(error)
       })
-  },[id])
+  }, [id])
   console.log(receiveComment)
+  console.log(activityAverageRate)
   return (
     <div className="activity__container">
-    
+
       <div className="activity__presentation">
         <img
           src={picture}
           className="activity__detail--img"
           alt="bordel"
         />
+        <p className="activity__detail--rate">Note: {activityAverageRate}/5</p>
 
-        <Rating
+        <h1 className="activity__title">{activityTitle}</h1>
+        <p className="activity__description">{description}</p>
+        <p className="activity__town">{town}-{zipCode} </p>
+
+        {/* <Rating
           className="rating__Ofactivity"
           size="huge"
           icon='star'
-          rating={3.6}
-          defaultRating={0}
+          rating={activityAverageRate}
           maxRating={5}
           disabled
-        />
+        />*/}
         {
           (isFree) ?
             <p className="payable">Cette activité est gratuite</p> :
             <p className="payable">Payant donne du cache</p>
         }
-        <h1 className="activity__title">{activityTitle}</h1>
-        <p className="activity__town">{town}</p>
-        <p className="activity__description">{description}</p>
-        <Comments 
-        listComment={receiveComment} 
+      </div>
+      <div className="chat__comment--container">
+        <Comments
+          class
+          listComment={receiveComment}
         />
         <form className="form__detailActivity"
           action=""
@@ -125,7 +134,9 @@ export default function DetailActivity() {
             rows="10"
           >
           </textarea>
+
           <Rating
+
             className="rating__activity"
             maxRating={5}
             value={posinset}
@@ -144,12 +155,12 @@ export default function DetailActivity() {
           >
             ENVOYER</button>
         </form>
-        
+
 
         <p className="activity__url">url site</p>
-        
+
+
       </div>
-      
     </div>
   )
 }
