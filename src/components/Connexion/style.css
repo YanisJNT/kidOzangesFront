@@ -15,6 +15,10 @@ a{
     padding: 6rem !important;
 }
 
+.a-connexion{
+    font-size: 1rem;
+}
+
 #login  form{
     display: flex;
     flex-direction: column;
