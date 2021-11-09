@@ -8,13 +8,14 @@ import { NavLink } from 'react-router-dom'
 import { Input } from "semantic-ui-react";
 import { Radio } from "semantic-ui-react";
 import { Rating } from 'semantic-ui-react'
+import { useWatch } from "react-hook-form";
 
 
 export default function Recherche() {
 
     const [zipcode, setZipCode] = useState("");
 
-    const [free, setFree] = useState("");
+    const [free, setFree] = useState("true");
 
     const [town, setTown] = useState("");
     const [dataTown, setDataTown] = useState("");
@@ -23,6 +24,8 @@ export default function Recherche() {
 
     const [dataActivity, setDataActivity] = useState();
     const [activityLength, setActivityLength] = useState(0)
+
+    const [activityOpen, setActivityOpen] = useState(false)
 
     const inputCode = async () => {
         try {
@@ -66,50 +69,60 @@ export default function Recherche() {
             free
         })
 
-        console.log(response.data.activities)
-        console.log(response.data.activities.length)
+    
 
 
-
-        setDataActivity(response.data.activities)
-        setActivityLength(response.data.activities.length)
-
-
-
-
-
+        if (response.data.activities) {
+            setActivityOpen(true)
+            setDataActivity(response.data.activities)
+            setActivityLength(response.data.activities.length)
+            
+            console.log(response.data.activities)
+            console.log(response.data.activities.length)
+    
+        }
+        else {
+            setActivityOpen(false)
+            setDataActivity(response.data.error)
+            console.log(response.data.error)
+        }
     }
 
 
     const jsxActivities = () => {
         const row = []
-        for (let i = 0; i < activityLength; i++) {
-            const link = `/detailactivity/${dataActivity[i].id}`
-            row.push(
-                <div className="box-card" key={dataActivity[i].id}>
-                    <NavLink className="div-nav" to={link}>
-                        <article className="article--main">
-                            <div className="text">
-                                <h4>
-                                    {dataActivity[i].title}
-                                </h4>
-                                <p>
-                                    {dataActivity[i].description}
-                                </p>
-                                <button>en savoir  +</button>
-                            </div>
 
-                            <div className="box--img--note">
-                                <img src={dataActivity[i].url} alt="" />
+        if (activityOpen) {
+            for (let i = 0; i < activityLength; i++) {
+                const link = `/detailactivity/${dataActivity[i].id}`
+                row.push(
+                    <div className="box-card" key={dataActivity[i].id}>
+                        <NavLink className="div-nav" to={link}>
+                            <article className="article--main">
+                                <div className="text">
+                                    <h4>
+                                        {dataActivity[i].title}
+                                    </h4>
+                                    <p>
+                                        {dataActivity[i].description}
+                                    </p>
+                                    <button>en savoir  +</button>
+                                </div>
 
-                                <Rating className="star-rating" icon='star' defaultRating={3} maxRating={5} />
-                            </div>
+                                <div className="box--img--note">
+                                    <img src={dataActivity[i].url} alt="" width="500" height="300" />
 
-                        </article>
-                    </NavLink>
-                </div>
-            )
+                                    <Rating className="star-rating" icon='star' defaultRating={3} maxRating={5} />
+                                </div>
 
+                            </article>
+                        </NavLink>
+                    </div>
+                )
+            }
+        }
+        else {
+            row.push(<h2 id="h2--error" key="error">{dataActivity}</h2>)
         }
 
         return row
@@ -121,6 +134,7 @@ export default function Recherche() {
             <Form id="form--activity" method="POST" onSubmit={handleSubmit}>
                 <Form.Field
                     control={Input}
+                    required
 
                     type="text"
                     name="town"
