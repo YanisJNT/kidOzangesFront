@@ -8,7 +8,6 @@ export default function Profil() {
     const token = localStorage.getItem("token")
     let  dataToken = jwt_decode(token)
     const [nickname, setNickname] = useState(dataToken.nickname)
-    const [email, setEmail] = useState(false)
     const [newNickname, setNewNickname] = useState()
     const [newEmail, setNewEmail] = useState()
     const [data, setData] = useState(false)
@@ -83,11 +82,6 @@ export default function Profil() {
                 <p >{dataToken.lastname}</p>
                 <p>{dataToken.firstname}</p>
                 <p className="profil--subtitle--email">{dataToken.email}</p>
-                <form action="" className="form-email" onSubmit={submitEmail}>
-                    <input type="email" className="input-edit" onChange={(event) => setNewEmail(event.target.value)} />
-                    <button>Valider votre nouvel email</button>
-                </form>
-                <button className="profil--button" onClick={handleEmail}> Modifier l'email </button>
                 <p>{dataToken.gender}</p>
             </div>
         </div>
