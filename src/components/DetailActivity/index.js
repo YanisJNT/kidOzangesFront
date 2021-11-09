@@ -54,6 +54,7 @@ export default function DetailActivity() {
         authorization: `Bearer ${token}`
       }
     })
+    window.location.reload()
   }
 
   useEffect(() => {
@@ -100,8 +101,8 @@ export default function DetailActivity() {
         />*/}
         {
           (isFree) ?
-            <p className="payable">Cette activité est gratuite</p> :
-            <p className="payable">Payant donne du cache</p>
+            <p className="payable">Gratuite</p> :
+            <p className="payable">Payant </p>
         }
       </div>
       <div className="chat__comment--container">

@@ -3,6 +3,7 @@ import jwt_decode from 'jwt-decode'
 import axios from 'axios'
 
 import { useState,useEffect, useRef } from 'react'
+import { Redirect } from 'react-router'
 
 export default function Profil() {
     const token = localStorage.getItem("token")
@@ -14,13 +15,12 @@ export default function Profil() {
     
 
     console.log(dataToken)
-
-
     
     const handleNickname = (event) => {
         event.preventDefault()
         document.querySelector(".profil--subtitle").style.display = "none";
         document.querySelector(".form-nickname").style.display = "block";
+        document.querySelector(".input-edit").style.display="block"
     }
 
     const handleEmail = (event) => {
@@ -60,7 +60,7 @@ export default function Profil() {
         console.log(response.data.newNickname);
         setNickname(response.data.newNickname)
         document.querySelector(".profil--subtitle").textContent = nickname;
-        //window.location.reload();
+        window.location.reload();
     }
 
     const submitEmail = (event) => {
@@ -68,21 +68,23 @@ export default function Profil() {
         console.log(newEmail);
     }
     console.log(dataToken.nickname)
+       
 
     return (
         <div id="profil">
             <div className="box--profil">
                 <p className="profil--subtitle">{nickname} </p>
-                <button className="profil--button" onClick={handleNickname}> Modifier le surnom </button>
-
+                <i class="pencil alternate icon" onClick={handleNickname}
+                ></i>
                 <form action="" className="form-nickname" onSubmit={submitNickname}>
-                    <input type="text" className="input-edit" onChange={(event) => setNewNickname(event.target.value)} />
-                    <button>Valider Votre nouveau pseudo</button>
+                    <input type="text" className="input-edit" onChange={(event) => setNewNickname(event.target.value)}  />
+                    <button className="input--validation">New pseudo</button>
                 </form>
                 <p >{dataToken.lastname}</p>
                 <p>{dataToken.firstname}</p>
                 <p className="profil--subtitle--email">{dataToken.email}</p>
                 <p>{dataToken.gender}</p>
+                <p> {dataToken.role} </p>
             </div>
         </div>
     )

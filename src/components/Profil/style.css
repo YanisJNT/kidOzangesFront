@@ -7,6 +7,11 @@
     margin-top: 2rem;
     width: 100%;
 }
+.profil--button{
+border-radius: 50px;
+padding: 5px;
+background-color: #89c3f7;
+}
 
 .box--profil{
     display: flex;
@@ -16,10 +21,13 @@
     gap: 2rem;
     width: 50%;
 }
-.form-nickname{
-    display:none;
+/* .form-nickname{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     width: 2rem;
-}
-.form-email{
+} */
+/* .form-email{
     display:none
-}
+} */
