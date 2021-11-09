@@ -6,6 +6,8 @@ import "./style.css";
 import { Icon } from 'semantic-ui-react'
 import { useHistory } from "react-router";
 
+import { Link } from "react-router-dom";
+
 
 export default function Connexion() {
   const history = useHistory();
@@ -58,7 +60,7 @@ export default function Connexion() {
         id="login"
         closeIcon
         open={open}
-        trigger={<a>Connexion</a>}
+        trigger={<a >Connexion</a>}
         onClose={() => setOpen(false)}
         onOpen={() => setOpen(true)}
       >
