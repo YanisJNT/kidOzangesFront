@@ -67,3 +67,53 @@
     font-size: 2rem;
     margin-bottom: 30px;
 }
+
+
+.box--zom .doubletest{
+    display: flex !important;
+}
+
+
+#slider{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+#slider .box--slider{
+    background: rgb(99, 150, 243);
+    padding: 2rem;
+    width: 80%;
+    text-align: center;
+    color: cornsilk;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.button-left{
+    float: left;
+    cursor: pointer;
+}
+
+.button-right{
+    float: right;
+    cursor: pointer;
+}
+
+
+
+.box--text{
+    width: 80%;
+}
+
+
+.box--text > h2{
+    font-size: 2rem;
+}
+
+.box--text > span{
+    font-weight: bold;
+}

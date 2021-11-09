@@ -12,7 +12,7 @@ export default function Header(){
         if(token){
             return(
                 <nav className="navBar">
-                    <NavLink to="/recherche">Recherche</NavLink>
+                    <NavLink to="/recherche"><Icon  name='search' /></NavLink>
                     <NavLink to="/profil"><Icon  name='user circle' /></NavLink>
                     <NavLink to="/logout"><Icon color="red"  name='log out' /></NavLink>
                 </nav>
@@ -20,7 +20,7 @@ export default function Header(){
         } else{
             return(
                 <nav className="navBar">
-                    <NavLink to="/recherche">Recherche</NavLink>
+                    <NavLink to="/recherche"><Icon  name='search' /></NavLink>
                     <NavLink to="/signup">Inscription</NavLink>
                     <Connexion/>
                 </nav>
