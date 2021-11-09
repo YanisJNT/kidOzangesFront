@@ -1,6 +1,7 @@
 import './style.css'
 import Logo from '../../Logo_v1.png'
 import Connexion from '../Connexion'
+import Recherche from '../Recherche'
 import { Icon } from 'semantic-ui-react'
 
 import { NavLink } from 'react-router-dom'
@@ -11,7 +12,7 @@ export default function Header(){
         if(token){
             return(
                 <nav className="navBar">
-                    <NavLink to="/">Recherche</NavLink>
+                    <NavLink to="/recherche">Recherche</NavLink>
                     <NavLink to="/profil"><Icon  name='user circle' /></NavLink>
                     <NavLink to="/logout"><Icon color="red"  name='log out' /></NavLink>
                 </nav>
@@ -19,7 +20,7 @@ export default function Header(){
         } else{
             return(
                 <nav className="navBar">
-                    <NavLink to="/">Recherche</NavLink>
+                    <NavLink to="/recherche">Recherche</NavLink>
                     <NavLink to="/signup">Inscription</NavLink>
                     <Connexion/>
                 </nav>

@@ -1,6 +1,7 @@
 import './style.css'
 import jwt_decode from 'jwt-decode'
 import axios from 'axios'
+
 import { useState,useEffect, useRef } from 'react'
 
 export default function Profil() {
@@ -16,6 +17,7 @@ export default function Profil() {
     console.log(dataToken)
 
 
+    
     const handleNickname = (event) => {
         event.preventDefault()
         document.querySelector(".profil--subtitle").style.display = "none";
@@ -66,6 +68,7 @@ export default function Profil() {
         event.preventDefault();
         console.log(newEmail);
     }
+    console.log(dataToken.nickname)
 
     return (
         <div id="profil">
