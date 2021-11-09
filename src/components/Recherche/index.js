@@ -1,32 +1,32 @@
 import React from "react";
-import { Button, Modal, Form, Header } from "semantic-ui-react";
+import { Button, Form } from "semantic-ui-react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./style.css";
-import { Icon } from 'semantic-ui-react'
-import { Redirect, useHistory} from "react-router";
+import { Icon } from 'semantic-ui-react';
+import { NavLink } from 'react-router-dom'
 import { Input } from "semantic-ui-react";
 import { Radio } from "semantic-ui-react";
+import { Rating } from 'semantic-ui-react'
 
 
 export default function Recherche() {
-    const history = useHistory();
-    const [open, setOpen] = useState(false);
 
     const [zipcode, setZipCode] = useState("");
 
     const [free, setFree] = useState("");
-
 
     const [town, setTown] = useState("");
     const [dataTown, setDataTown] = useState("");
     const [activeChangeInput, setActiveChangeInput] = useState(false)
     const [limitData, setLimitData] = useState(5)
 
+    const [dataActivity, setDataActivity] = useState();
+    const [activityLength, setActivityLength] = useState(0)
+
     const inputCode = async () => {
         try {
             const responce = await axios.get(`https://geo.api.gouv.fr/communes?nom=${town}&fields=nom,codeDepartement&limit=${limitData}&boost=population`);
-            console.log(responce.data)
             // eslint-disable-next-line array-callback-return
             setDataTown(responce.data)
         }
@@ -61,82 +61,119 @@ export default function Recherche() {
 
 
     const handleSubmit = async () => {
-       /* const response = await axios.post("https://kidozanges.herokuapp.com/api/searchactivity", {
+        const response = await axios.post("https://kidozanges.herokuapp.com/api/searchactivity", {
             town,
             free
-        })*/
+        })
 
-       // console.log(response.data)
+        console.log(response.data.activities)
+        console.log(response.data.activities.length)
 
-        setOpen(false)
 
-        return(
-            history.push(`/searchActivity?town=${town}&free=${free}`)
-        )
+
+        setDataActivity(response.data.activities)
+        setActivityLength(response.data.activities.length)
+
+
+
+
+
+    }
+
+
+    const jsxActivities = () => {
+        const row = []
+        for (let i = 0; i < activityLength; i++) {
+            const link = `/detailactivity/${dataActivity[i].id}`
+            row.push(
+                <div className="box-card" key={dataActivity[i].id}>
+                    <NavLink className="div-nav" to={link}>
+                        <article className="article--main">
+                            <div className="text">
+                                <h4>
+                                    {dataActivity[i].title}
+                                </h4>
+                                <p>
+                                    {dataActivity[i].description}
+                                </p>
+                                <button>en savoir  +</button>
+                            </div>
+
+                            <div className="box--img--note">
+                                <img src={dataActivity[i].url} alt="" />
+
+                                <Rating className="star-rating" icon='star' defaultRating={3} maxRating={5} />
+                            </div>
+
+                        </article>
+                    </NavLink>
+                </div>
+            )
+
+        }
+
+        return row
     }
 
 
     return (
-        <Modal
-            id="login"
-            closeIcon
-            open={open}
-            trigger={<a>Recherche</a>}
-            onClose={() => setOpen(false)}
-            onOpen={() => setOpen(true)}
-        >
-            <Modal.Content id="modal--content">
-                <Form id="form--activity" method="POST" onSubmit={handleSubmit}>
-                    <Form.Field
-                        control={Input}
+        <div id="recherche">
+            <Form id="form--activity" method="POST" onSubmit={handleSubmit}>
+                <Form.Field
+                    control={Input}
 
-                        type="text"
-                        name="town"
-                        icon="search"
-                        label="Ville"
-                        placeholder="Entrez une ville"
-                        value={town}
-                        onChange={(evt) => {
-                            setTown(evt.target.value);
-                            setActiveChangeInput(true)
-                            document.querySelector("#form--activity ul").style.display = "block"
+                    type="text"
+                    name="town"
+                    icon="search"
+                    label="Ville"
+                    placeholder="Entrez une ville"
+                    value={town}
+                    onChange={(evt) => {
+                        setTown(evt.target.value);
+                        setActiveChangeInput(true)
+                        document.querySelector("#form--activity ul").style.display = "block"
+                    }}
+                />
+
+                <ul>
+                    {jsxVille()}
+                </ul>
+
+                <Form.Group inline>
+                    <Form.Field
+                        control={Radio}
+                        label="Gratuite"
+                        name="freeOrPaying"
+                        value={free}
+                        checked={free === "true"}
+                        onChange={() => {
+                            setFree("true");
                         }}
                     />
-
-                    <ul>
-                        {jsxVille()}
-                    </ul>
-
-                    <Form.Group inline>
-                        <Form.Field
-                            control={Radio}
-                            label="Gratuite"
-                            name="freeOrPaying"
-                            value={free}
-                            checked={free === "true"}
-                            onChange={() => {
-                                setFree("true");
-                            }}
-                        />
-                        <Form.Field
-                            control={Radio}
-                            label="Payante"
-                            name="freeOrPaying"
-                            value={free}
-                            checked={free === "false"}
-                            onChange={() => {
-                                setFree("false");
-                            }}
-                        />
-                    </Form.Group>
+                    <Form.Field
+                        control={Radio}
+                        label="Payante"
+                        name="freeOrPaying"
+                        value={free}
+                        checked={free === "false"}
+                        onChange={() => {
+                            setFree("false");
+                        }}
+                    />
+                </Form.Group>
 
 
-                    <Button className="button-submit green" type="submit">
-                        Submit
-                    </Button>
-                </Form>
-            </Modal.Content>
-        </Modal>
+                <Button className="button-submit green" type="submit">
+                    Submit
+                </Button>
+            </Form>
+
+
+            <section id="main">
+                {jsxActivities()}
+            </section>
+        </div>
+
     );
 
 }

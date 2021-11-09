@@ -12,7 +12,7 @@ import LegalNotice from './components/MentionsLégales';
 import Profil from './components/Profil';
 import Admin from './components/Admin'
 import Logout from './components/Logout';
-import SearchActivity from './components/SearchActivity';
+import Recherche from './components/Recherche';
 //import loadable from '@loadable/component';
 import React from 'react';
 import { Route, Switch,Redirect } from 'react-router-dom';
@@ -96,8 +96,8 @@ function App() {
             {checkPermAdmin()}
         </Route>
 
-        <Route path="/searchActivity">
-            <SearchActivity/>
+        <Route path="/recherche">
+            <Recherche/>
         </Route>    
 
         <Route path="/logout" exact>
