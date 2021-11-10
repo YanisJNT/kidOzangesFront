@@ -8,18 +8,19 @@ import axios from 'axios';
 export default function Home() {
     let [index, setIndex] = useState(0)
 
-    const [activity, setActivity] = useState()
+    const [activity, setActivity] = useState([])
     const [title, setTitle] = useState()
     const [description, setDescription] = useState()
     const [name, setName] = useState()
-
-
+    
     const getData = async () => {
         const response = await axios.get("https://kidozanges.herokuapp.com/api/articles")
 
         setTitle(response.data[index].title)
-        setDescription(response.data[index].description);
+        setDescription(response.data[index].description)
         setName(response.data[index].nickname);
+        setActivity(response.data)
+    
     }
 
 
@@ -45,12 +46,12 @@ export default function Home() {
         }
     }
 
-
     useEffect(() => {
         getData()
     }, [index])
 
     const [bestActivities, setbestActivities] = useState([])
+
 
     useEffect(() => {
         axios.get(`https://kidozanges.herokuapp.com/api/topratedactivities`)
@@ -65,6 +66,7 @@ export default function Home() {
     },[])
     
     
+
 
     return (
         <div>
