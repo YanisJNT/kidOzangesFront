@@ -7,27 +7,51 @@
     margin-top: 2rem;
     width: 100%;
 }
-.profil--button{
-border-radius: 50px;
-padding: 5px;
-background-color: #89c3f7;
-}
+.ui.icon.button {
+    margin-left: 13rem;
+    padding: 5px;
+    display: inline ;
 
+}
+.pseudo{
+    margin-right: 6rem;
+}
+.profil--card{
+  
+}
+.profil--card > p{
+    
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.1rem;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow:11px -9px 13px -3px rgba(0,0,0,0.5)    
+}
 .box--profil{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    margin: auto;
+    text-align:justify;
+    /* align-items:center; */
     justify-content: center;
-    gap: 2rem;
-    width: 50%;
+    width: 30%;
 }
-/* .form-nickname{
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 2rem;
-} */
+.profil--card > i {
+display: inline;
+}
+.form-nickname{
+    display: none;}
+    
+.input--validation{
+        display: inline;
+        margin-left: 1rem;
+    }
+    .delete--button{
+        display: flex;
+        justify-content: flex-end;
+    }
 /* .form-email{
     display:none
 } */
