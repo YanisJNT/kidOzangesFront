@@ -4,7 +4,6 @@ import './style.css'
 
 
 //const date = new Date()
-
 const Comments = ({ listComment }) => (
   <>
     <Comment.Group
