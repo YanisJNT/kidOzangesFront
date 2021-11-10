@@ -5,6 +5,7 @@ import './style.css'
 
 //const date = new Date()
 
+
 function Comments({ listComment }) {
   console.log(listComment)
   return (
@@ -20,6 +21,7 @@ function Comments({ listComment }) {
                 <div id="commentairebg">
                   <Comment.Content>
                     <Comment.Author id="author" as='a'>{com.nickname}</Comment.Author>
+
 
                     <Comment.Metadata>
                       {/*<span>{date.getDate()}/{date.getMonth()}/{date.getFullYear()}</span>*/}

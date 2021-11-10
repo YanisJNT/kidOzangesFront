@@ -47,6 +47,7 @@ export default function DetailActivity() {
   const handleSubmitComment = async (evt) => {
     evt.preventDefault();
     const response = await axios.post(`https://kidozanges.herokuapp.com/api/activity/${id}/comment`, {
+
       title,
       rate,
       comment,
@@ -55,9 +56,10 @@ export default function DetailActivity() {
         authorization: `Bearer ${token}`
       }
     })
+
   }
 
-  useEffect(() => {
+  //useEffect(() => {
     axios.get(`https://kidozanges.herokuapp.com/api/activity/${id}`)
       .then((response) => {
         setTown(response.data.activity.town)
@@ -72,7 +74,7 @@ export default function DetailActivity() {
       .catch((error) => {
         console.error(error)
       })
-  }, [id])
+  //}, [id])
   console.log(receiveComment)
   console.log(activityAverageRate)
   return (
