@@ -1,0 +1,74 @@
+
+.activity__container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 1%;
+}
+.payable{
+  font: bold;
+  padding: 3rem;
+}
+.activity__detail--img{
+  width: 60%;
+}
+
+.activity__title{
+  font-size: 4.5em;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.activity__town{
+  font-size: 1.3em;
+  padding-top: 1.5rem;
+}
+
+.activity__presentation{
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+.activity__description{
+  padding: 1.5rem;
+  font-size: 2em;
+}
+
+.form__detailActivity{
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin-top: 2rem;
+}
+
+.rating__activity{
+  width: 15%;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+.title__detailActivity{
+  padding: .5rem;
+}
+.activity__detail--rate{
+  color: rgb(81, 142, 228);
+  font-size: 1.2rem;
+  font-weight: bold;
+  
+}
+
+.textarea__detailActivity{
+  margin-bottom: .2rem;  
+}
+.button__activity{
+  width: 30%;
+  padding: .5rem;
+}
+
+.activity__url{
+  margin-top: 5rem;
+}

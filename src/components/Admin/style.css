@@ -1,0 +1,58 @@
+#admin{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    margin-top: 3rem;
+}
+
+#admin h1{
+    text-align: center;
+    width: 100%;
+}
+
+
+#admin .box-autho{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 3rem;
+}
+
+#admin .box-autho .box--admin{
+    padding: 1rem;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border-radius: 10px;
+
+}
+
+#admin .box-autho .box--admin h3{
+    border-bottom: 1px solid rgb(177, 176, 176);
+    padding: 1rem;
+
+}
+.box--admin .box-activites{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid black;
+    padding: 1rem;
+}
+
+
+.box-activites  .box-text{
+    display: flex;
+    font-size: 2rem;
+}
+
+.box-activites  .box-icon{
+    display: flex;
+    font-size: 1.50rem;
+}

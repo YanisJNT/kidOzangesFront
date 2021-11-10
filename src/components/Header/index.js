@@ -1,6 +1,10 @@
 import './style.css'
 import Logo from '../../Logo_v1.png'
 import Connexion from '../Connexion'
+import Recherche from '../Recherche'
+import { Icon } from 'semantic-ui-react'
+
+import { NavLink } from 'react-router-dom'
 export default function Header(){
     const token = localStorage.getItem("token");
 
@@ -8,16 +12,16 @@ export default function Header(){
         if(token){
             return(
                 <nav className="navBar">
-                    <a href="/">Recherche</a>
-                    <a href="/logout">Deconnexion</a>
-                    <a href="/">Mon profil</a>
+                    <NavLink to="/recherche"><Icon  name='search' /></NavLink>
+                    <NavLink to="/profil"><Icon  name='user circle' /></NavLink>
+                    <NavLink to="/logout"><Icon color="red"  name='log out' /></NavLink>
                 </nav>
             )
         } else{
             return(
                 <nav className="navBar">
-                    <a href="/">Recherche</a>
-                    <a href="/signup">Inscription</a>
+                    <NavLink to="/recherche"><Icon  name='search' /></NavLink>
+                    <NavLink to="/signup">Inscription</NavLink>
                     <Connexion/>
                 </nav>
             )
@@ -31,6 +35,8 @@ export default function Header(){
                 <h1>Kid'Oz'Anges</h1>
             </div>
 
+
+            
             {loginNav()}
 
         </header>
