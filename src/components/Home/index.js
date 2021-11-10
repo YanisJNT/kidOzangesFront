@@ -23,25 +23,17 @@ export default function Home() {
     
     }
 
-
-    const table = [
-        "FAB",
-        "ALEX",
-        "YANIS",
-    ]
-
-
     const handleLeft = () => {
         setIndex(--index)
 
         if (index < 0) {
-            setIndex(table.length - 1)
+            setIndex(activity.length - 1)
         }
     }
 
     const handleRight = () => {
         setIndex(++index)
-        if (index > table.length - 1) {
+        if (index > activity.length - 1) {
             setIndex(0)
         }
     }
