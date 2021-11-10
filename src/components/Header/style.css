@@ -4,33 +4,87 @@
 
 .header{
     background:var(--bluHeader-color);
-    width: 100%;
+    width: 100% !important;
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
 
-.header > .box--title{
+.header-column{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.header  .box--title{
     display: flex;
     align-items: center;
 }
 
-.header > .box--title > h1{
+.header  .box--title  h1{
     font-size: 4rem;
 }
 
-.header > .navBar > a{
+.header  .navBar  a{
     margin: 0  1rem;
     font-size: 2rem;
     color: black;
-    transform: rotate(25deg);
 }
 
-.header.navBar > a:hover{
-    color: white;
-    transition: all 0.2s;
+
+.img--header{
+    display: block;
 }
 
-.header > .navBar > a:active{
-    text-decoration: underline;
+.header .icon-hamburger{
+    display: none;
+}
+
+
+@media screen and (max-width:950px){
+    .img--header{
+        display: none;
+    }
+}
+
+
+@media screen and (max-width:720px){
+    .header{
+        position: relative;
+        transition: 1s;
+    }
+    .header .icon-hamburger{
+        display: block;
+        cursor: pointer;
+        position: absolute;
+        right: 0;
+        top: 27px;
+    }
+    
+    .header{
+        position: relative;
+        height: auto;
+    }
+
+    .navBar{
+        width: 100%;
+    }
+
+
+    .header-column{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    
+    
+    .hiddenNav{
+        display: none;
+        width: 0;
+        margin-top: 5rem !important;
+        position: absolute;
+    }
 }
