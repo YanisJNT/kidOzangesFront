@@ -43,9 +43,13 @@ function App() {
     
     if(!token){
       console.log("pas connecté")
+
       return(
-        <Redirect to="/"/>
+        <div>
+          <p className="trollPageAdmin">NIQUE TA Mère</p>
+        </div>
       )
+
     } 
     else{
       const dataToken = jwt_decode(token)

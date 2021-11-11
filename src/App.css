@@ -3,3 +3,61 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+
+.App{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+
+.trollPageAdmin{
+  text-align: center;
+  font-size: 5rem;
+  animation: loop infinite ease-in-out 1s;
+}
+
+@keyframes loop{
+  0%{
+    color: red;
+    transform: rotate(25deg);
+    font-size: 5rem;
+  }
+
+  10%{
+    color: yellow;
+    font-size: 20rem;
+  }
+
+  20%{
+    color: blue;
+    font-size: 5rem;
+  }
+
+  40%{
+    color: chartreuse;
+    font-size: 1rem;
+  }
+
+  50%{
+    color: cadetblue;
+    font-size: 5rem;
+  
+  }
+  
+  70%{
+    color: rgb(164, 6, 255);
+    font-size: 5rem;
+
+  }
+
+  90%{
+    color: cyan;
+  }
+
+  100%{
+    color: black;
+  }
+}
