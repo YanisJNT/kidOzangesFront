@@ -23,6 +23,9 @@ export default function header() {
     //console.log(document.querySelector("#slidebar"))
     document.querySelector("#slidebar").style.width = "250px"
     document.querySelector("#slidebar").style.padding = "1rem"
+    setTimeout(() => {
+      document.querySelector(".icon-hamburger").style.display="none";
+    },800)
 
 
   }
