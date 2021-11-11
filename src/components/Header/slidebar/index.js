@@ -29,6 +29,7 @@ export default function slideBar() {
                 <nav className="navBarTic">
                     <NavLink to="/recherche"><Icon disabled name='search' /> Recherche</NavLink>
                     <NavLink to="/signup"><Icon disabled name='signup' /> Inscription</NavLink>
+
                     <Connexion />
                 </nav>
             )
@@ -39,6 +40,7 @@ export default function slideBar() {
     const closeHamburger = () => {
         document.querySelector("#slidebar").style.width="0px";
         document.querySelector("#slidebar").style.padding="0rem"
+        document.querySelector(".icon-hamburger").style.display="block";
     }
 
 
