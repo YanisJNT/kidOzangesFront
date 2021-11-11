@@ -8,13 +8,35 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
+    position: relative;
+
+}
+
+.box--img{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+}
+
+.navBar{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+}
+
+
+.box--title{
+    width: 30%;
+    display: flex;
+    justify-content: center;
 }
 
 .header-column{
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 100%;
+    text-align:center;
 }
 
 .header  .box--title{
@@ -24,11 +46,13 @@
 
 .header  .box--title  h1{
     font-size: 4rem;
+    text-align: center;
 }
 
+
 .header  .navBar  a{
-    margin: 0  1rem;
     font-size: 2rem;
+    margin-right: 1rem;
     color: black;
 }
 
@@ -42,49 +66,65 @@
 }
 
 
-@media screen and (max-width:950px){
-    .img--header{
-        display: none;
+
+
+
+@media screen and (max-width:1200px){
+    .box--title{
+        width: 30%;
+        display: flex;
+        justify-content: center;
     }
-}
+    .box--img{
+        width: 30%;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .box--hamburger{
+        width: 30%;
+        display: flex;
+        justify-content: center;
+    }
+    
+
+    .img--header{
+        width: 250px;
+    }
 
 
-@media screen and (max-width:720px){
     .header{
-        position: relative;
-        transition: 1s;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
     .header .icon-hamburger{
         display: block;
         cursor: pointer;
-        position: absolute;
-        right: 0;
-        top: 27px;
-    }
-    
-    .header{
-        position: relative;
-        height: auto;
     }
 
     .navBar{
-        width: 100%;
+        display: none;
     }
 
+    
+}
 
-    .header-column{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+
+
+@media screen and (max-width:920px){
+    .img--header{
+        display: none;
+    }
+
+}
+
+
+@media screen and (max-width:600px){
+    
+    .header  .box--title  h1{
+        font-size: 2.50rem;
         text-align: center;
     }
     
-    
-    .hiddenNav{
-        display: none;
-        width: 0;
-        margin-top: 5rem !important;
-        position: absolute;
-    }
 }
