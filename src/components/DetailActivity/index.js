@@ -57,6 +57,8 @@ export default function DetailActivity() {
       }
     })
 
+    window.location.reload()
+
   }
 
   //useEffect(() => {
@@ -110,6 +112,13 @@ export default function DetailActivity() {
           maxRating={5}
           disabled
         />*/}
+
+        {
+          (isFree) ?
+            <p className="payable">Gratuite</p> :
+            <p className="payable">Payant </p>
+        }
+
         <div className="chat__comment--container">
           {console.log("TEST TEST A VOIR")}
           {console.log(receiveComment)}
@@ -161,6 +170,7 @@ export default function DetailActivity() {
             <Button  id="button__activity">Envoyer</Button>
           </form>
         </div>
+
       </div>
 
     </div>

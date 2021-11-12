@@ -138,7 +138,7 @@ function App() {
         </Route>
 
       </Switch>
-      <Footer />
+      <Footer className="footer" />
 
     </div>
   );
