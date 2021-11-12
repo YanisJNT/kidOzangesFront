@@ -43,19 +43,28 @@ function App() {
     
     if(!token){
       console.log("pas connecté")
+
       return(
         <Redirect to="/"/>
       )
+
     } 
     else{
       const dataToken = jwt_decode(token)
       console.log(dataToken.role)
       console.log("NIckname :   " +   dataToken.nickname)
 
+  
+        
+
       if(dataToken.role === "admin"){
         console.log("qsdqsdqsdqsdqdqsdqsd")
         return(
           <Admin/>
+        )
+      } else if(dataToken.role === "user"){
+        return(
+          <Redirect to="/"/>
         )
       }
     }
