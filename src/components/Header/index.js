@@ -21,7 +21,7 @@ export default function header() {
   const handleHamburger = (event) => {
     console.log(document.querySelector("#icon-hamburger"))
     //console.log(document.querySelector("#slidebar"))
-    document.querySelector("#slidebar").style.width = "250px"
+    document.querySelector("#slidebar").style.width = "300px"
     document.querySelector("#slidebar").style.padding = "1rem"
   }
 
@@ -58,7 +58,7 @@ export default function header() {
           <img className="img--header" src={Logo} alt="logo du site" width="300" />
         </div>
         <div className="box--title">
-          <h1>Kid'Oz'Anges</h1>
+          <NavLink to="/"><h1>Kid'Oz'Anges</h1></NavLink>
         </div>
 
 

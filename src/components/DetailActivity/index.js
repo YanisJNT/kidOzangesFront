@@ -56,7 +56,7 @@ export default function DetailActivity() {
         authorization: `Bearer ${token}`
       }
     })
-
+    window.location.reload()
   }
 
   useEffect(() => {
@@ -110,6 +110,11 @@ export default function DetailActivity() {
           maxRating={5}
           disabled
         />*/}
+        {
+          (isFree) ?
+            <p className="payable">Gratuite</p> :
+            <p className="payable">Payant </p>
+        }
         <div className="chat__comment--container">
           {console.log("TEST TEST A VOIR")}
           {console.log(receiveComment)}

@@ -49,7 +49,7 @@ function App() {
       )
 
     } 
-    else{
+    else {
       const dataToken = jwt_decode(token)
       console.log(dataToken.role)
       console.log("NIckname :   " +   dataToken.nickname)
@@ -101,7 +101,7 @@ function App() {
           {/* inscription */}
         </Route>
 
-        <Route path="/admin"   exact >
+        <Route path="/admin"   exact>
             {checkPermAdmin()}
         </Route>
 
@@ -138,7 +138,7 @@ function App() {
         </Route>
 
       </Switch>
-      <Footer />
+      <Footer className="footer" />
 
     </div>
   );
