@@ -40,7 +40,6 @@ export default function slideBar() {
     const closeHamburger = () => {
         document.querySelector("#slidebar").style.width="0px";
         document.querySelector("#slidebar").style.padding="0rem"
-        document.querySelector(".icon-hamburger").style.display="block";
     }
 
 
