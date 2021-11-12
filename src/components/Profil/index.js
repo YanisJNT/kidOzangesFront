@@ -1,5 +1,4 @@
 import './style.css'
-import jwt_decode from 'jwt-decode'
 import axios from 'axios'
 import { Button, Icon, Header, Modal } from 'semantic-ui-react'
 import { useState, useEffect } from 'react'
@@ -8,15 +7,17 @@ import { Redirect } from 'react-router-dom'
 
 export default function Profil() {
     const token = localStorage.getItem("token")
-    let dataToken = jwt_decode(token)
-    const [nickname, setNickname] = useState(dataToken.nickname)
+    const [nickname, setNickname] = useState()
     const [newNickname, setNewNickname] = useState()
-    const [newEmail, setNewEmail] = useState()
+    const [firstname, setFirstname] = useState()
+    const [lastname, setLastName]= useState()
+    const [gender, setGender] = useState()
+    const [email, setEmail] = useState()
     const [data, setData] = useState(false)
     const [open, setOpen] = useState(false)
     const history = useHistory()
 
-    console.log(dataToken)
+    // console.log(dataToken)
 
     const handleNickname = (event) => {
         event.preventDefault()
@@ -34,6 +35,11 @@ export default function Profil() {
         })
             .then((response) => {
                 setNickname(response.data.user.nickname)
+                setEmail(response.data.user.email)
+                setLastName(response.data.user.lastname)
+                setFirstname(response.data.user.firstname)
+                setGender(response.data.user.gender)
+
             })
             .catch(error => console.log(error))
     })
@@ -50,16 +56,16 @@ export default function Profil() {
             }
         })
         setData(true)
-        dataToken.nickname = newNickname
+        // dataToken.nickname = newNickname
 
-        console.log(dataToken)
+        // console.log(dataToken)
 
         console.log(response.data.newNickname);
         setNickname(response.data.newNickname)
         document.querySelector(".profil--subtitle").textContent = nickname;
         window.location.reload();
     }
-    console.log(dataToken.nickname)
+    // console.log(dataToken.nickname)
 
     const deleteProfil = async () => {
         
@@ -69,7 +75,6 @@ export default function Profil() {
             },
         })
         localStorage.removeItem("token")
-        // setOpen(false)
         return (
             <Redirect to="/logout" />
             )
@@ -81,17 +86,15 @@ export default function Profil() {
             <div className="box--profil">
 
 
-                <div className="profil--card"><p><span>Civilité :</span><span>{dataToken.gender}</span></p>
+                <div className="profil--card"><p><span>Civilité :</span><span>{gender}</span></p>
                     <p><span className="pseudo"> Pseudo :</span><button className="ui icon button petit" onClick={handleNickname} >Modifier<i aria-hidden="true" class="pencil icon"></i></button> <span className="profil--subtitle">{nickname} </span> <form action="" className="form-nickname" onSubmit={submitNickname}>
                         <input placeholder="Votre nouveau pseudo : " type="text" className="input-edit" onChange={(event) => setNewNickname(event.target.value)} />
                         <button className="input--validation">Valider</button>
                     </form> </p>
 
-
-                    {/* <button class="ui basic button" >Modifier mon pseudo</button>  */}
-                    <p><span>Nom :</span><span>{dataToken.lastname}</span></p>
-                    <p><span>Prénom :</span><span>{dataToken.firstname}</span></p>
-                    <p><span>Mail :</span><span>{dataToken.email}</span></p>
+                    <p><span>Nom :</span><span>{lastname}</span></p>
+                    <p><span>Prénom :</span><span>{firstname}</span></p>
+                    <p><span>Mail :</span><span>{email}</span></p>
                     <div className="delete--button"></div>
                     <Modal
                         closeIcon
@@ -115,7 +118,6 @@ export default function Profil() {
                             </Button>
                         </Modal.Actions>
                     </Modal>
-                    {/* <p><span>Rôle :</span><span>{dataToken.role}</span></p> */}
                 </div>
 
             </div>
