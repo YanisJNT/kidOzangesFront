@@ -1,5 +1,8 @@
 footer{
     margin-top: 5rem;
+    margin-bottom: 0;
+   
+    
 }
 
 .footer--nav{
@@ -25,4 +28,6 @@ h2{
     background-color : #42a1f5;
     padding: 1rem 0;
     text-align: center;
+    left: 0;
+    bottom: 0;
 }

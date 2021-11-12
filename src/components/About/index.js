@@ -11,10 +11,10 @@ export default function About() {
                 <Card.Content>
                     <Card.Header>Yanis</Card.Header>
                     <Card.Meta>
-                        <span className='about--name'>Developpeur FrontEnd / Lead Dev Front</span>
+                        <span className='about--name'>Developpeur FrontEnd </span>
                     </Card.Meta>
                     <Card.Description>
-                        Yanis, 18 ans Développeur FrontEnd/Lead Dev
+                        Yanis Lead Développeur Front-End
                     </Card.Description>
                 </Card.Content>
                 <Card.Content extra>
@@ -28,7 +28,8 @@ export default function About() {
                         <span className='about--name'>Developpeur BackEnd</span>
                     </Card.Meta>
                     <Card.Description>
-                        Frédéric,  41 ans, Développeur BackEnd
+                        Frédéric Développeur BackEnd 
+                        Product Owner
                     </Card.Description>
                 </Card.Content>
                 <Card.Content extra>
@@ -38,10 +39,10 @@ export default function About() {
                 <Card.Content>
                     <Card.Header>Fabien</Card.Header>
                     <Card.Meta>
-                        <span className='name'>Développeur BackEnd / Lead Dev BackEnd</span>
+                        <span className='name'>Développeur BackEnd </span>
                     </Card.Meta>
                     <Card.Description>
-                        Fabien, 29 ans, Développeur BackEnd / Lead Developpeur BackEnd
+                        Fabien Lead Développeur BackEnd 
                     </Card.Description>
                 </Card.Content>
                 <Card.Content extra>
@@ -54,7 +55,7 @@ export default function About() {
                         <span className='name'>Développeur FrontEnd</span>
                     </Card.Meta>
                     <Card.Description>
-                        Alexandre, 37 ans, Développeur FrontEnd
+                        Alexandre Développeur FrontEnd & Scrum Master
                     </Card.Description>
                 </Card.Content>
                 <Card.Content extra>
@@ -67,7 +68,7 @@ export default function About() {
                         <span className='name'>Cossi, Développeur FrontEnd</span>
                     </Card.Meta>
                     <Card.Description>
-                        Cossi, 26 ans, Développeur FrontEnd.
+                        Cossi Développeur FrontEnd & Git Master
                     </Card.Description>
                 </Card.Content>
                 <Card.Content extra>

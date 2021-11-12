@@ -4,33 +4,143 @@
 
 .header{
     background:var(--bluHeader-color);
-    width: 100%;
+    width: 100% !important;
     display: flex;
     align-items: center;
     justify-content: space-around;
+    position: relative;
+
 }
 
-.header > .box--title{
+.box--img{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+}
+
+.navBar{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+}
+
+
+.box--title{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+}
+
+.header-column{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    text-align:center;
+}
+
+.header  .box--title{
     display: flex;
     align-items: center;
 }
 
-.header > .box--title > h1{
+.header  .box--title  a h1{
     font-size: 4rem;
-}
-
-.header > .navBar > a{
-    margin: 0  1rem;
-    font-size: 2rem;
+    text-align: center;
     color: black;
-    transform: rotate(25deg);
 }
 
-.header.navBar > a:hover{
-    color: white;
-    transition: all 0.2s;
+
+.header  .navBar  a{
+    font-size: 2rem;
+    margin-right: 1rem;
+    color: black;
 }
 
-.header > .navBar > a:active{
-    text-decoration: underline;
+
+.img--header{
+    display: block;
+}
+
+.header .icon-hamburger{
+    display: none;
+}
+
+
+
+
+
+@media screen and (max-width:1200px){
+    .box--title{
+        width: 30%;
+        display: flex;
+        justify-content: center;
+    }
+    .box--img{
+        width: 30%;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .box--hamburger{
+        width: 30%;
+        display: flex;
+        justify-content: center;
+    }
+    
+
+    .img--header{
+        width: 250px;
+    }
+
+
+    .header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .header .icon-hamburger{
+        display: block;
+        cursor: pointer;
+    }
+
+    .navBar{
+        display: none;
+    }
+
+    
+}
+
+
+
+@media screen and (max-width:920px){
+    .img--header{
+        display: none;
+    }
+
+}
+
+
+@media screen and (max-width:600px){
+    
+    .header  .box--title  h1{
+        font-size: 2.50rem;
+        text-align: center;
+    }
+    
+}
+
+
+
+@media screen and (max-width:540px){
+    
+    .header  .box--title  h1{
+        font-size: 1rem;
+        text-align: left;
+    }
+    .header-column{
+        display: flex;
+        flex-direction: column !important;
+    }
+    
 }
