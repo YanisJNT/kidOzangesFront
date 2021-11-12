@@ -59,7 +59,7 @@ export default function DetailActivity() {
 
   }
 
-  //useEffect(() => {
+  useEffect(() => {
     axios.get(`https://kidozanges.herokuapp.com/api/activity/${id}`)
       .then((response) => {
         setTown(response.data.activity.town)
@@ -74,7 +74,7 @@ export default function DetailActivity() {
       .catch((error) => {
         console.error(error)
       })
-  //}, [id])
+  }, [id])
   console.log(receiveComment)
   console.log(activityAverageRate)
   return (

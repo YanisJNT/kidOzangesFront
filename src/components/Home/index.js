@@ -101,7 +101,7 @@ export default function Home() {
                                 {data.title}
                             </h4>
                             <p>
-                                {data.slug}
+                                {data.description}
                             </p>
                             <button>en savoir  +</button>
                         </div>
