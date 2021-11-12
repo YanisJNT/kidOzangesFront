@@ -54,10 +54,17 @@ function App() {
       console.log(dataToken.role)
       console.log("NIckname :   " +   dataToken.nickname)
 
+  
+        
+
       if(dataToken.role === "admin"){
         console.log("qsdqsdqsdqsdqdqsdqsd")
         return(
           <Admin/>
+        )
+      } else if(dataToken.role === "user"){
+        return(
+          <Redirect to="/"/>
         )
       }
     }
