@@ -7,18 +7,21 @@ footer{
 
 .footer--nav{
     display: flex;
+    
     justify-content: center;
     align-items: center;
 }
 h2{
     font-size: medium;
+    color:white;
+    font-size:2em ;
 }
 
 .footer--nav > a{
     margin:0 4rem;
-    color:black;
-    font-size: 1rem;
-    text-decoration: underline;
+    color:rgb(255, 255, 255);
+    font-size: 1.2rem;
+    padding: 1rem;
 }
 
 .footer--nav > a:hover{
@@ -28,6 +31,33 @@ h2{
     background-color : #42a1f5;
     padding: 1rem 0;
     text-align: center;
+
+}
+
+@media screen and (max-width:1200px){
+    
+}
+@media screen and (max-width:700px){
+    .footer--nav{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    h2{
+        font-size: medium;
+        color:white;
+        font-size:1.2em ;
+        padding: 0.8rem;
+    }
+    .footer--nav > a{
+        margin:0 4rem;
+        color:rgb(255, 255, 255);
+        font-size: 1rem;
+        padding: .3rem;
+    }
+
     left: 0;
     bottom: 0;
+
 }
