@@ -103,7 +103,7 @@ export default function Home() {
                             <p>
                                 {data.description}
                             </p>
-                            <button>en savoir  +</button>
+                            <button className="article--button">En savoir plus</button>
                         </div>
 
                         <div className="box--img--note">

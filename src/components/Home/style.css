@@ -59,6 +59,12 @@
   #main .box--img--note > img{
     margin-bottom: 20px;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: auto;
   }
   
   
@@ -82,19 +88,141 @@
   .box--zom .doubletest{
     display: flex !important;
   }
-  
-  @media screen and (max-width: 700px) {
-    #main .article--main{
+  .article--button{
+    border-radius: 10px;
+    background-color: #6396F3;
+    border: none;
+    padding:.5rem;
+    color: white;
+    font-size: .7em;
+    
+  }
+
+  @media screen and (max-width:700px){
+    #main .box--img--note >img{
       display: flex;
       flex-direction: column;
-      width:100vw;
-      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      width: 80%;
+      height: auto;
     }
-    #main .box--img--note > img{
-      margin-bottom: 20px;
-      border-radius: 10px;
+    #main .box--img--note{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      margin-right: 7rem;
+      padding-top: 2rem;
     }
-}
+    
+    #main .text{
+
+      width: 110%;
+      padding: 0 2rem;
+      font-size: 1.6em;
+    }
+    
+    #main{
+      display: flex;
+      flex-direction: column;
+      justify-content:center;
+      align-items: center;
+
+    }
+    #main .div-nav{
+      display: flex;
+      flex-direction:column;
+      color: black;
+      width: 100%;
+
+    }
+   
+    #main .box-card{
+      display: flex;
+    margin-top: 4rem;
+    width: 90%;
+    box-shadow:11px -9px 13px -3px rgba(0,0,0,0.5),0px 10px 13px -7px #000000;
+    padding: 1rem;
+    border-radius: 10px;
+    background: white;
+    cursor: pointer;
+    position: relative;
+    }
+    #main .article--main {
+      width: 100%;
+      display: flex;
+      flex-direction: column ;
+      align-content:center;
+      margin: 0;
+    }
+   
+  }
+
+
+  @media screen and (max-width:1200px) {
+    #main .box--img--note >img{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: auto;
+    
+    }
+    #main .box--img--note{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      margin-right: 7rem;
+      padding-top: 2rem;
+    }
+    
+    #main .text{
+
+      width: 110%;
+      padding: 0 2rem;
+      font-size: 1.6em;
+    }
+    
+    #main{
+      display: flex;
+      flex-direction: column;
+      justify-content:center;
+      align-items: center;
+
+    }
+    #main .div-nav{
+      display: flex;
+      flex-direction:column;
+      color: black;
+      width: 100%;
+
+    }
+   
+    #main .box-card{
+      display: flex;
+    margin-top: 4rem;
+    width: 90%;
+    box-shadow:11px -9px 13px -3px rgba(0,0,0,0.5),0px 10px 13px -7px #000000;
+    padding: 1rem;
+    border-radius: 10px;
+    background: white;
+    cursor: pointer;
+    position: relative;
+    }
+    #main .article--main {
+      width: 100%;
+      display: flex;
+      flex-direction: column ;
+      align-content:center;
+      margin: 0;
+    }
+   
+  }
   
   #slider{
     width: 100%;
@@ -125,8 +253,6 @@
     cursor: pointer;
 }
 
-
-
 .box--text{
     width: 80%;
 }
@@ -138,4 +264,17 @@
 
 .box--text > span{
     font-weight: bold;
+}
+
+@media screen and (max-width:700px){
+  #slider .box--slider{
+    width: 90%;
+  }
+  
+}
+@media screen and (max-width:1200px){
+  #slider .box--slider{
+    width: 90%;
+  }
+  
 }
