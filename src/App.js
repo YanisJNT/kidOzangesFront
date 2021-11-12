@@ -45,9 +45,7 @@ function App() {
       console.log("pas connecté")
 
       return(
-        <div>
-          <p className="trollPageAdmin">NIQUE TA Mère</p>
-        </div>
+        <Redirect to="/"/>
       )
 
     } 
