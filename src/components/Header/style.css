@@ -42,12 +42,16 @@
 .header  .box--title{
     display: flex;
     align-items: center;
+    justify-content: center;
+    width: 55%;
 }
 
 .header  .box--title  a h1{
     font-size: 4rem;
-    text-align: center;
     color: black;
+    margin: 0;
+    padding: 0;
+    text-align: center;
 }
 
 
