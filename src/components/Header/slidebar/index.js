@@ -46,7 +46,7 @@ export default function slideBar() {
     return (
         <div id="slidebar">
     
-            <Icon className="close" onClick={closeHamburger} size="big" name="close" />
+            <Icon className="close--header" onClick={closeHamburger} size="big" name="close" />
 
             <img src={Logo} alt="logo du site" width="200" />
 
