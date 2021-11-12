@@ -8,49 +8,42 @@ import axios from 'axios';
 export default function Home() {
     let [index, setIndex] = useState(0)
 
-    const [activity, setActivity] = useState()
+    const [activity, setActivity] = useState([])
     const [title, setTitle] = useState()
     const [description, setDescription] = useState()
     const [name, setName] = useState()
-
-
+    
     const getData = async () => {
         const response = await axios.get("https://kidozanges.herokuapp.com/api/articles")
 
         setTitle(response.data[index].title)
-        setDescription(response.data[index].description);
+        setDescription(response.data[index].description)
         setName(response.data[index].nickname);
+        setActivity(response.data)
+    
     }
-
-
-    const table = [
-        "FAB",
-        "ALEX",
-        "YANIS",
-    ]
-
 
     const handleLeft = () => {
         setIndex(--index)
 
         if (index < 0) {
-            setIndex(table.length - 1)
+            setIndex(activity.length - 1)
         }
     }
 
     const handleRight = () => {
         setIndex(++index)
-        if (index > table.length - 1) {
+        if (index > activity.length - 1) {
             setIndex(0)
         }
     }
-
 
     useEffect(() => {
         getData()
     }, [index])
 
     const [bestActivities, setbestActivities] = useState([])
+
 
     useEffect(() => {
         axios.get(`https://kidozanges.herokuapp.com/api/topratedactivities`)
@@ -65,6 +58,7 @@ export default function Home() {
     },[])
     
     
+
 
     return (
         <div>
