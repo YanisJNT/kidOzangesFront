@@ -25,15 +25,20 @@ export default function header() {
     document.querySelector("#slidebar").style.padding = "1rem"
   }
 
+  const handleNav = () => {
+    document.querySelector("#slidebar").style.width="0px";
+    document.querySelector("#slidebar").style.padding="0rem"
+  }
+
 
   const loginNav = () => {
     if (token) {
       return (
         <nav className="navBar">
           <div className="toggle hiddenNav">
-            <NavLink to="/recherche"><Icon name='search' /></NavLink>
-            <NavLink to="/profil"><Icon name='user circle' /></NavLink>
-            <NavLink to="/logout"><Icon color="red" name='log out' /></NavLink>
+            <NavLink onClick={handleNav} to="/recherche"><Icon name='search' /></NavLink>
+            <NavLink onClick={handleNav} to="/profil"><Icon name='user circle' /></NavLink>
+            <NavLink onClick={handleNav} to="/logout"><Icon color="red" name='log out' /></NavLink>
           </div>
 
         </nav>
@@ -42,8 +47,8 @@ export default function header() {
     } else {
       return (
         <nav className="navBar">
-          <NavLink to="/recherche"><Icon name='search' /></NavLink>
-          <NavLink to="/signup">Inscription</NavLink>
+          <NavLink onClick={handleNav} to="/recherche"><Icon name='search' /></NavLink>
+          <NavLink onClick={handleNav} to="/signup">Inscription</NavLink>
           <Connexion />
         </nav>
       )

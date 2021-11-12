@@ -22,6 +22,7 @@ import jwt_decode from 'jwt-decode'
 
 function App() {
   const token =  localStorage.getItem("token")
+  
   // condition for check token
 
   // eslint-disable-next-line no-restricted-globals
