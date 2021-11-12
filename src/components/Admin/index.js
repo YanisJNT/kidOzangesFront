@@ -2,10 +2,13 @@ import './style.css'
 import { Icon } from 'semantic-ui-react'
 import { useEffect, useState } from 'react';
 import axios from "axios";
+import { useHistory } from 'react-router';
 export default function Admin() {
 
+    const history = useHistory() 
+    const [activities, setActivities] = useState([]);
+    const [comments, setComments] = useState([]);
 
-    const [activity, setActivity] = useState(" ")
 
     const token = localStorage.getItem("token");
 
@@ -17,40 +20,163 @@ export default function Admin() {
             },
         })
             .then((response) => {
-                setActivity(response.data.activity)
+                setActivities(response.data.activity)
+                setComments(response.data.comment)
+                  
             })
             .catch((error) => {
                 console.error(error)
             })
-    },[token])
+    },[token]);
 
-    console.log(activity)
+    const getNotCertifiedActivities = () => {
+        const rows = [];
+        console.log("no activity", activities)
+        if(!Array.isArray(activities)) {
+            rows.push(<p>{activities}</p>)
+        } else {
+            for(const activity of activities) {
+                rows.push(
+                    <article className="box-activites">
+                        <div className="box-text">
+                            <h4>{activity.title}</h4>
+                            <p>{activity.description}</p>
+                            
+                        </div>
+                        <div className="box-icon">
+                            <Icon color="green" name='check circle' onClick={() => validateActivity(activity.id)}/>
+                            <Icon color="red" name='close' onClick={() => deleteActivity(activity.id)}/>
+                        </div>
+                    </article>
+                )
+            }
+        }
+        
+        
+        return rows;
+    };
+
+    const getReportedComments = () => {
+        const rows = [];
+        console.log("no comments", comments)
+        if(!Array.isArray(comments)) {
+            rows.push(<p>{comments}</p>)
+        } else {
+            for(const comment of comments) {
+                rows.push(
+                    <article className="box-activites">
+                        <div className="box-text">
+                            <h4>{comment.description}</h4>
+                            <p>{comment.nickname}</p>
+                            
+                        </div>
+                        <div className="box-icon">
+                            <Icon color="green" name='check circle' onClick={() => validateComment(comment.id)}/>
+                            <Icon color="red" name='close' onClick={() => deleteComment(comment.id)}/>
+                        </div>
+                    </article>
+                )
+            }
+        }
+        
+        
+        return rows;
+    };
+
+    // const getReportedComments = () => {
+    //     const rows = [];
+        
+    // }
+
+    const validateActivity = async(activityId) => {
+        try {
+            await axios.patch(`https://kidozanges.herokuapp.com/admin/updateactivity`, {certify: 'true'}, {
+                params: {
+                    id: activityId
+                },
+                headers: {
+                    authorization: `Bearer ${token}`,
+                }
+            })
+            
+                history.push("/admin")
+            
+        } catch (error) {
+            console.error(error)
+        }
+        
+    };
+
+    const deleteActivity = async(activityId) => {
+        try {
+            await axios.delete("https://kidozanges.herokuapp.com/admin/deleteactivity", {
+                params: {
+                    id: activityId
+                },
+                headers: {
+                    authorization: `Bearer ${token}`,
+                }
+            })
+        } catch (error) {
+            console.error(error)
+        }
+    };
+
+    const validateComment = async(commentId) => {
+        try {
+            await axios.patch(`https://kidozanges.herokuapp.com/admin/acceptcomment`, {report: 'false'}, {
+                params: {
+                    id: commentId
+                },
+                headers: {
+                    authorization: `Bearer ${token}`,
+                }
+            })
+            
+                history.push("/admin")
+            
+        } catch (error) {
+            console.error(error)
+        }
+        
+    };
+
+    const deleteComment = async(commentId) => {
+        try {
+            await axios.delete("https://kidozanges.herokuapp.com/admin/deletecomment", {
+                params: {
+                    id: commentId
+                },
+                headers: {
+                    authorization: `Bearer ${token}`,
+                }
+            })
+        } catch (error) {
+            console.error(error)
+        }
+    };
+
 
     return (
         <main id="admin">
             <h1>Page Admin</h1>
             <nav>
-                <a href="/">Activites</a>
-                <a href="/">Commentaires</a>
+                <a href="#not-certified-activities">Activites</a>
+                <a href="#reported-comments">Commentaires</a>
             </nav>
             <div className="box-autho">
                 <section className="box--admin activites">
-                    <h3>Activites</h3>
-                    <article className="box-activites">
-                        <div className="box-text">
-                            <h4>qsdqsdsqd</h4>
-                            <p>qsdqsdqsdqsd</p>
-                        </div>
-                        <div className="box-icon">
-                            <Icon color="green" name='check circle' />
-                            <Icon color="red" name='close' />
-                        </div>
-                    </article>
+                    <h3 id="not-certified-activities">Activites</h3>
+                    
+                        {getNotCertifiedActivities()}
+                    
                 </section>
 
                 <section className="box--admin comment">
-                    <h3>Commentaire report</h3>
-                    <div></div>
+                    <h3 id="reported-comments">Commentaire report</h3>
+                    <div className="box--admin activites">
+                        {getReportedComments()}
+                    </div>
                 </section>
             </div>
         </main>
