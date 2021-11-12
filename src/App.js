@@ -45,9 +45,7 @@ function App() {
       console.log("pas connecté")
 
       return(
-        <div>
-          <p className="trollPageAdmin">NIQUE TA Mère</p>
-        </div>
+        <Redirect to="/"/>
       )
 
     } 
@@ -56,10 +54,17 @@ function App() {
       console.log(dataToken.role)
       console.log("NIckname :   " +   dataToken.nickname)
 
+  
+        
+
       if(dataToken.role === "admin"){
         console.log("qsdqsdqsdqsdqdqsdqsd")
         return(
           <Admin/>
+        )
+      } else if(dataToken.role === "user"){
+        return(
+          <Redirect to="/"/>
         )
       }
     }
