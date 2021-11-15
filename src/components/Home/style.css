@@ -3,6 +3,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: 5rem;
   }
   
   #main .article--main{
@@ -79,7 +80,6 @@
     margin-bottom: 30px;
   }
   
-  
   #h2--error{
     font-size: 2rem;
     margin-top: 2rem;
@@ -97,6 +97,17 @@
     font-size: .7em;
     
   }
+
+  .body--text{
+    color: black;
+    font-size: 1.4em;
+  }
+
+    .body--title {
+      color:black;
+      font-size: 2em;
+      margin:0;
+    }
 
   @media screen and (max-width:700px){
     #main .box--img--note >img{
@@ -229,6 +240,9 @@
     display: flex;
     justify-content: center;
     margin-top: 1rem;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3rem;
 }
 
 #slider .box--slider{
@@ -241,6 +255,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-shadow:11px -9px 13px -3px rgba(0,0,0,0.5),0px 10px 13px -7px #000000;
+
 }
 
 .button-left{

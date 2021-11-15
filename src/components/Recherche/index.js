@@ -140,7 +140,7 @@ export default function Recherche() {
                     name="town"
                     icon="search"
                     label="Ville"
-                    placeholder="Entrez une ville"
+                    placeholder="Veuillez sélectionner une ville"
                     value={town}
                     onChange={(evt) => {
                         setTown(evt.target.value);
@@ -178,7 +178,7 @@ export default function Recherche() {
 
 
                 <Button className="button-submit green" type="submit">
-                    Submit
+                    Rechercher
                 </Button>
             </Form>
 
