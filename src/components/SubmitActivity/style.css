@@ -38,3 +38,22 @@ div.field{
   text-align: center;
 }
 
+
+
+@media screen and (max-width:1200px){
+  #form--activity{
+    width: 90%;
+  }
+}
+
+
+@media screen and (max-width:770px){
+  #form--activity{
+    width: 100%;
+  }
+
+  .box--radios{
+    gap: 1rem;
+    justify-content: center;
+  }
+}
