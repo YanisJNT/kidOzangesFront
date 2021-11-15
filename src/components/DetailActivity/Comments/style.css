@@ -3,3 +3,29 @@
     padding-bottom: 0.50rem;
 
 }
+
+.ui.comments .comment .text{
+    display: flex;
+    justify-content: space-between;
+    
+}
+i.icon.exclamation.triangle:before {
+    content: "\f071";
+    padding: .7rem;
+}
+i.icon.exclamation.triangle:hover{
+    cursor: pointer;
+}
+  #alert__modal{
+    padding: 2rem;
+}
+
+@media screen and (max-width:700px){
+    .ui.comments .comment .text{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding:  none
+        
+    }
+}

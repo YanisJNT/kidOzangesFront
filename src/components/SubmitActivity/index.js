@@ -107,7 +107,6 @@ export default function SubmitActivity() {
           console.log(evt.target.files[0])
         }}
         />
-        <img src={src} alt="" width="250" height="250" />
         <Form.Field
           control={TextArea}
           name='description'
@@ -137,7 +136,7 @@ export default function SubmitActivity() {
         <ul>
           {jsxVille()}
         </ul>
-        <Form.Group inline>
+        <Form.Group inline className="box--radios">
           <Form.Field
             control={Radio}
             label="Gratuite"

@@ -85,11 +85,11 @@ export default function DetailActivity() {
           <img
             src={picture}
             className="activity__detail--img"
-            alt="bordel"
+            alt="activité"
           />
 
           <section id="text--presentation">
-            <p className="activity__detail--rate">Note: {activityAverageRate}/5</p>
+            <p className="activity__detail--rate"> {activityAverageRate > 0.001 ?  `note moyenne: ${activityAverageRate}/5` : "cette activitée n'a pas encore été noté" }</p>
 
             <h1 className="activity__title">{activityTitle}</h1>
             <p className="activity__description">{description}</p>
@@ -97,7 +97,7 @@ export default function DetailActivity() {
             {
               (isFree) ?
                 <p className="payable">Cette activité est gratuite</p> :
-                <p className="payable">Payant donne du cache</p>
+                <p className="payable">Cette activité est payante</p>
             }
           </section>
         </section>
@@ -110,11 +110,7 @@ export default function DetailActivity() {
           maxRating={5}
           disabled
         />*/}
-        {
-          (isFree) ?
-            <p className="payable">Gratuite</p> :
-            <p className="payable">Payant </p>
-        }
+        
         <div className="chat__comment--container">
           {console.log("TEST TEST A VOIR")}
           {console.log(receiveComment)}
