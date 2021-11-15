@@ -1,78 +1,77 @@
 import './style.css'
-import Logo from '../../img/Yanis.png'
+import Yanis from '../../img/Yanis.png'
 import Fred from '../../img/Fred.jpeg'
-import { Card, Image } from 'semantic-ui-react'
+import Fabien from '../../img/Fabien.jpg'
+import Alex from '../../img/Alex.jpg'
+import Cossi from '../../img/Cossi.png'
+import {Card} from 'semantic-ui-react'
 export default function About() {
 
     return (
         <div id="about">
-            <Card>
-                <Image src={Logo} wrapped ui={false} />
+            <Card className="box--card__aboutus">
+                <img alt ="profil--Yanis" className="Image__card" src={Yanis} wrapped ui={false} alt="Photo dev" />
                 <Card.Content>
                     <Card.Header>Yanis</Card.Header>
                     <Card.Meta>
-                        <span className='about--name'>Developpeur FrontEnd </span>
+                        <span className='about--name'>Dev Front </span>
                     </Card.Meta>
                     <Card.Description>
-                        Yanis Lead Développeur Front-End
+                       Lead Dev Front
                     </Card.Description>
                 </Card.Content>
-                <Card.Content extra>
-                </Card.Content>
             </Card>
-            <Card>
-                <Image src={Fred} wrapped ui={false} />
+            <Card className="box--card__aboutus">
+                <img className="Image__card" src={Fred} wrapped ui={false} alt="Photo dev" />
                 <Card.Content>
                     <Card.Header>Fredéric</Card.Header>
                     <Card.Meta>
-                        <span className='about--name'>Developpeur BackEnd</span>
+                        <span className='about--name'>Dev Back</span>
                     </Card.Meta>
                     <Card.Description>
-                        Frédéric Développeur BackEnd 
-                        Product Owner
+                        Product Owner 
                     </Card.Description>
                 </Card.Content>
-                <Card.Content extra>
-                </Card.Content>
-            </Card><Card>
-                <Image src='https://react.semantic-ui.com/images/avatar/large/matthew.png' wrapped ui={false} />
+                
+            </Card>
+            <Card className="box--card__aboutus">
+                <img className="Image__card"  src={Fabien} wrapped ui={false} alt="Photo dev" />
                 <Card.Content>
                     <Card.Header>Fabien</Card.Header>
                     <Card.Meta>
-                        <span className='name'>Développeur BackEnd </span>
+                        <span className='about--name'>Dev Back </span>
                     </Card.Meta>
                     <Card.Description>
-                        Fabien Lead Développeur BackEnd 
+                        Lead Dev Back 
                     </Card.Description>
+                
                 </Card.Content>
-                <Card.Content extra>
-                </Card.Content>
-            </Card><Card>
-                <Image src='https://react.semantic-ui.com/images/avatar/large/matthew.png' wrapped ui={false} />
+            </Card>
+            <Card className="box--card__aboutus">
+                <img className="Image__card"  src={Alex} wrapped ui={false} alt="Photo dev" />
                 <Card.Content>
                     <Card.Header>Alexandre</Card.Header>
                     <Card.Meta>
-                        <span className='name'>Développeur FrontEnd</span>
+                        <span className='about--name'>Dev Front</span>
                     </Card.Meta>
                     <Card.Description>
-                        Alexandre Développeur FrontEnd & Scrum Master
+                      Scrum Master
                     </Card.Description>
                 </Card.Content>
-                <Card.Content extra>
-                </Card.Content>
-            </Card><Card>
-                <Image src='https://react.semantic-ui.com/images/avatar/large/matthew.png' wrapped ui={false} />
+                
+            </Card>
+            <Card className="box--card__aboutus">
+                <img className="Image__card"  src={Cossi} wrapped ui={false} alt="Photo dev"/>
                 <Card.Content>
                     <Card.Header>Cossi</Card.Header>
                     <Card.Meta>
-                        <span className='name'>Cossi, Développeur FrontEnd</span>
+                        <span className='about--name'>Dev Front</span>
                     </Card.Meta>
                     <Card.Description>
-                        Cossi Développeur FrontEnd & Git Master
+                       Git Master
                     </Card.Description>
                 </Card.Content>
-                <Card.Content extra>
-                </Card.Content>
+                
             </Card>
         </div>
     )
