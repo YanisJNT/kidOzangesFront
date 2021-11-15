@@ -7,7 +7,7 @@
     width: 100% !important;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     position: relative;
 
 }
@@ -19,14 +19,14 @@
 }
 
 .navBar{
-    width: 30%;
+    width: 20%;
     display: flex;
     justify-content: center;
 }
 
 
 .box--title{
-    width: 30%;
+    width: 20%;
     display: flex;
     justify-content: center;
 }
@@ -43,7 +43,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 55%;
+    width:20%;
 }
 
 .header  .box--title  a h1{

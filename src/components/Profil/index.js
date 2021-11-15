@@ -92,7 +92,7 @@ export default function Profil() {
                     </div>
                     <div className="profil--card__info">
                         <span className="pseudo"> Pseudo :</span>
-                        <button className="ui icon button petit" onClick={handleNickname} >Modifier<i aria-hidden="true" class="pencil icon"></i></button>
+                        <button className="ui icon button petit" onClick={handleNickname} >Modifier<i aria-hidden="true" className="pencil icon"></i></button>
                         <span className="profil--subtitle">{nickname}</span>
                         <form action="" className="form-nickname" onSubmit={submitNickname}>
                             <Input className="input-edit" placeholder='Votre nouveau pseudo' onChange={(event) => setNewNickname(event.target.value)}> <input data-testid='my-input-1' /> </Input>
@@ -115,7 +115,7 @@ export default function Profil() {
                     <Modal
                         closeIcon
                         open={open}
-                        trigger={<div className="delete--button"><button class="ui negative button">Supprimer votre profil</button></div>}
+                        trigger={<div className="delete--button"><button className="ui negative button">Supprimer votre profil</button></div>}
                         onClose={() => setOpen(false)}
                         onOpen={() => setOpen(true)}>
                         <Header icon='warning' content='ATTENTION:' />
