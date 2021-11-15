@@ -75,16 +75,10 @@ export default function header() {
         </div>
         <div className="header--navbar">
         <NavLink to="/"><h1>Kid'Oz'Anges</h1></NavLink>
-        {/* <div className="box--title">
-          
-        </div> */}
-
-
-
         {loginNav()}
         </div>
         <div className="box--hamburger">
-          <Icon onClick={handleHamburger} id="icon-hamburger" className="icon-hamburger" name='bars' size="big" />
+          <Icon onClick={handleHamburger} id="icon-hamburger" className="icon-hamburger" name='bars' size="big" color="blue" />
         </div>
       </div>
   
