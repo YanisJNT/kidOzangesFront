@@ -3,7 +3,7 @@ export default function Footer(){
     return(
         <footer>
             <div className="footer--container">
-            <h2>  Le portail de recherche d'activité ludique pour enfants</h2>
+            <h2>  Le portail de recherche d'activités ludiques pour enfants</h2>
             <nav className="footer--nav">
             <a href="mailto:kidozanges@gmail.com"> Nous contacter </a>
             <a href="/aboutus">A propos</a>
