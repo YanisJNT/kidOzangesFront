@@ -3,3 +3,9 @@
     padding-bottom: 0.50rem;
 
 }
+
+.ui.comments .comment .text{
+    display: flex;
+    justify-content: space-between;
+    
+}
