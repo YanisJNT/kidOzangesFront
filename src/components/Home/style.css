@@ -101,6 +101,8 @@
   .body--text{
     color: black;
     font-size: 1.4em;
+    margin-top: 1em;
+    margin-bottom: 2em;
   }
 
     .body--title {
@@ -242,7 +244,7 @@
     margin-top: 1rem;
     flex-direction: column;
     align-items: center;
-    margin-top: 3rem;
+    margin-top: 4rem;
 }
 
 #slider .box--slider{
