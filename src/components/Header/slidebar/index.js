@@ -3,7 +3,8 @@ import './style.css'
 import './style.css'
 
 import Connexion from '../../Connexion'
-import Logo from '../../../Logo_v1.png'
+
+import jwt_decode from 'jwt-decode'
 
 import {
     Icon,
@@ -16,20 +17,34 @@ export default function slideBar() {
 
     const loginNav = () => {
         if (token) {
-            return (
+            const dataToken = jwt_decode(token)
+            if(dataToken.role === "user") {
+                return (
+                    <nav className="navBarTic">
+                        <NavLink to="/submitactivity">Soumettre une activité</NavLink>
+                        <NavLink to="/recherche">Rechercher une activité</NavLink>
+                        <NavLink to="/profil">Profil</NavLink>
+                        <NavLink to="/logout">Déconnexion</NavLink>
+                    </nav>
+    
+                )
+            } else if (dataToken.role === "admin") {
+                return (
                 <nav className="navBarTic">
-                    <NavLink to="/recherche"><Icon name='search' /></NavLink>
-                    <NavLink to="/profil"><Icon name='user circle' /></NavLink>
-                    <NavLink to="/logout"><Icon color="red" name='log out' /></NavLink>
+                        <NavLink to="/admin">Administrer</NavLink>
+                        <NavLink to="/submitactivity">Soumettre une activité</NavLink>
+                        <NavLink to="/recherche">Rechercher une activité</NavLink>
+                        <NavLink to="/profil">Profil</NavLink>
+                        <NavLink to="/logout">Déconnexion</NavLink>
                 </nav>
-
-            )
+                )
+            }
+            
         } else {
             return (
                 <nav className="navBarTic">
-                    <NavLink to="/recherche"><Icon disabled name='search' /> Recherche</NavLink>
-                    <NavLink to="/signup"><Icon disabled name='signup' /> Inscription</NavLink>
-
+                    <NavLink to="/recherche">Rechercher une activité</NavLink>
+                    <NavLink to="/signup">Inscription</NavLink>
                     <Connexion />
                 </nav>
             )
@@ -45,13 +60,8 @@ export default function slideBar() {
 
     return (
         <div id="slidebar">
-    
-            <Icon className="close--header" onClick={closeHamburger} size="big" name="close" />
-
-            <img src={Logo} alt="logo du site" width="200" />
-
+            <Icon className="close--header" onClick={closeHamburger} size="big" name="close" color="blue" />
             {loginNav()}
-
         </div>
     )
 }
