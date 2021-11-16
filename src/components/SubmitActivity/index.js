@@ -2,11 +2,9 @@ import React, { useState,useEffect } from "react";
 import axios from "axios";
 import "./style.css";
 import { Button, Form, Input, Radio, TextArea } from "semantic-ui-react";
+import { useHistory } from "react-router";
 
 export default function SubmitActivity() {
-  useEffect(() => {
-    document.title = "Soumettez votre activité"
- }, []);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [zipcode, setZipCode] = useState("");
@@ -19,6 +17,7 @@ export default function SubmitActivity() {
   const [activeChangeInput,setActiveChangeInput] = useState(false)
   const [limitData,setLimitData] = useState(5)
   
+  const history = useHistory()
   
   const handleSubmitActivity = async (evt) => {
     evt.preventDefault();
@@ -41,13 +40,19 @@ export default function SubmitActivity() {
       },
     },
     
-    )
+    );
+    setTitle("")
+    setDescription('')
+    setTown('')
+    setPicture()
+    history.push("/")
   };
 
   const inputCode = async () => {
     try{
       const responce = await axios.get(`https://geo.api.gouv.fr/communes?nom=${town}&fields=nom,codeDepartement&limit=${limitData}&boost=population`);
       console.log(responce.data)
+      // eslint-disable-next-line array-callback-return
       setDataTown(responce.data)
     }
     catch(error){
@@ -68,6 +73,12 @@ export default function SubmitActivity() {
         const jsx = <li onClick={getName} key={home.code}>{home.nom} ({home.codeDepartement})</li>
         return jsx 
       })
+
+
+
+
+
+
 
       return res
     }
