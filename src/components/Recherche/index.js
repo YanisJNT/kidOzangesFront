@@ -106,13 +106,11 @@ export default function Recherche() {
                                     <p>
                                         {dataActivity[i].description}
                                     </p>
-                                    <button>en savoir  +</button>
+                                    < button className = "article--button" > En savoir plus </button>
                                 </div>
 
                                 <div className="box--img--note">
                                     <img src={dataActivity[i].url} alt="" width="500" height="300" />
-
-                                    <Rating className="star-rating" icon='star' defaultRating={3} maxRating={5} />
                                 </div>
 
                             </article>
@@ -128,9 +126,11 @@ export default function Recherche() {
         return row
     }
 
-
     return (
         <div id="recherche">
+            < h2 className = "body--title" >
+                Recherchez les activités dans la ville de votre choix. 
+            </h2>
             <Form id="form--activity" method="POST" onSubmit={handleSubmit}>
                 <Form.Field
                     control={Input}
@@ -140,7 +140,7 @@ export default function Recherche() {
                     name="town"
                     icon="search"
                     label="Ville"
-                    placeholder="Entrez une ville"
+                    placeholder="Veuillez sélectionner une ville"
                     value={town}
                     onChange={(evt) => {
                         setTown(evt.target.value);
@@ -148,7 +148,6 @@ export default function Recherche() {
                         document.querySelector("#form--activity ul").style.display = "block"
                     }}
                 />
-
                 <ul>
                     {jsxVille()}
                 </ul>
@@ -178,7 +177,7 @@ export default function Recherche() {
 
 
                 <Button className="button-submit green" type="submit">
-                    Submit
+                    Rechercher
                 </Button>
             </Form>
 
