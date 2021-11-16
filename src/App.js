@@ -133,7 +133,7 @@ function App() {
         <Route path="/profil" exact>
             <Profil />
         </Route>
-        <Route>
+        <Route status={404}>
           <Page404 />
         </Route>
 

@@ -5,7 +5,7 @@ import axios from "axios";
 import { useHistory } from 'react-router';
 export default function Admin() {
 
-    const history = useHistory() 
+    const history = useHistory()
     const [activities, setActivities] = useState([]);
     const [comments, setComments] = useState([]);
 
@@ -22,75 +22,77 @@ export default function Admin() {
             .then((response) => {
                 setActivities(response.data.activity)
                 setComments(response.data.comment)
-                  
+
             })
             .catch((error) => {
                 console.error(error)
             })
-    },[token]);
+    }, [token]);
 
     const getNotCertifiedActivities = () => {
         const rows = [];
         console.log("no activity", activities)
-        if(!Array.isArray(activities)) {
+        if (!Array.isArray(activities)) {
             rows.push(<p>{activities}</p>)
         } else {
-            for(const activity of activities) {
+            for (const activity of activities) {
                 rows.push(
                     <article className="box-activites">
                         <div className="box-text">
                             <h4>{activity.title}</h4>
                             <p>{activity.description}</p>
-                            
+
                         </div>
                         <div className="box-icon">
-                            <Icon color="green" name='check circle' onClick={() => validateActivity(activity.id)}/>
-                            <Icon color="red" name='close' onClick={() => deleteActivity(activity.id)}/>
+                            <Icon color="green" name='check circle' onClick={() => validateActivity(activity.id)} />
+                            <Icon color="red" name='close' onClick={() => deleteActivity(activity.id)} />
                         </div>
                     </article>
                 )
             }
         }
-        
-        
+
+
         return rows;
     };
 
     const getReportedComments = () => {
         const rows = [];
         console.log("no comments", comments)
-        if(!Array.isArray(comments)) {
+        if (!Array.isArray(comments)) {
             rows.push(<p>{comments}</p>)
         } else {
-            for(const comment of comments) {
+            for (const comment of comments) {
+                console.log("TEST  ICI")
+                console.log(comment.id)
                 rows.push(
-                    <article className="box-activites">
+                    <article className="box-activites" key={comment.id}>
                         <div className="box-text">
                             <h4>{comment.description}</h4>
                             <p>{comment.nickname}</p>
-                            
+
                         </div>
                         <div className="box-icon">
-                            <Icon color="green" name='check circle' onClick={() => validateComment(comment.id)}/>
-                            <Icon color="red" name='close' onClick={() => deleteComment(comment.id)}/>
+                            <Icon color="green" name='check circle' onClick={() => validateComment(comment.id)} />
+                            <Icon color="red" name='close' onClick={() => deleteComment(comment.id)} />
                         </div>
                     </article>
                 )
             }
         }
-        
-        
+
+
         return rows;
     };
 
     // const getReportedComments = () => {
     //     const rows = [];
-        
+
     // }
 
-    const validateActivity = async(activityId) => {
+    const validateActivity = async (activityId) => {
         try {
-            await axios.patch(`https://kidozanges.herokuapp.com/admin/updateactivity`, {certify: 'true'}, {
+            await axios.patch(`https://kidozanges.herokuapp.com/admin/updateactivity`, { certify: 'true' }, {
                 params: {
                     id: activityId
                 },
@@ -98,16 +100,16 @@ export default function Admin() {
                     authorization: `Bearer ${token}`,
                 }
             })
-            
-                history.push("/admin")
-            
+
+            window.location.reload()
+
         } catch (error) {
             console.error(error)
         }
-        
+
     };
 
-    const deleteActivity = async(activityId) => {
+    const deleteActivity = async (activityId) => {
         try {
             await axios.delete("https://kidozanges.herokuapp.com/admin/deleteactivity", {
                 params: {
@@ -122,9 +124,9 @@ export default function Admin() {
         }
     };
 
-    const validateComment = async(commentId) => {
+    const validateComment = async (commentId) => {
         try {
-            await axios.patch(`https://kidozanges.herokuapp.com/admin/acceptcomment`, {report: 'false'}, {
+            await axios.patch(`https://kidozanges.herokuapp.com/admin/acceptcomment`, { report: 'false' }, {
                 params: {
                     id: commentId
                 },
@@ -132,16 +134,16 @@ export default function Admin() {
                     authorization: `Bearer ${token}`,
                 }
             })
-            
-                history.push("/admin")
-            
+
+            window.location.reload()
+
         } catch (error) {
             console.error(error)
         }
-        
+
     };
 
-    const deleteComment = async(commentId) => {
+    const deleteComment = async (commentId) => {
         try {
             await axios.delete("https://kidozanges.herokuapp.com/admin/deletecomment", {
                 params: {
@@ -167,9 +169,9 @@ export default function Admin() {
             <div className="box-autho">
                 <section className="box--admin activites">
                     <h3 id="not-certified-activities">Activites</h3>
-                    
-                        {getNotCertifiedActivities()}
-                    
+
+                    {getNotCertifiedActivities()}
+
                 </section>
 
                 <section className="box--admin comment">

@@ -1,6 +1,6 @@
 import './style.css'
 import axios from 'axios'
-import { Button, Icon, Header, Modal } from 'semantic-ui-react'
+import { Button, Icon, Header, Modal, Input } from 'semantic-ui-react'
 import { useState, useEffect } from 'react'
 import { useHistory } from 'react-router'
 import { Redirect } from 'react-router-dom'
@@ -10,12 +10,11 @@ export default function Profil() {
     const [nickname, setNickname] = useState()
     const [newNickname, setNewNickname] = useState()
     const [firstname, setFirstname] = useState()
-    const [lastname, setLastName]= useState()
+    const [lastname, setLastName] = useState()
     const [gender, setGender] = useState()
     const [email, setEmail] = useState()
     const [data, setData] = useState(false)
     const [open, setOpen] = useState(false)
-    const history = useHistory()
 
     // console.log(dataToken)
 
@@ -68,7 +67,7 @@ export default function Profil() {
     // console.log(dataToken.nickname)
 
     const deleteProfil = async () => {
-        
+
         await axios.delete("https://kidozanges.herokuapp.com/api/user/delete", {
             headers: {
                 authorization: `Bearer ${token}`
@@ -77,7 +76,7 @@ export default function Profil() {
         localStorage.removeItem("token")
         return (
             <Redirect to="/logout" />
-            )
+        )
 
     }
 
@@ -86,23 +85,39 @@ export default function Profil() {
             <div className="box--profil">
 
 
-                <div className="profil--card"><p><span>Civilité :</span><span>{gender}</span></p>
-                    <p><span className="pseudo"> Pseudo :</span><button className="ui icon button petit" onClick={handleNickname} >Modifier<i aria-hidden="true" class="pencil icon"></i></button> <span className="profil--subtitle">{nickname} </span> <form action="" className="form-nickname" onSubmit={submitNickname}>
-                        <input placeholder="Votre nouveau pseudo : " type="text" className="input-edit" onChange={(event) => setNewNickname(event.target.value)} />
-                        <button className="input--validation">Valider</button>
-                    </form> </p>
+                <div className="profil--card">
+                    <div className="profil--card__info">
+                        <span>Civilité :</span>
+                        <span>{gender}</span>
+                    </div>
+                    <div className="profil--card__info">
+                        <span className="pseudo"> Pseudo :</span>
+                        <button className="ui icon button petit" onClick={handleNickname} >Modifier<i aria-hidden="true" className="pencil icon"></i></button>
+                        <span className="profil--subtitle">{nickname}</span>
+                        <form action="" className="form-nickname" onSubmit={submitNickname}>
+                            <Input className="input-edit" placeholder='Votre nouveau pseudo' onChange={(event) => setNewNickname(event.target.value)}> <input data-testid='my-input-1' /> </Input>
+                            <button className="input--validation ui icon">Valider</button>
+                        </form>
+                    </div>
 
-                    <p><span>Nom :</span><span>{lastname}</span></p>
-                    <p><span>Prénom :</span><span>{firstname}</span></p>
-                    <p><span>Mail :</span><span>{email}</span></p>
-                    <div className="delete--button"></div>
+                    <div className="profil--card__info">
+                        <span>Nom :</span>
+                        <span>{lastname}</span>
+                    </div>
+                    <div className="profil--card__info">
+                        <span>Prénom :</span>
+                        <span>{firstname}</span>
+                    </div>
+                    <div className="profil--card__info">
+                        <span>Mail :</span>
+                        <span>{email}</span>
+                    </div>
                     <Modal
                         closeIcon
                         open={open}
-                        trigger={<button class="ui negative button">Supprimer votre profil</button>}
+                        trigger={<div className="delete--button"><button className="ui negative button">Supprimer votre profil</button></div>}
                         onClose={() => setOpen(false)}
-                        onOpen={() => setOpen(true)}
-                    >
+                        onOpen={() => setOpen(true)}>
                         <Header icon='warning' content='ATTENTION:' />
                         <Modal.Content>
                             <p>

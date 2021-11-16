@@ -3,6 +3,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: 5rem;
   }
   
   #main .article--main{
@@ -57,7 +58,8 @@
   
   
   #main .box--img--note > img{
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    margin-top: 10px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -79,7 +81,6 @@
     margin-bottom: 30px;
   }
   
-  
   #h2--error{
     font-size: 2rem;
     margin-top: 2rem;
@@ -90,13 +91,26 @@
   }
   .article--button{
     border-radius: 10px;
-    background-color: #6396F3;
+    background-color: #42A1F5;
     border: none;
     padding:.5rem;
     color: white;
     font-size: .7em;
     
   }
+
+  .body--text{
+    color: black;
+    font-size: 1.4em;
+    margin-top: 1em;
+    margin-bottom: 2em;
+  }
+
+    .body--title {
+      color:black;
+      font-size: 2em;
+      margin:0;
+    }
 
   @media screen and (max-width:700px){
     #main .box--img--note >img{
@@ -229,6 +243,9 @@
     display: flex;
     justify-content: center;
     margin-top: 1rem;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 4rem;
 }
 
 #slider .box--slider{
@@ -241,6 +258,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-shadow:11px -9px 13px -3px rgba(0,0,0,0.5),0px 10px 13px -7px #000000;
+
 }
 
 .button-left{
@@ -275,6 +294,9 @@
 @media screen and (max-width:1200px){
   #slider .box--slider{
     width: 90%;
+  }
+  #main .text >p{
+    padding:  0 1.5rem;
   }
   
 }
