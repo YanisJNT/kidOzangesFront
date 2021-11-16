@@ -28,7 +28,8 @@
     flex-direction: column;
     text-align: center;
     border-radius: 10px;
-
+    justify-content: center;
+    align-items: center;
 }
 
 #admin .box-autho .box--admin h3{
@@ -36,6 +37,14 @@
     padding: 1rem;
 
 }
+
+.box-activites{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+ 
+}
+
 .box--admin .box-activites{
     display: flex;
     justify-content: space-between;
@@ -49,10 +58,54 @@
 
 .box-activites  .box-text{
     display: flex;
-    font-size: 2rem;
+    font-size: 1rem;
+    flex-direction: column;
 }
 
 .box-activites  .box-icon{
+    margin-top: 2rem;;
     display: flex;
-    font-size: 1.50rem;
+    font-size: 1.5rem;
 }
+
+.picture-min {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: auto;
+}
+
+.anchor{
+    padding-right: 3rem;
+}
+
+.navbar {
+    margin-top: 1.5rem;
+}
+
+.box-icon--value{
+    padding:0 4rem 0 4rem;
+}
+
+.action-text{
+    font-size: 0.8rem;
+}
+
+.box-comments {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    margin: 2rem;
+    flex-wrap: wrap;
+}
+
+.box-activites .box-text p{
+    margin: 1rem 0 1rem 0; 
+}
+
+
