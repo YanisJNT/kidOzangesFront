@@ -104,8 +104,8 @@ export default function DetailActivity() {
             <p className="activity__town">{town}-{zipCode} </p>
             {
               (isFree) ?
-                <p className="payable">Cette activité est gratuite</p> :
-                <p className="payable">Cette activité est payante</p>
+                <p className="payable">Cette activité est gratuite.</p> :
+                <p className="payable">Cette activité est payante.</p>
             }
           </section>
         </section>
