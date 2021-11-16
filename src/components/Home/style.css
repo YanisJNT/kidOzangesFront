@@ -4,6 +4,7 @@
     align-items: center;
     justify-content: center;
     margin-top: 5rem;
+    margin-bottom: 5rem;
   }
   
   #main .article--main{
@@ -52,7 +53,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 50%;
+    width: 60%;
+    height: 80%;
     padding-left:7rem ;
   }
   
@@ -65,8 +67,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 80%;
-    height: auto;
+    width: 100%;
+    max-height: 20rem;
+    height: 80%;
+    object-fit: cover;
   }
   
   
@@ -79,6 +83,7 @@
   #main .text > h4{
     font-size: 2rem;
     margin-bottom: 30px;
+    font-family: 'Comfortaa', sans-serif;
   }
   
   #h2--error{
@@ -96,7 +101,14 @@
     padding:.5rem;
     color: white;
     font-size: .7em;
-    
+  }
+
+  .article--button:hover{
+    cursor: pointer;
+  }
+
+  .box--text > h2{
+    font-family: 'Comfortaa', sans-serif;
   }
 
   .body--text{
@@ -110,6 +122,7 @@
       color:black;
       font-size: 2em;
       margin:0;
+      font-family: 'Comfortaa', sans-serif;
     }
 
   @media screen and (max-width:700px){
@@ -118,8 +131,9 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      width: 80%;
-      height: auto;
+      width: 100%;
+      
+      height: 20rem;
     }
     #main .box--img--note{
       display: flex;
@@ -127,7 +141,7 @@
       justify-content: center;
       align-items: center;
       width: 100%;
-      margin-right: 7rem;
+      margin-right: 1rem;
       padding-top: 2rem;
     }
     
@@ -181,8 +195,8 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      width: 100%;
-      height: auto;
+      width: 80%;
+      height: 80%;
     
     }
     #main .box--img--note{
@@ -248,6 +262,8 @@
     margin-top: 4rem;
 }
 
+
+
 #slider .box--slider{
     background: #42A1F5;
     padding: 2rem;
@@ -289,6 +305,14 @@
   #slider .box--slider{
     width: 90%;
   }
+
+  .body--title {
+    text-align: center;
+  }
+
+  .body--text {
+    text-align: center;
+  }
   
 }
 @media screen and (max-width:1200px){
@@ -297,6 +321,10 @@
   }
   #main .text >p{
     padding:  0 1.5rem;
+  }
+
+  .body--text {
+    text-align: center;
   }
   
 }
