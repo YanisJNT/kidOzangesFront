@@ -38,6 +38,17 @@ function App() {
 
 
   // check si l'user a la perm admin
+  const checkPermUser = () => {
+    const token = localStorage.getItem("token")
+
+    if (!token){
+      return(<Page404 />)
+    }
+    else {
+      const dataToken = jwt_decode(token)
+      if (dataToken.role === "user" || dataToken.role === "admin") return (<SubmitActivity />)
+    }
+  } 
   const checkPermAdmin = () => {
     const token =  localStorage.getItem("token")
     
@@ -86,7 +97,7 @@ function App() {
         </Route>
 
         <Route path="/submitactivity" exact>
-          <SubmitActivity />
+          {checkPermUser()}
 
 
         </Route>

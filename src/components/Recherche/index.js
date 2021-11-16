@@ -70,9 +70,6 @@ export default function Recherche() {
             free
         })
 
-    
-
-
         if (response.data.activities) {
             setActivityOpen(true)
             setDataActivity(response.data.activities)
