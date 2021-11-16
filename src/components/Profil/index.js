@@ -25,7 +25,10 @@ export default function Profil() {
         document.querySelector(".input-edit").style.display = "inline"
         document.querySelector(".button").style.display = "none"
     }
-
+    useEffect(() => {
+        document.title = "Profil"
+     }, []);
+     
     useEffect(() => {
         axios.get("https://kidozanges.herokuapp.com/api/user/", {
             headers: {

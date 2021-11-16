@@ -74,3 +74,25 @@
 
 
 
+@media screen and (max-width:1200px){
+  #signup .form-signup #form__group{
+    width: 60%;
+
+  }
+}
+
+@media screen and (max-width:650px){
+  #signup .form-signup #form__group{
+    width: 80%;
+
+  }
+}
+
+
+@media screen and (max-width:410px){
+  #signup .form-signup #form__group{
+    width: 95%;
+
+  }
+}
+

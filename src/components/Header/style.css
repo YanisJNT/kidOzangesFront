@@ -1,3 +1,5 @@
+
+
 :root{
     --bluHeader-color : #42a1f5;
 }
@@ -13,15 +15,37 @@
 }
 
 .box--img{
-    width: 30%;
+    width: 10%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header--navbar > a {
+    display: inline;
+    color: white;
+    
+}
+
+.header--navbar {
+    width: 100%;
+}
+
+.header--navbar > a > h1 {
+    font-family: 'Indie Flower';
+    font-size: 4rem;
+    margin-bottom: 3rem;
 }
 
 .navBar{
-    width: 20%;
+    width: 100%; 
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+}
+
+.navBar > a {
+    color: white !important;
+    font-size: 1.7rem !important;
 }
 
 
@@ -64,11 +88,15 @@
 
 .img--header{
     display: block;
+    width: 200px;
+    
 }
 
 .header .icon-hamburger{
     display: none;
 }
+
+
 
 
 
@@ -113,6 +141,8 @@
     }
 
     
+
+    
 }
 
 
@@ -121,6 +151,21 @@
     .img--header{
         display: none;
     }
+
+    .box--img {
+        display:none;
+    }
+
+    .header--navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 3rem;
+        margin-left: 2rem;
+    }
+    
+    
 
 }
 
@@ -131,12 +176,33 @@
         font-size: 2.50rem;
         text-align: center;
     }
+
+    .img--header{
+        display: none;
+    }
+
+    .box--img {
+        display:none;
+    }
+
+    .header--navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 3rem;
+        margin-left: 2rem;
+    }
+
+    .header--navbar > a > h1 {
+        font-size: 3rem;
+    }
     
 }
 
 
 
-@media screen and (max-width:540px){
+/* @media screen and (max-width:540px){
     
     .header  .box--title  h1{
         font-size: 1rem;
@@ -147,4 +213,4 @@
         flex-direction: column !important;
     }
     
-}
+} */
