@@ -84,6 +84,10 @@
 .textarea__detailActivity{
   margin-bottom: .2rem;  
 }
+
+.pvide{
+  color: red;
+}
 .button__activity{
   width: 30%;
   padding: .5rem;
