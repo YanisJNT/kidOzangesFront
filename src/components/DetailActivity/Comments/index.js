@@ -32,7 +32,7 @@ function Comments({ listComment }) {
       console.error(error)
   }
   delete(listComment[index])
-  setTimeout(()=>setOpen(false),2000)
+  setTimeout(()=>setOpen(false),1300)
   
 }
 
