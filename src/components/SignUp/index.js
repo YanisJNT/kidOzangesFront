@@ -8,6 +8,10 @@ import "./style.css";
 import { useHistory } from "react-router";
 
 export default function SignUp() {
+  useEffect(() => {
+    document.title = "Inscription"
+ }, []);
+
   const [userRedirect, setUserRedirect] = useState();
   const [nickname, setNickname] = useState("");
   const [firstname, setfirstname] = useState("");

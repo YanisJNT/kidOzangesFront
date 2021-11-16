@@ -3,15 +3,16 @@ import { Button, Form } from "semantic-ui-react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./style.css";
-import { Icon } from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom'
 import { Input } from "semantic-ui-react";
 import { Radio } from "semantic-ui-react";
 import { Rating } from 'semantic-ui-react'
-import { useWatch } from "react-hook-form";
 
 
 export default function Recherche() {
+    useEffect(() => {
+        document.title = "Recherchez une activité"
+     }, []);
 
     const [zipcode, setZipCode] = useState("");
 

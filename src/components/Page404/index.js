@@ -1,7 +1,12 @@
 import React from 'react'
+import { useEffect } from 'react'
 import './style.css'
 
 export default function Page404(){
+  useEffect(() => {
+    document.title = "Page 404"
+ }, []);
+  
   return (
     <div
       className="page404__container">
