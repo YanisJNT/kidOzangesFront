@@ -69,12 +69,6 @@ export default function SubmitActivity() {
         return jsx 
       })
 
-
-
-
-
-
-
       return res
     }
   }

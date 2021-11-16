@@ -25,7 +25,7 @@ export default function DetailActivity() {
   const [description, setDescription] = useState("")
   const [comment, setComment] = useState()
   const [isFree, setIsFree] = useState()
-  const [posinset, setPosinset] = useState("0")
+  const [posinset, setPosinset] = useState(0)
   const [picture, setPicture] = useState()
   const [receiveComment, setReceiveComment] = useState([])
   const [activityAverageRate, setActivityAverageRate] = useState()
@@ -45,9 +45,20 @@ export default function DetailActivity() {
   const handleTitleComment = (evt) => {
     setTitle(evt.target.value)
   }
-  //handle to submit rate and comment
+  //function for not rate 2 time
+  const secondRateNotPossible = (secondRateAfter) => {
+    document.querySelector(".pvide").textContent = 'vous ne pouvez pas noter deux fois l\'activitée'
+    setPosinset("")
+    setTimeout(secondRateAfter = () => {
+      document.querySelector(".pvide").textContent = ''
+    }, 2000)
+  }
 
-  const handleSubmitComment = async (evt,callback) => {
+
+
+
+  //handle to submit rate and comment
+  const handleSubmitComment = async (evt, callback) => {
     evt.preventDefault();
     const response = await axios.post(`https://kidozanges.herokuapp.com/api/activity/${id}/comment`, {
 
@@ -59,10 +70,15 @@ export default function DetailActivity() {
         authorization: `Bearer ${token}`
       }
     })
+    const secondRate = response.data.erreur
+    secondRate ? secondRateNotPossible() :
+      console.log("post", response.data.erreur)
     getData()
+    setComment('')
+
   }
 
-  const getData = () =>{
+  const getData = () => {
     axios.get(`https://kidozanges.herokuapp.com/api/activity/${id}`)
       .then((response) => {
         setTown(response.data.activity.town)
@@ -73,16 +89,17 @@ export default function DetailActivity() {
         setReceiveComment(response.data.comments)
         setActivityAverageRate(response.data.rate.moyenne)
         setZipCode(response.data.activity.zipcode)
+        console.log("get", response)
       })
       .catch((error) => {
         console.error(error)
       })
-    }
-    
-    useEffect(()=>{
-      getData()
-    },[])
-  
+  }
+
+  useEffect(() => {
+    getData()
+  }, [])
+
   console.log(receiveComment)
   console.log(activityAverageRate)
   return (
@@ -97,7 +114,7 @@ export default function DetailActivity() {
           />
 
           <section id="text--presentation">
-            <p className="activity__detail--rate"> {activityAverageRate > 0.001 ?  `note moyenne: ${activityAverageRate}/5` : "cette activitée n'a pas encore été noté" }</p>
+            <p className="activity__detail--rate"> {activityAverageRate > 0.001 ? `note moyenne: ${activityAverageRate}/5` : "cette activitée n'a pas encore été noté"}</p>
 
             <h1 className="activity__title">{activityTitle}</h1>
             <p className="activity__description">{description}</p>
@@ -118,7 +135,7 @@ export default function DetailActivity() {
           maxRating={5}
           disabled
         />*/}
-        
+
         <div className="chat__comment--container">
           {console.log("TEST TEST A VOIR")}
           {console.log(receiveComment)}
@@ -134,7 +151,8 @@ export default function DetailActivity() {
           <form className="form__detailActivity"
             action=""
             onSubmit={handleSubmitComment}
-            method="POST">
+            method="POST"
+            value="dsfsdfsd">
             <h3>Mettre un commentaire ?</h3>
             <label
               htmlFor="textarea">Commentaire
@@ -149,7 +167,7 @@ export default function DetailActivity() {
               rows="10"
             >
             </textarea>
-
+            <p className="pvide"></p>
             <div>
               <Rating
 
@@ -166,8 +184,8 @@ export default function DetailActivity() {
               type="hidden"
               name="rate"
               value={posinset} />
-  
-            <Button  id="button__activity">Envoyer</Button>
+
+            <Button id="button__activity">Envoyer</Button>
           </form>
         </div>
       </div>
