@@ -42,13 +42,19 @@ export default function Admin() {
                 rows.push(
                     <article className="box-activites">
                         <div className="box-text">
-                            <h4>{activity.title}</h4>
+                            <h3>{activity.title}</h3>
                             <p>{activity.description}</p>
-
                         </div>
+                        <img src={activity.url} className="picture-min" alt="activité en attente" width="500" height="300"/>
                         <div className="box-icon">
+                            <div className="box-icon--value">
                             <Icon color="green" name='check circle' onClick={() => validateActivity(activity.id)} />
+                            <p className="action-text"> valider cette activité.</p>
+                            </div>
+                            < div className = "box-icon--value" >
                             <Icon color="red" name='close' onClick={() => deleteActivity(activity.id)} />
+                            <p className = "action-text"> refuser cette activité.</p>
+                            </div>
                         </div>
                     </article>
                 )
@@ -76,8 +82,14 @@ export default function Admin() {
 
                         </div>
                         <div className="box-icon">
+                            <div>
                             <Icon color="green" name='check circle' onClick={() => validateComment(comment.id)} />
+                            <p>valider ce commentaire.</p>
+                            </div>
+                            <div>
                             <Icon color="red" name='close' onClick={() => deleteComment(comment.id)} />
+                            <p> Effacer ce commentaire. </p>
+                            </div>
                         </div>
                     </article>
                 )
@@ -165,20 +177,20 @@ export default function Admin() {
     return (
         <main id="admin">
             <h1>Page Admin</h1>
-            <nav>
-                <a href="#not-certified-activities">Activites</a>
+            <nav className="navbar">
+                < a href = "#not-certified-activities" className = "anchor"> Activités</a>
                 <a href="#reported-comments">Commentaires</a>
             </nav>
             <div className="box-autho">
                 <section className="box--admin activites">
-                    <h3 id="not-certified-activities">Activites</h3>
+                    <h3 id="not-certified-activities">Activités en attente de validation</h3>
 
                     {getNotCertifiedActivities()}
 
                 </section>
 
                 <section className="box--admin comment">
-                    <h3 id="reported-comments">Commentaire report</h3>
+                    <h3 id="reported-comments">Commentaires signalés</h3>
                     <div className="box--admin activites">
                         {getReportedComments()}
                     </div>
