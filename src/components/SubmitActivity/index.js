@@ -103,7 +103,8 @@ export default function SubmitActivity() {
         control={Input}
         type="file"
         name='télécharger une image'
-        placeholder="fichier"
+        label = "Vous pouvez joindre une photo du lieu"
+        placeholder="Photo de l'activité"
         onChange={(evt) => {
           setPicture(evt.target.files[0]);
           setSrc(evt.target.files[0].name)
@@ -113,8 +114,8 @@ export default function SubmitActivity() {
         <Form.Field
           control={TextArea}
           name='description'
-          label="Descrition de l'activité"
-          placeholder="Descrition de l'activité"
+          label="Description de l'activité"
+          placeholder="Description de l'activité, informations utiles..."
           value={description}
           onChange={(evt) => {
             setDescription(evt.target.value);
@@ -162,7 +163,7 @@ export default function SubmitActivity() {
           />
         </Form.Group>
         <Form.Field id="form--activity__button" control={Button}>
-          Submit
+          Proposer cette activité
         </Form.Field>
       </Form>
     </div>
