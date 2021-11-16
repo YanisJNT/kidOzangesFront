@@ -1,4 +1,5 @@
 import './style.css'
+import { useEffect } from 'react'
 import Yanis from '../../img/Yanis.png'
 import Fred from '../../img/Fred.jpeg'
 import Fabien from '../../img/Fabien.jpg'
@@ -7,7 +8,12 @@ import Cossi from '../../img/Cossi.png'
 import {Card} from 'semantic-ui-react'
 export default function About() {
 
+    useEffect(() => {
+        document.title = "Qui sommes-nous"
+     }, []);
+
     return (
+        
         <div id="about">
             <Card className="box--card__aboutus">
                 <img alt ="profil--Yanis" className="Image__card" src={Yanis} wrapped ui={false} alt="Photo dev" />

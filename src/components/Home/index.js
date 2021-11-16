@@ -6,6 +6,9 @@ import { Slide } from 'react-slideshow-image';
 import axios from 'axios';
 
 export default function Home() {
+    useEffect(() => {
+        document.title = "Accueil"
+     }, []);
     let [index, setIndex] = useState(0)
 
     const [activity, setActivity] = useState([])

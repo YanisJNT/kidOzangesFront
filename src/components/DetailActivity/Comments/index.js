@@ -1,7 +1,7 @@
 
 import axios from 'axios'
-import React, {useState} from 'react'
-import { Comment,  Button, Header, Icon, Modal } from 'semantic-ui-react'
+import React, {useState,useEffect} from 'react'
+import { Comment,Icon, Modal } from 'semantic-ui-react'
 import './style.css'
 
 
@@ -9,6 +9,10 @@ import './style.css'
 //const date = new Date()
 
 function Comments({ listComment }) {
+  useEffect(() => {
+    document.title = "Commentaire"
+ }, []);
+  
   const token = localStorage.getItem("token")
   const [open, setOpen] = useState(false)
   

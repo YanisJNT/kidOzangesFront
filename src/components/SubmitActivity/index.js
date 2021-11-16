@@ -4,6 +4,9 @@ import "./style.css";
 import { Button, Form, Input, Radio, TextArea } from "semantic-ui-react";
 
 export default function SubmitActivity() {
+  useEffect(() => {
+    document.title = "Soumettez votre activité"
+ }, []);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [zipcode, setZipCode] = useState("");

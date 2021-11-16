@@ -10,6 +10,9 @@ import './style.css'
 
 
 export default function DetailActivity() {
+  useEffect(() => {
+    document.title = "Détail d'une activité"
+ }, []);
   const token = localStorage.getItem("token")
   //const dataToken = jwt_decode(token)
   //let user = dataToken.nickname
