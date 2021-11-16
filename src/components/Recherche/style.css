@@ -8,6 +8,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 4em;
   }
   
   #form--activity{
@@ -96,19 +97,26 @@
   align-items: center;
 }
 
-#main .box--img--note{
+#main .box--img--note {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 50%;
+  padding-left: 7rem;
 }
 
-#main .box--img--note > img{
-  margin-bottom: 20px;
+#main .box--img--note>img {
+  margin-bottom: 10px;
+  margin-top: 10px;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: auto;
 }
-
 
 #main .text{
   width: 50%;
@@ -119,10 +127,14 @@
   font-size: 2rem;
   margin-bottom: 30px;
 }
-
   
 #h2--error{
   font-size: 2rem;
   margin-top: 2rem;
   text-align: center;
+}
+
+.body--title {
+  color: black;
+  font-size: 2em;
 }
