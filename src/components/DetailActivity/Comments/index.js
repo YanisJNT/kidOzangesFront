@@ -14,7 +14,7 @@ function Comments({ listComment }) {
   
   
 
-  const handleReportComment = async (commentId) => {
+  const handleReportComment = async (commentId,index) => {
     setOpen(true)
     try {
        await axios.patch(`https://kidozanges.herokuapp.com/api/user/reportcomment`, {report:'true'}, {
@@ -24,16 +24,19 @@ function Comments({ listComment }) {
           headers: {
               authorization: `Bearer ${token}`,
           },
+          
       })
       
       
   } catch (error) {
       console.error(error)
   }
+  delete(listComment[index])
   setTimeout(()=>setOpen(false),2000)
-  }
+  
+}
 
-  return (
+return (
     <>
     
       <Comment.Group
@@ -51,7 +54,7 @@ function Comments({ listComment }) {
                     <Comment.Metadata>
                       {/*<span>{date.getDate()}/{date.getMonth()}/{date.getFullYear()}</span>*/}
                     </Comment.Metadata>
-                    <Comment.Text>{com.description} <Icon title="signaler ce commentaire" color="red" onClick={()=>handleReportComment(com.id)}  className="exclamation triangle" size="small" ></Icon></Comment.Text>
+                    <Comment.Text>{com.description} <Icon title="signaler ce commentaire" color="red" onClick={()=>handleReportComment(com.id,index)}  className="exclamation triangle" size="small" ></Icon></Comment.Text>
                   </Comment.Content>
                 </div>
                 
