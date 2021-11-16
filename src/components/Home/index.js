@@ -118,7 +118,7 @@ export default function Home() {
                         <div className="box--img--note">
                             <img src={data.url} alt="" width="500" height="300" />
 
-                            <p>note moyenne: {data.moyenne}/5</p>
+                            <p>Note moyenne: {data.moyenne}/5</p>
                         </div>
 
                     </article>

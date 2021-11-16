@@ -1,6 +1,7 @@
 import React from 'react'
 import { useEffect } from 'react'
 import './style.css'
+import Enfant from "../../img/enfantperdu.jpg"
 
 export default function Page404(){
   useEffect(() => {
@@ -10,10 +11,14 @@ export default function Page404(){
   return (
     <div
       className="page404__container">
-      {/* <a className="page404__img" href="/"><img src ="../../img/gohome_home_11162.png" alt="bouton retour" ></img></a> */}
-      <h1 className="page404__title">404</h1>
-      <p className="page404__para">not found</p>
-      <button classname="page404__button"><a  href="/">Retourner à l'accueil</a></button>
+      <div className="page404__img">
+        <img  className="page404__img--image"src={Enfant} alt="image enfant perdu" />
+      </div>
+      <div className="page404__content">
+        <h1 className="page404__title">Oups !!!</h1>
+        <p className="page404__para">Tu sembles t'être égaré sur notre site</p>
+        <a href="/" classname="page404__button">Retourner à l'accueil</a>
+      </div>
     </div>
   )
 }
