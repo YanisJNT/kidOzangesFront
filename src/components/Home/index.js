@@ -6,6 +6,9 @@ import { Slide } from 'react-slideshow-image';
 import axios from 'axios';
 
 export default function Home() {
+    useEffect(() => {
+        document.title = "Accueil"
+     }, []);
     let [index, setIndex] = useState(0)
 
     const [activity, setActivity] = useState([])
@@ -64,7 +67,12 @@ export default function Home() {
         <div>
 
             <section id="slider">
-
+                <h2 className="body--title">
+                    Pas envie de sortir?
+                </h2>
+                < p className = "body--text" >
+                    Nous vous proposons ci-dessous quelques idées d'activités d'intérieur, pour les week-ends pluvieux!
+                </p>
                 <div className="box--slider">
                     <div>
                         <Icon className="button-left" name='arrow alternate circle left outline' size='big' onClick={handleLeft} />
@@ -84,8 +92,9 @@ export default function Home() {
 
 
             <main id="main">
-
-
+            < h2 className = "body--title" >
+                Les activités les mieux notées actuellement: 
+            </h2>
            { 
                bestActivities.map((data) => {
                    console.log(bestActivities)

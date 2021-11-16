@@ -7,10 +7,13 @@
 
 
 .page404__container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100vw;
   height: 100vh;
   z-index: 0;
-  background-color: #a5bfdd;
+  background-color: #E7E5E5;
 }
 .page404__img{
   width:100px;
@@ -18,7 +21,7 @@
 }
 
 .page404__title{
-  color: rgb(252, 252, 252);
+  color: black;
   font-size: 15em;
   text-align: center;
   padding-top: 6rem;
@@ -29,7 +32,7 @@
 }
 
 .page404__para{
-  color: white;
+  color: black;
   font-size: 10em;
   font-family: 'Indie Flower', cursive;
   text-align: center;
@@ -37,4 +40,7 @@
   top: 450px;
   left: 695px;
   
+}
+.page404__button{
+  margin-top: 6rem;
 }

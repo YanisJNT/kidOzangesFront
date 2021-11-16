@@ -12,6 +12,9 @@ export default function Admin() {
 
     const token = localStorage.getItem("token");
 
+    useEffect(() => {
+        document.title = "Page Admin"
+     }, []);
 
     useEffect(() => {
         axios.get("https://kidozanges.herokuapp.com/admin", {

@@ -3,15 +3,16 @@ import { Button, Form } from "semantic-ui-react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./style.css";
-import { Icon } from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom'
 import { Input } from "semantic-ui-react";
 import { Radio } from "semantic-ui-react";
 import { Rating } from 'semantic-ui-react'
-import { useWatch } from "react-hook-form";
 
 
 export default function Recherche() {
+    useEffect(() => {
+        document.title = "Recherchez une activité"
+     }, []);
 
     const [zipcode, setZipCode] = useState("");
 
@@ -69,9 +70,6 @@ export default function Recherche() {
             free
         })
 
-    
-
-
         if (response.data.activities) {
             setActivityOpen(true)
             setDataActivity(response.data.activities)
@@ -106,13 +104,11 @@ export default function Recherche() {
                                     <p>
                                         {dataActivity[i].description}
                                     </p>
-                                    <button>en savoir  +</button>
+                                    < button className = "article--button" > En savoir plus </button>
                                 </div>
 
                                 <div className="box--img--note">
                                     <img src={dataActivity[i].url} alt="" width="500" height="300" />
-
-                                    <Rating className="star-rating" icon='star' defaultRating={3} maxRating={5} />
                                 </div>
 
                             </article>
@@ -128,9 +124,11 @@ export default function Recherche() {
         return row
     }
 
-
     return (
         <div id="recherche">
+            < h2 className = "body--title" >
+                Recherchez les activités dans la ville de votre choix. 
+            </h2>
             <Form id="form--activity" method="POST" onSubmit={handleSubmit}>
                 <Form.Field
                     control={Input}
@@ -140,7 +138,7 @@ export default function Recherche() {
                     name="town"
                     icon="search"
                     label="Ville"
-                    placeholder="Entrez une ville"
+                    placeholder="Veuillez sélectionner une ville"
                     value={town}
                     onChange={(evt) => {
                         setTown(evt.target.value);
@@ -148,7 +146,6 @@ export default function Recherche() {
                         document.querySelector("#form--activity ul").style.display = "block"
                     }}
                 />
-
                 <ul>
                     {jsxVille()}
                 </ul>
@@ -178,7 +175,7 @@ export default function Recherche() {
 
 
                 <Button className="button-submit green" type="submit">
-                    Submit
+                    Rechercher
                 </Button>
             </Form>
 

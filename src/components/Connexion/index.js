@@ -10,6 +10,9 @@ import { Link } from "react-router-dom";
 
 
 export default function Connexion() {
+  useEffect(() => {
+    document.title = "Connection"
+ }, []);
   const history = useHistory();
 
   const [open, setOpen] = useState(false);

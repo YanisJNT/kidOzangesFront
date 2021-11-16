@@ -8,6 +8,10 @@ import "./style.css";
 import { useHistory } from "react-router";
 
 export default function SignUp() {
+  useEffect(() => {
+    document.title = "Inscription"
+ }, []);
+
   const [userRedirect, setUserRedirect] = useState();
   const [nickname, setNickname] = useState("");
   const [firstname, setfirstname] = useState("");
@@ -101,8 +105,8 @@ export default function SignUp() {
 
             <Form.Input
               fluid
-              label="Nickname"
-              placeholder="Nickname"
+              label="Surnom"
+              placeholder="Surnom"
               name="nickname"
               value={nickname}
               onChange={(e) => {
@@ -113,8 +117,8 @@ export default function SignUp() {
 
             <Form.Input
               fluid
-              label="Firstname"
-              placeholder="firstname"
+              label="Prénom"
+              placeholder="Prénom"
               name="firstname"
               value={firstname}
               onChange={(e) => {
@@ -124,8 +128,8 @@ export default function SignUp() {
             />
             <Form.Input
               fluid
-              label="Lastname"
-              placeholder="Lastname"
+              label="Nom"
+              placeholder="Nom"
               name="lastname"
               value={lastname}
               onChange={(e) => {
@@ -136,8 +140,8 @@ export default function SignUp() {
 
             <Form.Input
               fluid
-              label="Email"
-              placeholder="Email"
+              label="Adresse E-mail"
+              placeholder="Adresse E-mail"
               name="email"
               value={email}
               onChange={(e) => {
@@ -147,8 +151,8 @@ export default function SignUp() {
             />
             <Form.Input
               fluid
-              label="Password"
-              placeholder="Password"
+              label="Mot de passe"
+              placeholder = "Mot de passe"
               name="password"
               value={password}
               onChange={(e) => {
@@ -159,8 +163,8 @@ export default function SignUp() {
 
             <Form.Input
               fluid
-              label="Confirmer votre password"
-              placeholder="Password"
+              label="Confirmer votre mot de passe"
+              placeholder = "Confirmer votre mot de passe"
               name="passwordConfirm"
               value={passwordConfirm}
               onChange={(e) => {

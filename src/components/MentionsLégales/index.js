@@ -1,6 +1,10 @@
 import './style.css'
+import { useEffect } from 'react'
 
 export default function LegalNotice() {
+    useEffect(() => {
+        document.title = "Mentions Légales"
+     }, []);
     return (
         <div>
             <h1 className="LegalNotice--title"> Mentions Légales et politique de confidentialité</h1>
