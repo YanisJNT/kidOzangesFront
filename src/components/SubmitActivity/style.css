@@ -37,7 +37,9 @@ div.field{
   width: 60%;
   text-align: center;
 }
-
+.hidden{
+  display: none;
+}
 
 
 @media screen and (max-width:1200px){

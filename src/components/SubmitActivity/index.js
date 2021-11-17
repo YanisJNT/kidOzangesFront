@@ -3,6 +3,8 @@ import axios from "axios";
 import "./style.css";
 import { Button, Form, Input, Radio, TextArea } from "semantic-ui-react";
 import { useHistory } from "react-router";
+import useModal from "./useModal";
+import ModalSubmit from "./ModalSubmit";
 
 export default function SubmitActivity() {
   const [title, setTitle] = useState("");
@@ -16,8 +18,9 @@ export default function SubmitActivity() {
   const [src, setSrc] = useState('');
   const [activeChangeInput,setActiveChangeInput] = useState(false)
   const [limitData,setLimitData] = useState(5)
-  
   const history = useHistory()
+
+  const { isShowing, toggle } = useModal();
   
   const handleSubmitActivity = async (evt) => {
     evt.preventDefault();
@@ -32,7 +35,10 @@ export default function SubmitActivity() {
     formData.append('free',free)
     formData.append('town',town)
     console.log(formData)
-
+    //call for setTime Modal return to home after submit
+    const returnToHome = ()=> {
+       history.push("/")
+ }
     axios.post("https://kidozanges.herokuapp.com/api/submitactivity", formData,
     {
       headers: {
@@ -45,7 +51,7 @@ export default function SubmitActivity() {
     setDescription('')
     setTown('')
     setPicture()
-    history.push("/")
+    setTimeout(returnToHome,1500)
   };
 
   const inputCode = async () => {
@@ -73,12 +79,6 @@ export default function SubmitActivity() {
         const jsx = <li onClick={getName} key={home.code}>{home.nom} ({home.codeDepartement})</li>
         return jsx 
       })
-
-
-
-
-
-
 
       return res
     }
@@ -166,10 +166,13 @@ export default function SubmitActivity() {
             }}
           />
         </Form.Group>
-        <Form.Field id="form--activity__button" control={Button}>
+        <Form.Field id="form--activity__button" control={Button} className="modal-toggle" onClick={toggle}>
           Proposer cette activité
+          <ModalSubmit isShowing={isShowing} hide={toggle} />
         </Form.Field>
+        
       </Form>
+      
     </div>
   );
 }
