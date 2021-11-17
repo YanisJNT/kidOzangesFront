@@ -79,9 +79,6 @@ export default function header() {
           <Icon onClick={handleHamburger} id="icon-hamburger" className="icon-hamburger" name='bars' size="big" color="blue" />
         </div>
       </div>
-  
-
-
     </header>
   )
 }

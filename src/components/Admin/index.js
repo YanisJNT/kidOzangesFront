@@ -44,6 +44,7 @@ export default function Admin() {
                         <div className="box-text">
                             <h3>{activity.title}</h3>
                             <p>{activity.description}</p>
+                            <p>{activity.town}</p>
                         </div>
                         <img src={activity.url} className="picture-min" alt="activité en attente"/>
                         <div className="box-icon">

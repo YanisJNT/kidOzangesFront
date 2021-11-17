@@ -140,6 +140,7 @@ export default function Recherche() {
                     label="Ville"
                     placeholder="Veuillez sélectionner une ville"
                     value={town}
+                    autoFocus
                     onChange={(evt) => {
                         setTown(evt.target.value);
                         setActiveChangeInput(true)

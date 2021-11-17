@@ -89,7 +89,6 @@ export default function SubmitActivity() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [town])
 
-
   return (
     <div className="container">
       <Form id="form--activity" method="POST" onSubmit={handleSubmitActivity} encType="multipart/form-data"> 
@@ -99,6 +98,7 @@ export default function SubmitActivity() {
           label="Titre de l'activité"
           placeholder="Titre de l'activité"
           value={title}
+          autoFocus
           onChange={(evt) => {
             setTitle(evt.target.value);
           }}
