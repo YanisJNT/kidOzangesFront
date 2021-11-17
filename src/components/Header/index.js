@@ -2,8 +2,6 @@
 import './style.css'
 import Logo from '../../img/Logo.png'
 import Connexion from '../Connexion'
-import { useState } from 'react'
-import Recherche from '../Recherche'
 import {
   Icon,
 } from 'semantic-ui-react'
