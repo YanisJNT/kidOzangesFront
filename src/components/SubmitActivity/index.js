@@ -99,6 +99,7 @@ export default function SubmitActivity() {
           label="Titre de l'activité"
           placeholder="Titre de l'activité"
           value={title}
+          autoFocus
           onChange={(evt) => {
             setTitle(evt.target.value);
           }}
