@@ -152,7 +152,7 @@ export default function SignUp() {
             <Form.Input
               fluid
               label="Mot de passe"
-              placeholder = "Mot de passe"
+              placeholder = "8 caractères minimum, une minuscule, une majuscule et un chiffre minimum"
               name="password"
               value={password}
               onChange={(e) => {

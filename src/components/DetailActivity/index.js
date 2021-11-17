@@ -99,12 +99,10 @@ export default function DetailActivity() {
   useEffect(() => {
     getData()
   }, [])
-
   console.log(receiveComment)
   console.log(activityAverageRate)
   return (
     <div className="activity__container">
-
       <div className="activity">
         <section className="header--card">
           <img
