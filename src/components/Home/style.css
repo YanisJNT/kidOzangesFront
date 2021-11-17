@@ -33,7 +33,6 @@
     display: flex;
     margin-top: 4rem;
     width: 80%;
-    box-shadow:11px -9px 13px -3px rgba(0,0,0,0.5),0px 10px 13px -7px #000000;
     padding: 1rem;
     border-radius: 10px;
     background: white;
@@ -169,14 +168,13 @@
    
     #main .box-card{
       display: flex;
-    margin-top: 4rem;
-    width: 90%;
-    box-shadow:11px -9px 13px -3px rgba(0,0,0,0.5),0px 10px 13px -7px #000000;
-    padding: 1rem;
-    border-radius: 10px;
-    background: white;
-    cursor: pointer;
-    position: relative;
+      margin-top: 4rem;
+      width: 90%;
+      padding: 1rem;
+      border-radius: 10px;
+      background: white;
+      cursor: pointer;
+      position: relative;
     }
     #main .article--main {
       width: 100%;
@@ -235,7 +233,6 @@
       display: flex;
     margin-top: 4rem;
     width: 90%;
-    box-shadow:11px -9px 13px -3px rgba(0,0,0,0.5),0px 10px 13px -7px #000000;
     padding: 1rem;
     border-radius: 10px;
     background: white;
@@ -274,7 +271,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow:11px -9px 13px -3px rgba(0,0,0,0.5),0px 10px 13px -7px #000000;
+    box-shadow: 9px 4px 5px -6px rgba(0,0,0,0.24);
 
 }
 

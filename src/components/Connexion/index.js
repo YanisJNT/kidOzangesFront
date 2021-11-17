@@ -63,7 +63,7 @@ export default function Connexion() {
         id="login"
         closeIcon
         open={open}
-        trigger={<a >Connexion</a>}
+        trigger={<a>Connexion</a>}
         onClose={() => setOpen(false)}
         onOpen={() => setOpen(true)}
       >
@@ -72,7 +72,7 @@ export default function Connexion() {
             <Form.Field className="form-field black" id="form-field">
               <label className="label">Email</label>
               <input type="email" placeholder="Email" name="email" value={email}
-                onChange={(e) => { setEmail(e.target.value) }} required />
+                onChange={(e) => { setEmail(e.target.value) }} autoFocus required />
             </Form.Field>
             <Form.Field className="form-field black" id="form-field">
               <label className="label">Password</label>
