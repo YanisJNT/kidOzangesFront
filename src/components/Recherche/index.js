@@ -92,23 +92,23 @@ export default function Recherche() {
 
         if (activityOpen) {
             for (let i = 0; i < activityLength; i++) {
-                const link = `/detailactivity/${dataActivity[i].id}`
+                const link = `/detailactivity/${dataActivity[i]?.id}`
                 row.push(
-                    <div className="box-card" key={dataActivity[i].id}>
+                    <div className="box-card" key={dataActivity[i]?.id}>
                         <NavLink className="div-nav" to={link}>
                             <article className="article--main">
                                 <div className="text">
                                     <h4>
-                                        {dataActivity[i].title}
+                                        {dataActivity[i]?.title}
                                     </h4>
                                     <p>
-                                        {dataActivity[i].description}
+                                        {dataActivity[i]?.description}
                                     </p>
                                     < button className = "article--button" > En savoir plus </button>
                                 </div>
 
                                 <div className="box--img--note">
-                                    <img src={dataActivity[i].url} alt="" width="500" height="300" />
+                                    <img src={dataActivity[i]?.url} alt="" width="500" height="300" />
                                 </div>
 
                             </article>
