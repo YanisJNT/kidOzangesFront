@@ -31,7 +31,6 @@ export default function Recherche() {
     const inputCode = async () => {
         try {
             const responce = await axios.get(`https://geo.api.gouv.fr/communes?nom=${town}&fields=nom,codeDepartement&limit=${limitData}&boost=population`);
-            // eslint-disable-next-line array-callback-return
             setDataTown(responce.data)
         }
         catch (error) {
