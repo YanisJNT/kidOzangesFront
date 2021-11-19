@@ -20,7 +20,7 @@ isShowing
                
               </button>*/ }
             </div>
-            <div className="modal-body">Votre activitée sera soumise après validation par notre équipe</div>
+            <div className="modal-body">Votre activité sera soumise après validation par notre équipe.</div>
           </div>
         </div>
       </div>

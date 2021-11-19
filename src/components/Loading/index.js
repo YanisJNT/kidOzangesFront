@@ -3,7 +3,7 @@ export default function Loading(){
     return(
         <div id="loading">
             <p>
-                Veuillez patienter
+                {/* Veuillez patienter */}
             </p>
         </div>
     )

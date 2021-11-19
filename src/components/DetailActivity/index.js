@@ -47,7 +47,7 @@ export default function DetailActivity() {
   }
   //function for not rate 2 time
   const secondRateNotPossible = (secondRateAfter) => {
-    document.querySelector(".pvide").textContent = 'vous ne pouvez pas noter deux fois l\'activitée'
+    document.querySelector(".pvide").textContent = 'Vous ne pouvez pas noter deux fois l\'activité'
     setPosinset("")
     setTimeout(secondRateAfter = () => {
       document.querySelector(".pvide").textContent = ''
@@ -112,7 +112,7 @@ export default function DetailActivity() {
           />
 
           <section id="text--presentation">
-            <p className="activity__detail--rate"> {activityAverageRate > 0.001 ? `note moyenne: ${activityAverageRate}/5` : "cette activitée n'a pas encore été noté"}</p>
+            <p className="activity__detail--rate"> {activityAverageRate > 0.001 ? `Note moyenne: ${activityAverageRate}/5` : "Cette activité n'a pas encore été notée."}</p>
 
             <h1 className="activity__title">{activityTitle}</h1>
             <p className="activity__description">{description}</p>
@@ -151,7 +151,7 @@ export default function DetailActivity() {
             onSubmit={handleSubmitComment}
             method="POST"
             value="dsfsdfsd">
-            <h3>Mettre un commentaire ?</h3>
+            <h3>Donner un avis ?</h3>
             <label
               htmlFor="textarea">Commentaire
             </label>
