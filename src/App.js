@@ -38,6 +38,17 @@ function App() {
 
 
   // check si l'user a la perm admin
+  const checkPermUser = (component) => {
+    const token = localStorage.getItem("token")
+
+    if (!token){
+      return(<Page404 />)
+    }
+    else {
+      const dataToken = jwt_decode(token)
+      if (dataToken.role === "user" || dataToken.role === "admin") return (component)
+    }
+  } 
   const checkPermAdmin = () => {
     const token =  localStorage.getItem("token")
     
@@ -86,9 +97,7 @@ function App() {
         </Route>
 
         <Route path="/submitactivity" exact>
-          <SubmitActivity />
-
-
+          {checkPermUser(<SubmitActivity />)}
         </Route>
 
         <Route path="/detailactivity/:id" exact>
@@ -113,25 +122,11 @@ function App() {
             <Logout/>
         </Route>
 
-    
-
-      
-        
-       {
-         /*
-          <Route 
-          path="/some-path" 
-          render={() => !isAuthenticated ?
-          <Login/> :
-          <Redirect to="/some-path" />
-      }/>
-*/
-       }
         <Route path="/LegalNotice" exact>
         <LegalNotice />
         </Route>
         <Route path="/profil" exact>
-            <Profil />
+        {checkPermUser(<Profil />)}
         </Route>
         <Route status={404}>
           <Page404 />

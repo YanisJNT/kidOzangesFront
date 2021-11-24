@@ -6,6 +6,7 @@
     text-align: center;
     margin-top: 2rem;
     width: 100%;
+    margin-bottom: 2rem;
 }
 .ui.icon.button {
     margin-left: 2rem;
@@ -28,7 +29,7 @@
     background-color: white;
     padding: 2rem;
     border-radius: 10px;
-    box-shadow:11px -9px 13px -3px rgba(0,0,0,0.5);   
+    /* box-shadow:11px -9px 13px -3px rgba(0,0,0,0.5);    */
     margin-bottom: 2rem; 
 }
 .box--profil{
@@ -67,7 +68,7 @@ display: inline;
             background-color: white;
             padding: 2rem;
             border-radius: 10px;
-            box-shadow:11px -9px 13px -3px rgba(0,0,0,0.5);
+            /* box-shadow:11px -9px 13px -3px rgba(0,0,0,0.5); */
             margin-top: 3rem; 
             margin-left: 5%;
             width: 90%;
@@ -94,7 +95,7 @@ display: inline;
             background-color: white;
             padding: 2rem;
             border-radius: 10px;
-            box-shadow:11px -9px 13px -3px rgba(0,0,0,0.5);
+            /* box-shadow:11px -9px 13px -3px rgba(0,0,0,0.5); */
             margin-top: 3rem; 
             width: 90%;
         }
