@@ -10,7 +10,6 @@
 
 .activity{
   background: white;
-  box-shadow:11px -9px 13px -3px rgba(0,0,0,0.5),0px 10px 13px -7px #000000;
   padding: 2rem;
   display: flex;
   flex-direction: column;
@@ -19,6 +18,7 @@
   width: 80%;
   margin-top: 8rem;
   border-radius: 10px;
+  margin-bottom: 5rem;
 }
 
 .activity .header--card{
@@ -83,6 +83,10 @@
 
 .textarea__detailActivity{
   margin-bottom: .2rem;  
+}
+
+.pvide{
+  color: red;
 }
 .button__activity{
   width: 30%;

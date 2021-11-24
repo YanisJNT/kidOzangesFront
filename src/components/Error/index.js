@@ -18,7 +18,7 @@ export default function Error({ userRedirect, error }) {
     <div id="error">
       {userRedirect === false ? (
         <div className="box--error">
-          <h4>Erreur d'insciption : {error.length}   <Icon disabled name='level down alternate' /></h4>
+          <h4>Erreur d'inscription : {error.length}   <Icon disabled name='level down alternate' /></h4>
           <ol>
             {
               runError()

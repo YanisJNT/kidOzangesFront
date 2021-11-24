@@ -2,8 +2,6 @@
 import './style.css'
 import Logo from '../../img/Logo.png'
 import Connexion from '../Connexion'
-import { useState } from 'react'
-import Recherche from '../Recherche'
 import {
   Icon,
 } from 'semantic-ui-react'
@@ -81,9 +79,6 @@ export default function header() {
           <Icon onClick={handleHamburger} id="icon-hamburger" className="icon-hamburger" name='bars' size="big" color="blue" />
         </div>
       </div>
-  
-
-
     </header>
   )
 }
