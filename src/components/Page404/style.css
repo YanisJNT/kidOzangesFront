@@ -11,7 +11,6 @@
   justify-content: space-around;
   width: 100vw;
   height: 100%;
-  
   background-color: white;
   padding: 1rem;
 }
@@ -20,7 +19,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 
@@ -30,12 +29,10 @@
   color: black;
   font-size: 6em;
   text-align: center;
-  
   font-family: 'Comfortaa', cursive;
-  
-  
-  
 }
+
+
 
 .page404__img--image {
   height: 100%;
