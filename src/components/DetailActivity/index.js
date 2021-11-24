@@ -89,7 +89,6 @@ export default function DetailActivity() {
         setReceiveComment(response.data.comments)
         setActivityAverageRate(response.data.rate.moyenne)
         setZipCode(response.data.activity.zipcode)
-        console.log("get", response)
       })
       .catch((error) => {
         console.error(error)
@@ -99,8 +98,7 @@ export default function DetailActivity() {
   useEffect(() => {
     getData()
   }, [])
-  console.log(receiveComment)
-  console.log(activityAverageRate)
+  
   return (
     <div className="activity__container">
       <div className="activity">
