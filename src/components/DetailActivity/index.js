@@ -2,14 +2,18 @@ import React from 'react'
 import Comments from './Comments'
 import { Rating } from 'semantic-ui-react'
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router'
+import { useParams, useHistory} from 'react-router'
+
 import { Button } from 'semantic-ui-react'
 import axios from 'axios'
+
+import Page404 from '../Page404'
 //import jwt_decode from 'jwt-decode'
 import './style.css'
 
 
 export default function DetailActivity() {
+  const history = useHistory()
   useEffect(() => {
     document.title = "Détail d'une activité"
  }, []);
@@ -81,6 +85,11 @@ export default function DetailActivity() {
   const getData = () => {
     axios.get(`https://kidozanges.herokuapp.com/api/activity/${id}`)
       .then((response) => {
+        if(response.data.erreur) {
+          return(
+            history.push("/notFound")
+          )
+        }
         setTown(response.data.activity.town)
         setActivityTitle(response.data.activity.title)
         setDescription(response.data.activity.description)
@@ -91,7 +100,8 @@ export default function DetailActivity() {
         setZipCode(response.data.activity.zipcode)
       })
       .catch((error) => {
-        console.error(error)
+        console.log(error)
+        
       })
   }
 
@@ -133,10 +143,6 @@ export default function DetailActivity() {
         />*/}
 
         <div className="chat__comment--container">
-          {console.log("TEST TEST A VOIR")}
-          {console.log(receiveComment)}
-
-
           {receiveComment !== "Cette activité ne contient pas de commentaire" ? <Comments
             class
             listComment={receiveComment}
