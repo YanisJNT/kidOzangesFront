@@ -27,6 +27,7 @@ export default function Recherche() {
     const [activityLength, setActivityLength] = useState(0)
 
     const [activityOpen, setActivityOpen] = useState(false)
+    const [activityError,setActivityError] = useState()
 
     const inputCode = async () => {
         try {
@@ -80,7 +81,7 @@ export default function Recherche() {
         }
         else {
             setActivityOpen(false)
-            setDataActivity(response.data.error)
+            setActivityError(response.data.error)
             console.log(response.data.error)
         }
     }
@@ -103,7 +104,7 @@ export default function Recherche() {
                                     <p>
                                         {dataActivity[i]?.description}
                                     </p>
-                                    < button className = "article--button" > En savoir plus </button>
+                                    <button className = "article--button" > En savoir plus </button>
                                 </div>
 
                                 <div className="box--img--note">
@@ -117,7 +118,7 @@ export default function Recherche() {
             }
         }
         else {
-            row.push(<h2 id="h2--error" key="error">{dataActivity}</h2>)
+            row.push(<h2 id="h2--error" key="error">{activityError}</h2>)
         }
 
         return row
@@ -125,7 +126,7 @@ export default function Recherche() {
 
     return (
         <div id="recherche">
-            < h2 className = "body--title" >
+            <h2 className = "body--title" >
                 Recherchez les activités dans la ville de votre choix. 
             </h2>
             <Form id="form--activity" method="POST" onSubmit={handleSubmit}>
